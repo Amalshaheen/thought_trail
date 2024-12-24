@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:thought_trail/presentation/timeline/widgets/timeline_core.dart';
 
 /*******TODOS************************************************************
  * 1. timeline core page
@@ -15,6 +16,8 @@ class TimelinePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+      body: MemoriesWidget(),
+    );
   }
 }
