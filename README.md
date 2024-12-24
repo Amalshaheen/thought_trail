@@ -1,16 +1,60 @@
-# thought_trail
+# ThoughtTrail - A Fun Timeline App
 
-A new Flutter project.
+ThoughtTrail is a playful and innovative app designed to capture your random thoughts, voice notes, and photos in a beautifully continuous timeline. With mood icons, random prompts, and the ability to edit entries, ThoughtTrail is here to make memory-keeping fun and engaging.
+
+## Features
+
+- **Timeline Design**: A continuous vertical timeline to organize thoughts and memories.
+- **Multi-Entry Support**:
+  - Text entries
+  - Audio notes
+  - Photo uploads
+- **Mood & Ambience**: Attach mood icons and set ambiance to your entries.
+- **Prompts for Inspiration**: Get random prompts to kickstart your creativity.
+- **Light/Dark Modes**: Choose a theme that matches your preference.
+- **Editable Entries**: Update your thoughts or memories anytime.
+- **Fade-Off Floating Action Button (FAB)**: Add entries seamlessly.
+
+## Current Status
+
+This project is **under development**. The core timeline functionality is being implemented, and the app will gradually integrate all planned features.
+
+## How to Contribute
+
+We are open to collaboration! If you’d like to contribute:
+
+1. Fork this repository.
+2. Work on a feature or fix an issue.
+3. Create a pull request with your changes.
+
+### Areas Open for Contribution
+
+- UI/UX improvements
+- Timeline widget optimization
+- State management enhancements
+- Backend integration (Node.js and MongoDB support planned)
+- Animations and transitions
+
+## Project Timeline
+
+**Expected Release Date**: January 17, 2024.
+
+## Tech Stack
+
+- **Frontend**: Flutter
+- **State Management**: BLoC
+- **Storage**: Hive (for offline storage)
+- **Future Plans**:
+  - Backend with Node.js
+  - Database with MongoDB
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. Clone the repository.
+2. Install Flutter and required dependencies.
+3. Run the app on your preferred emulator or device.
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+**Note**: This app is currently in development. Bugs and incomplete features are expected. Feel free to report issues or share ideas to make ThoughtTrail better!
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
