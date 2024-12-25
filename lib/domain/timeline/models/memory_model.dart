@@ -18,3 +18,18 @@ class MemoryContent with _$MemoryContent {
   const factory MemoryContent.image(String imagePath) = _Image;
   const factory MemoryContent.audio(String audioPath) = _Audio;
 }
+
+extension MemoryContentExtension on MemoryContent {
+  String? get text => maybeWhen(
+        text: (text) => text,
+        orElse: () => null,
+      );
+  String? get imagePath => maybeWhen(
+        image: (imagePath) => imagePath,
+        orElse: () => null,
+      );
+  String? get audioPath => maybeWhen(
+        audio: (audioPath) => audioPath,
+        orElse: () => null,
+      );
+}
