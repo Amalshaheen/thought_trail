@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:thought_trail/core/theme.dart';
 import 'package:thought_trail/domain/timeline/models/memory_model.dart';
 
 class MemoriesWidget extends StatelessWidget {
@@ -10,9 +13,10 @@ class MemoriesWidget extends StatelessWidget {
       20,
       (index) => MemoryModel(
         id: index.hashCode.toString(),
-        time: DateTime.now(),
+        time: DateTime.now().subtract(
+            Duration(days: index, hours: index ~/ 2, minutes: index * 2),),
         memory: MemoryContent.text(
-          'Memory $index',
+          '${index.hashCode} ',
         ),
       ),
     );
@@ -37,26 +41,25 @@ class MemoryListTileWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return IntrinsicHeight(
       child: Row(
+        spacing: 10,
+
         // direction: Axis.horizontal,
         // crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.spaceAround,
 
         children: [
-          Flexible(
-            flex: 4,
-            child: Container(
-              width: double.infinity,
-              color: Colors.blue,
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(minHeight: 100),
-                child: Text(memory.memory.toString()),
+          Expanded(
+            // width: double.infinity,
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(
+                minHeight: 100,
               ),
+              child: Text('${memory.memory.text}'),
             ),
           ),
-          Flexible(
-            flex: 1,
-            child: MemoryTimelineWidget(),
-          ),
+          // Spacer(),
+          MemoryTimelineWidget(),
+          SizedBox(width: 50, child: MemoryTimeWidget(time: memory.time))
         ],
       ),
     );
@@ -70,15 +73,38 @@ class MemoryTimelineWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      mainAxisAlignment: MainAxisAlignment.center,
+    final theme = Theme.of(context);
+    return Stack(
+      alignment: Alignment.center,
       children: [
-        const CircleAvatar(
-          radius: 10,
+        Container(width: 2, color: theme.dividerColor),
+        Container(
+          width: 10,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: (theme.colorScheme.primaryContainer),
+            border: Border.all(
+              color: theme.colorScheme.outline,
+              width: 2,
+            ),
+          ),
         ),
-        Expanded(child: Container(width: 10, color: Colors.grey)),
       ],
+    );
+  }
+}
+
+class MemoryTimeWidget extends StatelessWidget {
+  const MemoryTimeWidget({super.key, required this.time});
+  final DateTime time;
+  @override
+  Widget build(BuildContext context) {
+    final textColor = Theme.of(context).colorScheme.onSurface;
+
+    return Text(
+      '${time.hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')}',
+      style: timeTextStyle.bodyMedium!.copyWith(color: textColor),
+      textAlign: TextAlign.center,
     );
   }
 }
