@@ -6,7 +6,7 @@ class MemoryModel with _$MemoryModel {
   const factory MemoryModel({
     required String id,
     required DateTime time,
-    required MemoryContent memory,
+    required MemoryContent? memory,
     String? mood,
     List<String>? tags,
   }) = _MemoryModel;
