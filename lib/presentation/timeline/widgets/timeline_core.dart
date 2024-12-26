@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:thought_trail/core/theme.dart';
@@ -9,18 +10,24 @@ class MemoriesWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Random random = Random();
     final List<MemoryModel> memories = List.generate(
       20,
-      (index) => MemoryModel(
-        id: index.hashCode.toString(),
-        time: DateTime.now().subtract(
-            Duration(days: index, hours: index ~/ 2, minutes: index * 2),),
-        memory: MemoryContent.text(
-          '${index.hashCode} ',
-        ),
-      ),
-    );
-
+      (index) {
+        final DateTime now = DateTime.now();
+        final DateTime time = now.subtract(
+          Duration(days: random.nextInt(index + 1)),
+        );
+        return MemoryModel(
+          id: index.hashCode.toString(),
+          time: time,
+          memory: MemoryContent.text(
+            '${index.hashCode} ${time.day}/${time.month}/${time.year} ${time.hour}:${time.minute}',
+          ),
+        );
+      },
+    ).toList()
+      ..sort((a, b) => a.time.compareTo(b.time));
     return ListView.builder(
       shrinkWrap: true,
       itemCount: memories.length,
@@ -39,27 +46,47 @@ class MemoryListTileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isToday = memory.time.day == DateTime.now().day &&
+        memory.time.month == DateTime.now().month &&
+        memory.time.year == DateTime.now().year;
+    final bool isMemory = memory.memory != null;
+    final bool isPerfectTime = {6, 12, 16, 20}.contains(memory.time.hour);
+    const timeLabel = {
+      6: 'morning',
+      12: 'afternoon',
+      16: 'evening',
+      20: 'night',
+    };
     return IntrinsicHeight(
       child: Row(
         spacing: 10,
 
         // direction: Axis.horizontal,
-        // crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        // mainAxisAlignment: MainAxisAlignment.spaceAround,
 
         children: [
           Expanded(
             // width: double.infinity,
             child: ConstrainedBox(
-              constraints: const BoxConstraints(
-                minHeight: 100,
+              constraints: BoxConstraints(
+                minHeight: (isToday || isMemory) ? 100 : 0,
               ),
-              child: Text('${memory.memory.text}'),
+              child: Column(
+                children: [
+                  (isToday && isPerfectTime || isMemory && isPerfectTime)
+                      ? Text('${timeLabel[memory.time.hour]}')
+                      : SizedBox(),
+                  (isMemory) ? Text('${memory.memory!.text}') : SizedBox(),
+                ],
+              ),
             ),
           ),
           // Spacer(),
-          MemoryTimelineWidget(),
-          SizedBox(width: 50, child: MemoryTimeWidget(time: memory.time))
+          (isToday || isMemory) ? MemoryTimelineWidget() : SizedBox(),
+          (isToday || isMemory)
+              ? SizedBox(width: 50, child: MemoryTimeWidget(time: memory.time))
+              : SizedBox(),
         ],
       ),
     );
@@ -75,11 +102,13 @@ class MemoryTimelineWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Stack(
-      alignment: Alignment.center,
+      alignment: Alignment.topCenter,
       children: [
         Container(width: 2, color: theme.dividerColor),
         Container(
           width: 10,
+          height: 10,
+          margin: EdgeInsets.all(5),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: (theme.colorScheme.primaryContainer),
