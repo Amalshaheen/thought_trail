@@ -15,7 +15,7 @@ class MemoryModel with _$MemoryModel {
 @freezed
 class MemoryContent with _$MemoryContent {
   const factory MemoryContent.text(String text) = _Text;
-  const factory MemoryContent.image(String imagePath) = _Image;
+  const factory MemoryContent.image(String imagePath, String caption) = _Image;
   const factory MemoryContent.audio(String audioPath) = _Audio;
 }
 
@@ -25,7 +25,7 @@ extension MemoryContentExtension on MemoryContent {
         orElse: () => null,
       );
   String? get imagePath => maybeWhen(
-        image: (imagePath) => imagePath,
+        image: (imagePath, caption) => imagePath,
         orElse: () => null,
       );
   String? get audioPath => maybeWhen(
