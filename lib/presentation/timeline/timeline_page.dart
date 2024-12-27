@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thought_trail/presentation/timeline/widgets/timeline_core.dart';
+import 'package:thought_trail/presentation/timeline/widgets/memories_list_widget.dart';
 
 import '../../core/theme.dart';
 
@@ -18,7 +18,17 @@ class TimelinePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: MemoriesWidget(),
+      body: CustomScrollView(
+        physics: BouncingScrollPhysics(),
+        slivers: [
+          SliverAppBar(
+            title: Text('ThoughtTrail'),
+            floating: true,
+            snap: true,
+          ),
+          MemoriesListWidget(),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           final theme = Theme.of(context);
