@@ -3,6 +3,33 @@ import 'package:thought_trail/domain/timeline/models/memory_model.dart';
 
 final Random random = Random();
 
+List<MemoryModel> generateTestTodayMemories() {
+  final List<MemoryModel> todayMemories = [];
+  final List<DateTime> timeIntervels = List.generate(
+    48,
+    (index) {
+      return DateTime(
+        DateTime.now().year,
+        DateTime.now().month,
+        DateTime.now().day,
+        index ~/ 2,
+        (index % 2) * 30,
+      );
+    },
+  );
+
+  for (final time in timeIntervels) {
+    todayMemories.add(
+      MemoryModel(
+        id: time.hashCode.toString(),
+        time: time,
+        memory: null,
+      ),
+    );
+  }
+  return todayMemories;
+}
+
 /// Generates test memories with both text and image content.
 List<MemoryModel> generateTestMemories() {
   final DateTime now = DateTime.now();
@@ -66,5 +93,5 @@ String generateRandomText() {
 
 /// Generates a random Unsplash image URL for testing.
 String generateRandomImageUrl() {
-  return 'https://picsum.photos/seed/${random.nextInt(10000)}/480';
+  return 'https://picsum.photos/seed/${random.nextInt(10000)}/768/432';
 }
