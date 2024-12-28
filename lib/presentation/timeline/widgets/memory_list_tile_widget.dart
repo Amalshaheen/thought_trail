@@ -33,7 +33,8 @@ class MemoryListTileWidget extends StatelessWidget {
     final bool isMemory = memory.memory != null;
 
     // Check if the time is one of 6am, 12pm, 4pm, or 8pm
-    final bool isPerfectTime = {6, 12, 16, 20}.contains(memory.time.hour);
+    final bool isPerfectTime =
+        {6, 12, 16, 20}.contains(memory.time.hour) && memory.time.minute == 0;
 
     // The text label for the time
     const timeLabel = {
