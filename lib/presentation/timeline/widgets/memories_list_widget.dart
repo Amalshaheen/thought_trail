@@ -8,7 +8,11 @@ class MemoriesListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final memories = generateTestMemories();
+    final memories = generateTestTodayMemories()
+      ..addAll(generateTestMemories());
+    memories.sort(
+      (a, b) => a.time.compareTo(b.time),
+    );
 
 //
 //
@@ -20,6 +24,7 @@ class MemoriesListWidget extends StatelessWidget {
       //   top: 10,
       // ),
       // shrinkWrap: true,
+
       itemCount: memories.length,
       itemBuilder: (context, index) {
         return MemoryListTileWidget(
