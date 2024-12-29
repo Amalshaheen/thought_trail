@@ -4,14 +4,15 @@ import 'package:thought_trail/domain/timeline/models/memory_model.dart';
 final Random random = Random();
 
 List<MemoryModel> generateTestTodayMemories() {
+  final now = DateTime.now();
   final List<MemoryModel> todayMemories = [];
   final List<DateTime> timeIntervels = List.generate(
-    48,
+    min((now.hour + 2) * 2, 48),
     (index) {
       return DateTime(
-        DateTime.now().year,
-        DateTime.now().month,
-        DateTime.now().day,
+        now.year,
+        now.month,
+        now.day,
         index ~/ 2,
         (index % 2) * 30,
       );
@@ -36,7 +37,7 @@ List<MemoryModel> generateTestMemories() {
   final List<MemoryModel> memories = [];
 
   // Generate memories for today and previous days
-  for (int day = 0; day < 7; day++) {
+  for (int day = 1; day < 7; day++) {
     final DateTime startOfDay = now.subtract(Duration(days: day));
     for (int hour = 0; hour < 24; hour++) {
       for (int minute = 0; minute < 60; minute += 30) {
