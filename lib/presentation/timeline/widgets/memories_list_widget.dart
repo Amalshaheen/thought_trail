@@ -13,18 +13,7 @@ class MemoriesListWidget extends StatelessWidget {
     memories.sort(
       (a, b) => a.time.compareTo(b.time),
     );
-
-//
-//
     return SliverList.builder(
-      // physics: BouncingScrollPhysics(),
-      // padding: EdgeInsets.only(
-      //   right: 10,
-      //   left: 10,
-      //   top: 10,
-      // ),
-      // shrinkWrap: true,
-
       itemCount: memories.length,
       itemBuilder: (context, index) {
         return MemoryListTileWidget(
