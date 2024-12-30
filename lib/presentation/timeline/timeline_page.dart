@@ -14,12 +14,11 @@ import '../../core/theme.dart';
 /// 7. mood and its ambience
 /// 8. FAB for adding new entry
 class TimelinePage extends StatelessWidget {
- const TimelinePage({super.key});
-
+  const TimelinePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-  final ScrollController scrollController = ScrollController();
+    final ScrollController scrollController = ScrollController();
 
     WidgetsBinding.instance.addPostFrameCallback(
       (_) => scrollController.jumpTo(scrollController.position.maxScrollExtent),
@@ -36,6 +35,18 @@ class TimelinePage extends StatelessWidget {
             actions: [
               DarkLightThemeToggleWidget(),
             ],
+          ),
+          SliverFloatingHeader(
+            snapMode: FloatingHeaderSnapMode.scroll,
+            child: FloatingActionButton.small(
+              child: Icon(Icons.arrow_downward),
+              onPressed: () {
+                scrollController.animateTo(
+                    scrollController.position.maxScrollExtent,
+                    duration: Duration(milliseconds: 100),
+                    curve: Curves.easeOut);
+              },
+            ),
           ),
           MemoriesListWidget(),
         ],
