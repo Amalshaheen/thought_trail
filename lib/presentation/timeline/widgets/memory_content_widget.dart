@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thought_trail/domain/timeline/models/memory_model.dart';
+import 'package:thought_trail/domain/timeline/memory.dart';
 
 class MemoryContentWidget extends StatelessWidget {
   const MemoryContentWidget({

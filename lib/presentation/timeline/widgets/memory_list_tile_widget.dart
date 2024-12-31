@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thought_trail/domain/timeline/models/memory_model.dart';
+import 'package:thought_trail/domain/timeline/memory.dart';
 import 'package:thought_trail/presentation/timeline/widgets/memory_content_widget.dart';
 import 'package:thought_trail/presentation/timeline/widgets/memory_time_widget.dart';
 import 'package:thought_trail/presentation/timeline/widgets/memory_timeline_widget.dart';
@@ -20,7 +20,7 @@ class MemoryListTileWidget extends StatelessWidget {
   /// day and does not have a content.
   ///
   const MemoryListTileWidget({super.key, required this.memory});
-  final MemoryModel memory;
+  final Memory memory;
 
   @override
   Widget build(BuildContext context) {
