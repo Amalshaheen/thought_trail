@@ -1,11 +1,12 @@
 import 'dart:math';
-import 'package:thought_trail/domain/timeline/models/memory_model.dart';
+import 'package:thought_trail/domain/timeline/memory.dart';
+import 'package:thought_trail/domain/timeline/value_objects.dart';
 
 final Random random = Random();
 
-List<MemoryModel> generateTestTodayMemories() {
+List<Memory> generateTestTodayMemories() {
   final now = DateTime.now();
-  final List<MemoryModel> todayMemories = [];
+  final List<Memory> todayMemories = [];
   final List<DateTime> timeIntervels = List.generate(
     min((now.hour + 2) * 2, 48),
     (index) {
@@ -21,7 +22,7 @@ List<MemoryModel> generateTestTodayMemories() {
 
   for (final time in timeIntervels) {
     todayMemories.add(
-      MemoryModel(
+      Memory(
         id: time.hashCode.toString(),
         time: time,
         memory: null,
@@ -32,9 +33,9 @@ List<MemoryModel> generateTestTodayMemories() {
 }
 
 /// Generates test memories with both text and image content.
-List<MemoryModel> generateTestMemories() {
+List<Memory> generateTestMemories() {
   final DateTime now = DateTime.now();
-  final List<MemoryModel> memories = [];
+  final List<Memory> memories = [];
 
   // Generate memories for today and previous days
   for (int day = 1; day < 7; day++) {
@@ -61,7 +62,7 @@ List<MemoryModel> generateTestMemories() {
                   ))
             : null;
 
-        memories.add(MemoryModel(
+        memories.add(Memory(
           id: '${time.hashCode}',
           time: time,
           memory: memory,
@@ -76,7 +77,7 @@ List<MemoryModel> generateTestMemories() {
 }
 
 /// Generates a random Lorem Ipsum text for testing.
-String generateRandomText() {
+MemoryText generateRandomText() {
   const loremIpsum = [
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "Curabitur vehicula nulla id ante eleifend, nec suscipit nisi euismod.",
@@ -89,7 +90,7 @@ String generateRandomText() {
     "Quisque rutrum. Etiam ultricies nisi vel augue.",
     "Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus.",
   ];
-  return loremIpsum[random.nextInt(loremIpsum.length)];
+  return MemoryText(loremIpsum[random.nextInt(loremIpsum.length)]);
 }
 
 /// Generates a random Unsplash image URL for testing.
