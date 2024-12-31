@@ -21,7 +21,11 @@ class TimelinePage extends StatelessWidget {
     final ScrollController scrollController = ScrollController();
 
     WidgetsBinding.instance.addPostFrameCallback(
-      (_) => scrollController.jumpTo(scrollController.position.maxScrollExtent),
+      (_) => scrollController.animateTo(
+        scrollController.position.maxScrollExtent,
+        duration: Duration(milliseconds: 500),
+        curve: Curves.easeOut,
+      ),
     );
     return Scaffold(
       body: CustomScrollView(
@@ -43,7 +47,7 @@ class TimelinePage extends StatelessWidget {
               onPressed: () {
                 scrollController.animateTo(
                     scrollController.position.maxScrollExtent,
-                    duration: Duration(milliseconds: 100),
+                    duration: Duration(milliseconds: 500),
                     curve: Curves.easeOut);
               },
             ),
