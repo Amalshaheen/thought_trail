@@ -8,8 +8,8 @@ class MemoriesListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final memories = generateTestTodayMemories()
-      ..addAll(generateTestMemories());
+    final memories = generateTestTodayMemories();
+    // ..addAll(generateTestMemories());
     memories.sort(
       (a, b) => a.time.compareTo(b.time),
     );
