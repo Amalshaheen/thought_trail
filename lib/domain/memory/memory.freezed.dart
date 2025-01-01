@@ -256,22 +256,22 @@ mixin _$MemoryContent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(MemoryText text) text,
-    required TResult Function(String imagePath, String caption) image,
-    required TResult Function(String audioPath) audio,
+    required TResult Function(MemoryImage imagePath, MemoryText caption) image,
+    required TResult Function(MemoryAudio audioPath) audio,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(MemoryText text)? text,
-    TResult? Function(String imagePath, String caption)? image,
-    TResult? Function(String audioPath)? audio,
+    TResult? Function(MemoryImage imagePath, MemoryText caption)? image,
+    TResult? Function(MemoryAudio audioPath)? audio,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(MemoryText text)? text,
-    TResult Function(String imagePath, String caption)? image,
-    TResult Function(String audioPath)? audio,
+    TResult Function(MemoryImage imagePath, MemoryText caption)? image,
+    TResult Function(MemoryAudio audioPath)? audio,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -388,8 +388,8 @@ class _$TextImpl implements _Text {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(MemoryText text) text,
-    required TResult Function(String imagePath, String caption) image,
-    required TResult Function(String audioPath) audio,
+    required TResult Function(MemoryImage imagePath, MemoryText caption) image,
+    required TResult Function(MemoryAudio audioPath) audio,
   }) {
     return text(this.text);
   }
@@ -398,8 +398,8 @@ class _$TextImpl implements _Text {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(MemoryText text)? text,
-    TResult? Function(String imagePath, String caption)? image,
-    TResult? Function(String audioPath)? audio,
+    TResult? Function(MemoryImage imagePath, MemoryText caption)? image,
+    TResult? Function(MemoryAudio audioPath)? audio,
   }) {
     return text?.call(this.text);
   }
@@ -408,8 +408,8 @@ class _$TextImpl implements _Text {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(MemoryText text)? text,
-    TResult Function(String imagePath, String caption)? image,
-    TResult Function(String audioPath)? audio,
+    TResult Function(MemoryImage imagePath, MemoryText caption)? image,
+    TResult Function(MemoryAudio audioPath)? audio,
     required TResult orElse(),
   }) {
     if (text != null) {
@@ -471,7 +471,7 @@ abstract class _$$ImageImplCopyWith<$Res> {
           _$ImageImpl value, $Res Function(_$ImageImpl) then) =
       __$$ImageImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String imagePath, String caption});
+  $Res call({MemoryImage imagePath, MemoryText caption});
 }
 
 /// @nodoc
@@ -494,11 +494,11 @@ class __$$ImageImplCopyWithImpl<$Res>
       null == imagePath
           ? _value.imagePath
           : imagePath // ignore: cast_nullable_to_non_nullable
-              as String,
+              as MemoryImage,
       null == caption
           ? _value.caption
           : caption // ignore: cast_nullable_to_non_nullable
-              as String,
+              as MemoryText,
     ));
   }
 }
@@ -509,9 +509,9 @@ class _$ImageImpl implements _Image {
   const _$ImageImpl(this.imagePath, this.caption);
 
   @override
-  final String imagePath;
+  final MemoryImage imagePath;
   @override
-  final String caption;
+  final MemoryText caption;
 
   @override
   String toString() {
@@ -543,8 +543,8 @@ class _$ImageImpl implements _Image {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(MemoryText text) text,
-    required TResult Function(String imagePath, String caption) image,
-    required TResult Function(String audioPath) audio,
+    required TResult Function(MemoryImage imagePath, MemoryText caption) image,
+    required TResult Function(MemoryAudio audioPath) audio,
   }) {
     return image(imagePath, caption);
   }
@@ -553,8 +553,8 @@ class _$ImageImpl implements _Image {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(MemoryText text)? text,
-    TResult? Function(String imagePath, String caption)? image,
-    TResult? Function(String audioPath)? audio,
+    TResult? Function(MemoryImage imagePath, MemoryText caption)? image,
+    TResult? Function(MemoryAudio audioPath)? audio,
   }) {
     return image?.call(imagePath, caption);
   }
@@ -563,8 +563,8 @@ class _$ImageImpl implements _Image {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(MemoryText text)? text,
-    TResult Function(String imagePath, String caption)? image,
-    TResult Function(String audioPath)? audio,
+    TResult Function(MemoryImage imagePath, MemoryText caption)? image,
+    TResult Function(MemoryAudio audioPath)? audio,
     required TResult orElse(),
   }) {
     if (image != null) {
@@ -609,11 +609,11 @@ class _$ImageImpl implements _Image {
 }
 
 abstract class _Image implements MemoryContent {
-  const factory _Image(final String imagePath, final String caption) =
+  const factory _Image(final MemoryImage imagePath, final MemoryText caption) =
       _$ImageImpl;
 
-  String get imagePath;
-  String get caption;
+  MemoryImage get imagePath;
+  MemoryText get caption;
 
   /// Create a copy of MemoryContent
   /// with the given fields replaced by the non-null parameter values.
@@ -628,7 +628,7 @@ abstract class _$$AudioImplCopyWith<$Res> {
           _$AudioImpl value, $Res Function(_$AudioImpl) then) =
       __$$AudioImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String audioPath});
+  $Res call({MemoryAudio audioPath});
 }
 
 /// @nodoc
@@ -650,7 +650,7 @@ class __$$AudioImplCopyWithImpl<$Res>
       null == audioPath
           ? _value.audioPath
           : audioPath // ignore: cast_nullable_to_non_nullable
-              as String,
+              as MemoryAudio,
     ));
   }
 }
@@ -661,7 +661,7 @@ class _$AudioImpl implements _Audio {
   const _$AudioImpl(this.audioPath);
 
   @override
-  final String audioPath;
+  final MemoryAudio audioPath;
 
   @override
   String toString() {
@@ -692,8 +692,8 @@ class _$AudioImpl implements _Audio {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(MemoryText text) text,
-    required TResult Function(String imagePath, String caption) image,
-    required TResult Function(String audioPath) audio,
+    required TResult Function(MemoryImage imagePath, MemoryText caption) image,
+    required TResult Function(MemoryAudio audioPath) audio,
   }) {
     return audio(audioPath);
   }
@@ -702,8 +702,8 @@ class _$AudioImpl implements _Audio {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(MemoryText text)? text,
-    TResult? Function(String imagePath, String caption)? image,
-    TResult? Function(String audioPath)? audio,
+    TResult? Function(MemoryImage imagePath, MemoryText caption)? image,
+    TResult? Function(MemoryAudio audioPath)? audio,
   }) {
     return audio?.call(audioPath);
   }
@@ -712,8 +712,8 @@ class _$AudioImpl implements _Audio {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(MemoryText text)? text,
-    TResult Function(String imagePath, String caption)? image,
-    TResult Function(String audioPath)? audio,
+    TResult Function(MemoryImage imagePath, MemoryText caption)? image,
+    TResult Function(MemoryAudio audioPath)? audio,
     required TResult orElse(),
   }) {
     if (audio != null) {
@@ -758,9 +758,9 @@ class _$AudioImpl implements _Audio {
 }
 
 abstract class _Audio implements MemoryContent {
-  const factory _Audio(final String audioPath) = _$AudioImpl;
+  const factory _Audio(final MemoryAudio audioPath) = _$AudioImpl;
 
-  String get audioPath;
+  MemoryAudio get audioPath;
 
   /// Create a copy of MemoryContent
   /// with the given fields replaced by the non-null parameter values.

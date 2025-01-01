@@ -1,5 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:thought_trail/domain/timeline/value_objects.dart';
+import 'package:thought_trail/domain/memory/value_objects.dart';
 part 'memory.freezed.dart';
 
 @freezed
@@ -16,6 +17,7 @@ class Memory with _$Memory {
 @freezed
 class MemoryContent with _$MemoryContent {
   const factory MemoryContent.text(MemoryText text) = _Text;
-  const factory MemoryContent.image(String imagePath, String caption) = _Image;
-  const factory MemoryContent.audio(String audioPath) = _Audio;
+  const factory MemoryContent.image(MemoryImage imagePath, MemoryText caption) =
+      _Image;
+  const factory MemoryContent.audio(MemoryAudio audioPath) = _Audio;
 }
