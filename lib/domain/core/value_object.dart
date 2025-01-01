@@ -6,11 +6,11 @@ abstract class ValueObject<T> {
 
   Either<ValueFailure<T>, T> get value;
 
+  bool isValid() => value.isRight();
+
   @override
   bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is ValueObject<T> &&
-          value == other.value;
+      identical(this, other) || other is ValueObject<T> && value == other.value;
 
   @override
   int get hashCode => value.hashCode;
