@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thought_trail/domain/timeline/memory.dart';
+import 'package:thought_trail/domain/memory/memory.dart';
 import 'package:thought_trail/presentation/timeline/widgets/memory_content_widget.dart';
 import 'package:thought_trail/presentation/timeline/widgets/memory_time_widget.dart';
 import 'package:thought_trail/presentation/timeline/widgets/memory_timeline_widget.dart';

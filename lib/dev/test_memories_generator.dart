@@ -1,6 +1,6 @@
 import 'dart:math';
-import 'package:thought_trail/domain/timeline/memory.dart';
-import 'package:thought_trail/domain/timeline/value_objects.dart';
+import 'package:thought_trail/domain/memory/memory.dart';
+import 'package:thought_trail/domain/memory/value_objects.dart';
 
 final Random random = Random();
 
@@ -58,7 +58,8 @@ List<Memory> generateTestMemories() {
                 ? MemoryContent.text(generateRandomText())
                 : MemoryContent.image(
                     generateRandomImageUrl(),
-                    'Caption for image at ${time.hour}:${time.minute}',
+                    MemoryText(
+                        'Caption for image at ${time.hour}:${time.minute}'),
                   ))
             : null;
 
@@ -94,6 +95,7 @@ MemoryText generateRandomText() {
 }
 
 /// Generates a random Unsplash image URL for testing.
-String generateRandomImageUrl() {
-  return 'https://picsum.photos/seed/${random.nextInt(10000)}/768/432';
+MemoryImage generateRandomImageUrl() {
+  return MemoryImage(
+      'https://picsum.photos/seed/${random.nextInt(10000)}/768/432');
 }

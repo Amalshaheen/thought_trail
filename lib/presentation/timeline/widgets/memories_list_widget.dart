@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:thought_trail/presentation/timeline/widgets/memory_list_tile_widget.dart';
 
-import '../../../dev/test_memories_generator.dart';
+import '/dev/test_memories_generator.dart';
 
 class MemoriesListWidget extends StatelessWidget {
   const MemoriesListWidget({super.key});
