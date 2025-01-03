@@ -167,7 +167,7 @@ class __$$MemoryImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MemoryImpl implements _Memory {
+class _$MemoryImpl with DiagnosticableTreeMixin implements _Memory {
   const _$MemoryImpl(
       {required this.id,
       required this.time,
@@ -195,8 +195,20 @@ class _$MemoryImpl implements _Memory {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'Memory(id: $id, time: $time, memory: $memory, mood: $mood, tags: $tags)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Memory'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('time', time))
+      ..add(DiagnosticsProperty('memory', memory))
+      ..add(DiagnosticsProperty('mood', mood))
+      ..add(DiagnosticsProperty('tags', tags));
   }
 
   @override
@@ -354,15 +366,23 @@ class __$$TextImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$TextImpl implements _Text {
+class _$TextImpl with DiagnosticableTreeMixin implements _Text {
   const _$TextImpl(this.text);
 
   @override
   final MemoryText text;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'MemoryContent.text(text: $text)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'MemoryContent.text'))
+      ..add(DiagnosticsProperty('text', text));
   }
 
   @override
@@ -505,7 +525,7 @@ class __$$ImageImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ImageImpl implements _Image {
+class _$ImageImpl with DiagnosticableTreeMixin implements _Image {
   const _$ImageImpl(this.imagePath, this.caption);
 
   @override
@@ -514,8 +534,17 @@ class _$ImageImpl implements _Image {
   final MemoryText caption;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'MemoryContent.image(imagePath: $imagePath, caption: $caption)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'MemoryContent.image'))
+      ..add(DiagnosticsProperty('imagePath', imagePath))
+      ..add(DiagnosticsProperty('caption', caption));
   }
 
   @override
@@ -657,15 +686,23 @@ class __$$AudioImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AudioImpl implements _Audio {
+class _$AudioImpl with DiagnosticableTreeMixin implements _Audio {
   const _$AudioImpl(this.audioPath);
 
   @override
   final MemoryAudio audioPath;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'MemoryContent.audio(audioPath: $audioPath)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'MemoryContent.audio'))
+      ..add(DiagnosticsProperty('audioPath', audioPath));
   }
 
   @override
