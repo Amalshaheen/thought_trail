@@ -52,7 +52,7 @@ class TimelinePage extends StatelessWidget {
               },
             ),
           ),
-          MemoriesListWidget(),
+          // MemoriesListWidget(),
         ],
       ),
       floatingActionButton: AddMemoryFAB(),
