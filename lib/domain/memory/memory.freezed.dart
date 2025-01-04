@@ -18,7 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Memory {
   String get id => throw _privateConstructorUsedError;
   DateTime get time => throw _privateConstructorUsedError;
-  MemoryContent? get memory => throw _privateConstructorUsedError;
+  MemoryContent get memoryContent => throw _privateConstructorUsedError;
+  MemoryType get type => throw _privateConstructorUsedError;
   String? get mood => throw _privateConstructorUsedError;
   List<String>? get tags => throw _privateConstructorUsedError;
 
@@ -36,11 +37,12 @@ abstract class $MemoryCopyWith<$Res> {
   $Res call(
       {String id,
       DateTime time,
-      MemoryContent? memory,
+      MemoryContent memoryContent,
+      MemoryType type,
       String? mood,
       List<String>? tags});
 
-  $MemoryContentCopyWith<$Res>? get memory;
+  $MemoryContentCopyWith<$Res> get memoryContent;
 }
 
 /// @nodoc
@@ -60,7 +62,8 @@ class _$MemoryCopyWithImpl<$Res, $Val extends Memory>
   $Res call({
     Object? id = null,
     Object? time = null,
-    Object? memory = freezed,
+    Object? memoryContent = null,
+    Object? type = null,
     Object? mood = freezed,
     Object? tags = freezed,
   }) {
@@ -73,10 +76,14 @@ class _$MemoryCopyWithImpl<$Res, $Val extends Memory>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      memory: freezed == memory
-          ? _value.memory
-          : memory // ignore: cast_nullable_to_non_nullable
-              as MemoryContent?,
+      memoryContent: null == memoryContent
+          ? _value.memoryContent
+          : memoryContent // ignore: cast_nullable_to_non_nullable
+              as MemoryContent,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as MemoryType,
       mood: freezed == mood
           ? _value.mood
           : mood // ignore: cast_nullable_to_non_nullable
@@ -92,13 +99,9 @@ class _$MemoryCopyWithImpl<$Res, $Val extends Memory>
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $MemoryContentCopyWith<$Res>? get memory {
-    if (_value.memory == null) {
-      return null;
-    }
-
-    return $MemoryContentCopyWith<$Res>(_value.memory!, (value) {
-      return _then(_value.copyWith(memory: value) as $Val);
+  $MemoryContentCopyWith<$Res> get memoryContent {
+    return $MemoryContentCopyWith<$Res>(_value.memoryContent, (value) {
+      return _then(_value.copyWith(memoryContent: value) as $Val);
     });
   }
 }
@@ -113,12 +116,13 @@ abstract class _$$MemoryImplCopyWith<$Res> implements $MemoryCopyWith<$Res> {
   $Res call(
       {String id,
       DateTime time,
-      MemoryContent? memory,
+      MemoryContent memoryContent,
+      MemoryType type,
       String? mood,
       List<String>? tags});
 
   @override
-  $MemoryContentCopyWith<$Res>? get memory;
+  $MemoryContentCopyWith<$Res> get memoryContent;
 }
 
 /// @nodoc
@@ -136,7 +140,8 @@ class __$$MemoryImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? time = null,
-    Object? memory = freezed,
+    Object? memoryContent = null,
+    Object? type = null,
     Object? mood = freezed,
     Object? tags = freezed,
   }) {
@@ -149,10 +154,14 @@ class __$$MemoryImplCopyWithImpl<$Res>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      memory: freezed == memory
-          ? _value.memory
-          : memory // ignore: cast_nullable_to_non_nullable
-              as MemoryContent?,
+      memoryContent: null == memoryContent
+          ? _value.memoryContent
+          : memoryContent // ignore: cast_nullable_to_non_nullable
+              as MemoryContent,
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as MemoryType,
       mood: freezed == mood
           ? _value.mood
           : mood // ignore: cast_nullable_to_non_nullable
@@ -171,7 +180,8 @@ class _$MemoryImpl with DiagnosticableTreeMixin implements _Memory {
   const _$MemoryImpl(
       {required this.id,
       required this.time,
-      required this.memory,
+      required this.memoryContent,
+      required this.type,
       this.mood,
       final List<String>? tags})
       : _tags = tags;
@@ -181,7 +191,9 @@ class _$MemoryImpl with DiagnosticableTreeMixin implements _Memory {
   @override
   final DateTime time;
   @override
-  final MemoryContent? memory;
+  final MemoryContent memoryContent;
+  @override
+  final MemoryType type;
   @override
   final String? mood;
   final List<String>? _tags;
@@ -196,17 +208,18 @@ class _$MemoryImpl with DiagnosticableTreeMixin implements _Memory {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Memory(id: $id, time: $time, memory: $memory, mood: $mood, tags: $tags)';
+    return 'Memory._(id: $id, time: $time, memoryContent: $memoryContent, type: $type, mood: $mood, tags: $tags)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'Memory'))
+      ..add(DiagnosticsProperty('type', 'Memory._'))
       ..add(DiagnosticsProperty('id', id))
       ..add(DiagnosticsProperty('time', time))
-      ..add(DiagnosticsProperty('memory', memory))
+      ..add(DiagnosticsProperty('memoryContent', memoryContent))
+      ..add(DiagnosticsProperty('type', type))
       ..add(DiagnosticsProperty('mood', mood))
       ..add(DiagnosticsProperty('tags', tags));
   }
@@ -218,14 +231,16 @@ class _$MemoryImpl with DiagnosticableTreeMixin implements _Memory {
             other is _$MemoryImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.time, time) || other.time == time) &&
-            (identical(other.memory, memory) || other.memory == memory) &&
+            (identical(other.memoryContent, memoryContent) ||
+                other.memoryContent == memoryContent) &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.mood, mood) || other.mood == mood) &&
             const DeepCollectionEquality().equals(other._tags, _tags));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, time, memory, mood,
-      const DeepCollectionEquality().hash(_tags));
+  int get hashCode => Object.hash(runtimeType, id, time, memoryContent, type,
+      mood, const DeepCollectionEquality().hash(_tags));
 
   /// Create a copy of Memory
   /// with the given fields replaced by the non-null parameter values.
@@ -240,7 +255,8 @@ abstract class _Memory implements Memory {
   const factory _Memory(
       {required final String id,
       required final DateTime time,
-      required final MemoryContent? memory,
+      required final MemoryContent memoryContent,
+      required final MemoryType type,
       final String? mood,
       final List<String>? tags}) = _$MemoryImpl;
 
@@ -249,7 +265,9 @@ abstract class _Memory implements Memory {
   @override
   DateTime get time;
   @override
-  MemoryContent? get memory;
+  MemoryContent get memoryContent;
+  @override
+  MemoryType get type;
   @override
   String? get mood;
   @override
@@ -270,6 +288,7 @@ mixin _$MemoryContent {
     required TResult Function(MemoryText text) text,
     required TResult Function(MemoryImage imagePath, MemoryText caption) image,
     required TResult Function(MemoryAudio audioPath) audio,
+    required TResult Function() none,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -277,6 +296,7 @@ mixin _$MemoryContent {
     TResult? Function(MemoryText text)? text,
     TResult? Function(MemoryImage imagePath, MemoryText caption)? image,
     TResult? Function(MemoryAudio audioPath)? audio,
+    TResult? Function()? none,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -284,6 +304,7 @@ mixin _$MemoryContent {
     TResult Function(MemoryText text)? text,
     TResult Function(MemoryImage imagePath, MemoryText caption)? image,
     TResult Function(MemoryAudio audioPath)? audio,
+    TResult Function()? none,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -292,6 +313,7 @@ mixin _$MemoryContent {
     required TResult Function(_Text value) text,
     required TResult Function(_Image value) image,
     required TResult Function(_Audio value) audio,
+    required TResult Function(_None value) none,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -299,6 +321,7 @@ mixin _$MemoryContent {
     TResult? Function(_Text value)? text,
     TResult? Function(_Image value)? image,
     TResult? Function(_Audio value)? audio,
+    TResult? Function(_None value)? none,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -306,6 +329,7 @@ mixin _$MemoryContent {
     TResult Function(_Text value)? text,
     TResult Function(_Image value)? image,
     TResult Function(_Audio value)? audio,
+    TResult Function(_None value)? none,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -410,6 +434,7 @@ class _$TextImpl with DiagnosticableTreeMixin implements _Text {
     required TResult Function(MemoryText text) text,
     required TResult Function(MemoryImage imagePath, MemoryText caption) image,
     required TResult Function(MemoryAudio audioPath) audio,
+    required TResult Function() none,
   }) {
     return text(this.text);
   }
@@ -420,6 +445,7 @@ class _$TextImpl with DiagnosticableTreeMixin implements _Text {
     TResult? Function(MemoryText text)? text,
     TResult? Function(MemoryImage imagePath, MemoryText caption)? image,
     TResult? Function(MemoryAudio audioPath)? audio,
+    TResult? Function()? none,
   }) {
     return text?.call(this.text);
   }
@@ -430,6 +456,7 @@ class _$TextImpl with DiagnosticableTreeMixin implements _Text {
     TResult Function(MemoryText text)? text,
     TResult Function(MemoryImage imagePath, MemoryText caption)? image,
     TResult Function(MemoryAudio audioPath)? audio,
+    TResult Function()? none,
     required TResult orElse(),
   }) {
     if (text != null) {
@@ -444,6 +471,7 @@ class _$TextImpl with DiagnosticableTreeMixin implements _Text {
     required TResult Function(_Text value) text,
     required TResult Function(_Image value) image,
     required TResult Function(_Audio value) audio,
+    required TResult Function(_None value) none,
   }) {
     return text(this);
   }
@@ -454,6 +482,7 @@ class _$TextImpl with DiagnosticableTreeMixin implements _Text {
     TResult? Function(_Text value)? text,
     TResult? Function(_Image value)? image,
     TResult? Function(_Audio value)? audio,
+    TResult? Function(_None value)? none,
   }) {
     return text?.call(this);
   }
@@ -464,6 +493,7 @@ class _$TextImpl with DiagnosticableTreeMixin implements _Text {
     TResult Function(_Text value)? text,
     TResult Function(_Image value)? image,
     TResult Function(_Audio value)? audio,
+    TResult Function(_None value)? none,
     required TResult orElse(),
   }) {
     if (text != null) {
@@ -574,6 +604,7 @@ class _$ImageImpl with DiagnosticableTreeMixin implements _Image {
     required TResult Function(MemoryText text) text,
     required TResult Function(MemoryImage imagePath, MemoryText caption) image,
     required TResult Function(MemoryAudio audioPath) audio,
+    required TResult Function() none,
   }) {
     return image(imagePath, caption);
   }
@@ -584,6 +615,7 @@ class _$ImageImpl with DiagnosticableTreeMixin implements _Image {
     TResult? Function(MemoryText text)? text,
     TResult? Function(MemoryImage imagePath, MemoryText caption)? image,
     TResult? Function(MemoryAudio audioPath)? audio,
+    TResult? Function()? none,
   }) {
     return image?.call(imagePath, caption);
   }
@@ -594,6 +626,7 @@ class _$ImageImpl with DiagnosticableTreeMixin implements _Image {
     TResult Function(MemoryText text)? text,
     TResult Function(MemoryImage imagePath, MemoryText caption)? image,
     TResult Function(MemoryAudio audioPath)? audio,
+    TResult Function()? none,
     required TResult orElse(),
   }) {
     if (image != null) {
@@ -608,6 +641,7 @@ class _$ImageImpl with DiagnosticableTreeMixin implements _Image {
     required TResult Function(_Text value) text,
     required TResult Function(_Image value) image,
     required TResult Function(_Audio value) audio,
+    required TResult Function(_None value) none,
   }) {
     return image(this);
   }
@@ -618,6 +652,7 @@ class _$ImageImpl with DiagnosticableTreeMixin implements _Image {
     TResult? Function(_Text value)? text,
     TResult? Function(_Image value)? image,
     TResult? Function(_Audio value)? audio,
+    TResult? Function(_None value)? none,
   }) {
     return image?.call(this);
   }
@@ -628,6 +663,7 @@ class _$ImageImpl with DiagnosticableTreeMixin implements _Image {
     TResult Function(_Text value)? text,
     TResult Function(_Image value)? image,
     TResult Function(_Audio value)? audio,
+    TResult Function(_None value)? none,
     required TResult orElse(),
   }) {
     if (image != null) {
@@ -731,6 +767,7 @@ class _$AudioImpl with DiagnosticableTreeMixin implements _Audio {
     required TResult Function(MemoryText text) text,
     required TResult Function(MemoryImage imagePath, MemoryText caption) image,
     required TResult Function(MemoryAudio audioPath) audio,
+    required TResult Function() none,
   }) {
     return audio(audioPath);
   }
@@ -741,6 +778,7 @@ class _$AudioImpl with DiagnosticableTreeMixin implements _Audio {
     TResult? Function(MemoryText text)? text,
     TResult? Function(MemoryImage imagePath, MemoryText caption)? image,
     TResult? Function(MemoryAudio audioPath)? audio,
+    TResult? Function()? none,
   }) {
     return audio?.call(audioPath);
   }
@@ -751,6 +789,7 @@ class _$AudioImpl with DiagnosticableTreeMixin implements _Audio {
     TResult Function(MemoryText text)? text,
     TResult Function(MemoryImage imagePath, MemoryText caption)? image,
     TResult Function(MemoryAudio audioPath)? audio,
+    TResult Function()? none,
     required TResult orElse(),
   }) {
     if (audio != null) {
@@ -765,6 +804,7 @@ class _$AudioImpl with DiagnosticableTreeMixin implements _Audio {
     required TResult Function(_Text value) text,
     required TResult Function(_Image value) image,
     required TResult Function(_Audio value) audio,
+    required TResult Function(_None value) none,
   }) {
     return audio(this);
   }
@@ -775,6 +815,7 @@ class _$AudioImpl with DiagnosticableTreeMixin implements _Audio {
     TResult? Function(_Text value)? text,
     TResult? Function(_Image value)? image,
     TResult? Function(_Audio value)? audio,
+    TResult? Function(_None value)? none,
   }) {
     return audio?.call(this);
   }
@@ -785,6 +826,7 @@ class _$AudioImpl with DiagnosticableTreeMixin implements _Audio {
     TResult Function(_Text value)? text,
     TResult Function(_Image value)? image,
     TResult Function(_Audio value)? audio,
+    TResult Function(_None value)? none,
     required TResult orElse(),
   }) {
     if (audio != null) {
@@ -804,4 +846,126 @@ abstract class _Audio implements MemoryContent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AudioImplCopyWith<_$AudioImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NoneImplCopyWith<$Res> {
+  factory _$$NoneImplCopyWith(
+          _$NoneImpl value, $Res Function(_$NoneImpl) then) =
+      __$$NoneImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NoneImplCopyWithImpl<$Res>
+    extends _$MemoryContentCopyWithImpl<$Res, _$NoneImpl>
+    implements _$$NoneImplCopyWith<$Res> {
+  __$$NoneImplCopyWithImpl(_$NoneImpl _value, $Res Function(_$NoneImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MemoryContent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$NoneImpl with DiagnosticableTreeMixin implements _None {
+  const _$NoneImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'MemoryContent.none()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'MemoryContent.none'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NoneImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(MemoryText text) text,
+    required TResult Function(MemoryImage imagePath, MemoryText caption) image,
+    required TResult Function(MemoryAudio audioPath) audio,
+    required TResult Function() none,
+  }) {
+    return none();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(MemoryText text)? text,
+    TResult? Function(MemoryImage imagePath, MemoryText caption)? image,
+    TResult? Function(MemoryAudio audioPath)? audio,
+    TResult? Function()? none,
+  }) {
+    return none?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(MemoryText text)? text,
+    TResult Function(MemoryImage imagePath, MemoryText caption)? image,
+    TResult Function(MemoryAudio audioPath)? audio,
+    TResult Function()? none,
+    required TResult orElse(),
+  }) {
+    if (none != null) {
+      return none();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Text value) text,
+    required TResult Function(_Image value) image,
+    required TResult Function(_Audio value) audio,
+    required TResult Function(_None value) none,
+  }) {
+    return none(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Text value)? text,
+    TResult? Function(_Image value)? image,
+    TResult? Function(_Audio value)? audio,
+    TResult? Function(_None value)? none,
+  }) {
+    return none?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Text value)? text,
+    TResult Function(_Image value)? image,
+    TResult Function(_Audio value)? audio,
+    TResult Function(_None value)? none,
+    required TResult orElse(),
+  }) {
+    if (none != null) {
+      return none(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _None implements MemoryContent {
+  const factory _None() = _$NoneImpl;
 }

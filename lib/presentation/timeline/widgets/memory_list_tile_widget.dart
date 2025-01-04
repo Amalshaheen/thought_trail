@@ -30,7 +30,7 @@ class MemoryListTileWidget extends StatelessWidget {
         memory.time.year == DateTime.now().year;
 
     // Check if the memory has a content
-    final bool isMemory = memory.memory != null;
+    final bool isMemory = memory.type != MemoryType.none;
 
     // Check if the time is one of 6am, 12pm, 4pm, or 8pm
     final bool isPerfectTime =
@@ -69,7 +69,7 @@ class MemoryListTileWidget extends StatelessWidget {
                       : SizedBox(),
                   // If the memory has a content, display the content.
                   (isMemory)
-                      ? MemoryContentWidget(memoryContent: memory.memory!)
+                      ? MemoryContentWidget(memoryContent: memory.memoryContent)
                       : SizedBox(),
                 ],
               ),
