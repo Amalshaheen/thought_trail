@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:thought_trail/domain/memory/memory.dart';
+import 'package:thought_trail/domain/memory/memory_content.dart';
 import 'package:thought_trail/presentation/timeline/widgets/memory_content_widget.dart';
 import 'package:thought_trail/presentation/timeline/widgets/memory_time_widget.dart';
 import 'package:thought_trail/presentation/timeline/widgets/memory_timeline_widget.dart';
@@ -30,7 +31,7 @@ class MemoryListTileWidget extends StatelessWidget {
         memory.time.year == DateTime.now().year;
 
     // Check if the memory has a content
-    final bool isMemory = memory.type != MemoryType.none;
+    final bool isMemory = memory.memoryContent != MemoryContent.none();
 
     // Check if the time is one of 6am, 12pm, 4pm, or 8pm
     final bool isPerfectTime =

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thought_trail/domain/memory/memory.dart';
+import 'package:thought_trail/domain/memory/memory_content.dart';
 
 class MemoryContentWidget extends StatelessWidget {
   const MemoryContentWidget({

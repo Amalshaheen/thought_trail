@@ -4,10 +4,10 @@ part of 'memory_form_bloc.dart';
 class MemoryFormState with _$MemoryFormState {
   const factory MemoryFormState({
     required Memory memory,
-    required MemoryType type,
     required bool showErrorMessage,
     required bool isEditing,
     required bool isSaving,
+    required bool isRecording,
     required Option<Either<ValueFailure, Memory>> failureOrSuccessOption,
   }) = _MemoryFormState;
 
@@ -17,6 +17,6 @@ class MemoryFormState with _$MemoryFormState {
         isEditing: true,
         isSaving: true,
         failureOrSuccessOption: none(),
-        type: MemoryType.none,
+        isRecording: false,
       );
 }

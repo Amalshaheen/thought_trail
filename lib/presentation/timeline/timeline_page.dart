@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:thought_trail/presentation/timeline/widgets/add_memory_fab.dart';
-import 'package:thought_trail/presentation/timeline/widgets/memories_list_widget.dart';
 
 import '../../core/theme.dart';
 

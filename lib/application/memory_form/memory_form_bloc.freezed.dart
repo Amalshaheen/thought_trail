@@ -18,62 +18,68 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$MemoryFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() memoryTypeChanged,
     required TResult Function() dateTimeChanged,
-    required TResult Function() memoryContentChanged,
+    required TResult Function() memoryTypeChanged,
+    required TResult Function(MemoryContent memoryContent) memoryContentChanged,
     required TResult Function() imagePickerPressed,
     required TResult Function() datePickerPressed,
+    required TResult Function() voiceButtonPressed,
     required TResult Function() saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? memoryTypeChanged,
     TResult? Function()? dateTimeChanged,
-    TResult? Function()? memoryContentChanged,
+    TResult? Function()? memoryTypeChanged,
+    TResult? Function(MemoryContent memoryContent)? memoryContentChanged,
     TResult? Function()? imagePickerPressed,
     TResult? Function()? datePickerPressed,
+    TResult? Function()? voiceButtonPressed,
     TResult? Function()? saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? memoryTypeChanged,
     TResult Function()? dateTimeChanged,
-    TResult Function()? memoryContentChanged,
+    TResult Function()? memoryTypeChanged,
+    TResult Function(MemoryContent memoryContent)? memoryContentChanged,
     TResult Function()? imagePickerPressed,
     TResult Function()? datePickerPressed,
+    TResult Function()? voiceButtonPressed,
     TResult Function()? saved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_MemoryTypeChanged value) memoryTypeChanged,
     required TResult Function(_DateTimeChanged value) dateTimeChanged,
+    required TResult Function(_MemoryTypeChanged value) memoryTypeChanged,
     required TResult Function(_MemoryContentChanged value) memoryContentChanged,
     required TResult Function(_ImagePickerPressed value) imagePickerPressed,
     required TResult Function(_DatePickerPressed value) datePickerPressed,
+    required TResult Function(_VoiceButtonPressed value) voiceButtonPressed,
     required TResult Function(_Saved value) saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult? Function(_DateTimeChanged value)? dateTimeChanged,
+    TResult? Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult? Function(_MemoryContentChanged value)? memoryContentChanged,
     TResult? Function(_ImagePickerPressed value)? imagePickerPressed,
     TResult? Function(_DatePickerPressed value)? datePickerPressed,
+    TResult? Function(_VoiceButtonPressed value)? voiceButtonPressed,
     TResult? Function(_Saved value)? saved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult Function(_DateTimeChanged value)? dateTimeChanged,
+    TResult Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult Function(_MemoryContentChanged value)? memoryContentChanged,
     TResult Function(_ImagePickerPressed value)? imagePickerPressed,
     TResult Function(_DatePickerPressed value)? datePickerPressed,
+    TResult Function(_VoiceButtonPressed value)? voiceButtonPressed,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) =>
@@ -99,135 +105,6 @@ class _$MemoryFormEventCopyWithImpl<$Res, $Val extends MemoryFormEvent>
 
   /// Create a copy of MemoryFormEvent
   /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-abstract class _$$MemoryTypeChangedImplCopyWith<$Res> {
-  factory _$$MemoryTypeChangedImplCopyWith(_$MemoryTypeChangedImpl value,
-          $Res Function(_$MemoryTypeChangedImpl) then) =
-      __$$MemoryTypeChangedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$MemoryTypeChangedImplCopyWithImpl<$Res>
-    extends _$MemoryFormEventCopyWithImpl<$Res, _$MemoryTypeChangedImpl>
-    implements _$$MemoryTypeChangedImplCopyWith<$Res> {
-  __$$MemoryTypeChangedImplCopyWithImpl(_$MemoryTypeChangedImpl _value,
-      $Res Function(_$MemoryTypeChangedImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of MemoryFormEvent
-  /// with the given fields replaced by the non-null parameter values.
-}
-
-/// @nodoc
-
-class _$MemoryTypeChangedImpl implements _MemoryTypeChanged {
-  const _$MemoryTypeChangedImpl();
-
-  @override
-  String toString() {
-    return 'MemoryFormEvent.memoryTypeChanged()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$MemoryTypeChangedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() memoryTypeChanged,
-    required TResult Function() dateTimeChanged,
-    required TResult Function() memoryContentChanged,
-    required TResult Function() imagePickerPressed,
-    required TResult Function() datePickerPressed,
-    required TResult Function() saved,
-  }) {
-    return memoryTypeChanged();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? memoryTypeChanged,
-    TResult? Function()? dateTimeChanged,
-    TResult? Function()? memoryContentChanged,
-    TResult? Function()? imagePickerPressed,
-    TResult? Function()? datePickerPressed,
-    TResult? Function()? saved,
-  }) {
-    return memoryTypeChanged?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? memoryTypeChanged,
-    TResult Function()? dateTimeChanged,
-    TResult Function()? memoryContentChanged,
-    TResult Function()? imagePickerPressed,
-    TResult Function()? datePickerPressed,
-    TResult Function()? saved,
-    required TResult orElse(),
-  }) {
-    if (memoryTypeChanged != null) {
-      return memoryTypeChanged();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_MemoryTypeChanged value) memoryTypeChanged,
-    required TResult Function(_DateTimeChanged value) dateTimeChanged,
-    required TResult Function(_MemoryContentChanged value) memoryContentChanged,
-    required TResult Function(_ImagePickerPressed value) imagePickerPressed,
-    required TResult Function(_DatePickerPressed value) datePickerPressed,
-    required TResult Function(_Saved value) saved,
-  }) {
-    return memoryTypeChanged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MemoryTypeChanged value)? memoryTypeChanged,
-    TResult? Function(_DateTimeChanged value)? dateTimeChanged,
-    TResult? Function(_MemoryContentChanged value)? memoryContentChanged,
-    TResult? Function(_ImagePickerPressed value)? imagePickerPressed,
-    TResult? Function(_DatePickerPressed value)? datePickerPressed,
-    TResult? Function(_Saved value)? saved,
-  }) {
-    return memoryTypeChanged?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MemoryTypeChanged value)? memoryTypeChanged,
-    TResult Function(_DateTimeChanged value)? dateTimeChanged,
-    TResult Function(_MemoryContentChanged value)? memoryContentChanged,
-    TResult Function(_ImagePickerPressed value)? imagePickerPressed,
-    TResult Function(_DatePickerPressed value)? datePickerPressed,
-    TResult Function(_Saved value)? saved,
-    required TResult orElse(),
-  }) {
-    if (memoryTypeChanged != null) {
-      return memoryTypeChanged(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _MemoryTypeChanged implements MemoryFormEvent {
-  const factory _MemoryTypeChanged() = _$MemoryTypeChangedImpl;
 }
 
 /// @nodoc
@@ -271,11 +148,12 @@ class _$DateTimeChangedImpl implements _DateTimeChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() memoryTypeChanged,
     required TResult Function() dateTimeChanged,
-    required TResult Function() memoryContentChanged,
+    required TResult Function() memoryTypeChanged,
+    required TResult Function(MemoryContent memoryContent) memoryContentChanged,
     required TResult Function() imagePickerPressed,
     required TResult Function() datePickerPressed,
+    required TResult Function() voiceButtonPressed,
     required TResult Function() saved,
   }) {
     return dateTimeChanged();
@@ -284,11 +162,12 @@ class _$DateTimeChangedImpl implements _DateTimeChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? memoryTypeChanged,
     TResult? Function()? dateTimeChanged,
-    TResult? Function()? memoryContentChanged,
+    TResult? Function()? memoryTypeChanged,
+    TResult? Function(MemoryContent memoryContent)? memoryContentChanged,
     TResult? Function()? imagePickerPressed,
     TResult? Function()? datePickerPressed,
+    TResult? Function()? voiceButtonPressed,
     TResult? Function()? saved,
   }) {
     return dateTimeChanged?.call();
@@ -297,11 +176,12 @@ class _$DateTimeChangedImpl implements _DateTimeChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? memoryTypeChanged,
     TResult Function()? dateTimeChanged,
-    TResult Function()? memoryContentChanged,
+    TResult Function()? memoryTypeChanged,
+    TResult Function(MemoryContent memoryContent)? memoryContentChanged,
     TResult Function()? imagePickerPressed,
     TResult Function()? datePickerPressed,
+    TResult Function()? voiceButtonPressed,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -314,11 +194,12 @@ class _$DateTimeChangedImpl implements _DateTimeChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_MemoryTypeChanged value) memoryTypeChanged,
     required TResult Function(_DateTimeChanged value) dateTimeChanged,
+    required TResult Function(_MemoryTypeChanged value) memoryTypeChanged,
     required TResult Function(_MemoryContentChanged value) memoryContentChanged,
     required TResult Function(_ImagePickerPressed value) imagePickerPressed,
     required TResult Function(_DatePickerPressed value) datePickerPressed,
+    required TResult Function(_VoiceButtonPressed value) voiceButtonPressed,
     required TResult Function(_Saved value) saved,
   }) {
     return dateTimeChanged(this);
@@ -327,11 +208,12 @@ class _$DateTimeChangedImpl implements _DateTimeChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult? Function(_DateTimeChanged value)? dateTimeChanged,
+    TResult? Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult? Function(_MemoryContentChanged value)? memoryContentChanged,
     TResult? Function(_ImagePickerPressed value)? imagePickerPressed,
     TResult? Function(_DatePickerPressed value)? datePickerPressed,
+    TResult? Function(_VoiceButtonPressed value)? voiceButtonPressed,
     TResult? Function(_Saved value)? saved,
   }) {
     return dateTimeChanged?.call(this);
@@ -340,11 +222,12 @@ class _$DateTimeChangedImpl implements _DateTimeChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult Function(_DateTimeChanged value)? dateTimeChanged,
+    TResult Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult Function(_MemoryContentChanged value)? memoryContentChanged,
     TResult Function(_ImagePickerPressed value)? imagePickerPressed,
     TResult Function(_DatePickerPressed value)? datePickerPressed,
+    TResult Function(_VoiceButtonPressed value)? voiceButtonPressed,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -360,10 +243,149 @@ abstract class _DateTimeChanged implements MemoryFormEvent {
 }
 
 /// @nodoc
+abstract class _$$MemoryTypeChangedImplCopyWith<$Res> {
+  factory _$$MemoryTypeChangedImplCopyWith(_$MemoryTypeChangedImpl value,
+          $Res Function(_$MemoryTypeChangedImpl) then) =
+      __$$MemoryTypeChangedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$MemoryTypeChangedImplCopyWithImpl<$Res>
+    extends _$MemoryFormEventCopyWithImpl<$Res, _$MemoryTypeChangedImpl>
+    implements _$$MemoryTypeChangedImplCopyWith<$Res> {
+  __$$MemoryTypeChangedImplCopyWithImpl(_$MemoryTypeChangedImpl _value,
+      $Res Function(_$MemoryTypeChangedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MemoryFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$MemoryTypeChangedImpl implements _MemoryTypeChanged {
+  const _$MemoryTypeChangedImpl();
+
+  @override
+  String toString() {
+    return 'MemoryFormEvent.memoryTypeChanged()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$MemoryTypeChangedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() dateTimeChanged,
+    required TResult Function() memoryTypeChanged,
+    required TResult Function(MemoryContent memoryContent) memoryContentChanged,
+    required TResult Function() imagePickerPressed,
+    required TResult Function() datePickerPressed,
+    required TResult Function() voiceButtonPressed,
+    required TResult Function() saved,
+  }) {
+    return memoryTypeChanged();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? dateTimeChanged,
+    TResult? Function()? memoryTypeChanged,
+    TResult? Function(MemoryContent memoryContent)? memoryContentChanged,
+    TResult? Function()? imagePickerPressed,
+    TResult? Function()? datePickerPressed,
+    TResult? Function()? voiceButtonPressed,
+    TResult? Function()? saved,
+  }) {
+    return memoryTypeChanged?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? dateTimeChanged,
+    TResult Function()? memoryTypeChanged,
+    TResult Function(MemoryContent memoryContent)? memoryContentChanged,
+    TResult Function()? imagePickerPressed,
+    TResult Function()? datePickerPressed,
+    TResult Function()? voiceButtonPressed,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (memoryTypeChanged != null) {
+      return memoryTypeChanged();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DateTimeChanged value) dateTimeChanged,
+    required TResult Function(_MemoryTypeChanged value) memoryTypeChanged,
+    required TResult Function(_MemoryContentChanged value) memoryContentChanged,
+    required TResult Function(_ImagePickerPressed value) imagePickerPressed,
+    required TResult Function(_DatePickerPressed value) datePickerPressed,
+    required TResult Function(_VoiceButtonPressed value) voiceButtonPressed,
+    required TResult Function(_Saved value) saved,
+  }) {
+    return memoryTypeChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_DateTimeChanged value)? dateTimeChanged,
+    TResult? Function(_MemoryTypeChanged value)? memoryTypeChanged,
+    TResult? Function(_MemoryContentChanged value)? memoryContentChanged,
+    TResult? Function(_ImagePickerPressed value)? imagePickerPressed,
+    TResult? Function(_DatePickerPressed value)? datePickerPressed,
+    TResult? Function(_VoiceButtonPressed value)? voiceButtonPressed,
+    TResult? Function(_Saved value)? saved,
+  }) {
+    return memoryTypeChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DateTimeChanged value)? dateTimeChanged,
+    TResult Function(_MemoryTypeChanged value)? memoryTypeChanged,
+    TResult Function(_MemoryContentChanged value)? memoryContentChanged,
+    TResult Function(_ImagePickerPressed value)? imagePickerPressed,
+    TResult Function(_DatePickerPressed value)? datePickerPressed,
+    TResult Function(_VoiceButtonPressed value)? voiceButtonPressed,
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (memoryTypeChanged != null) {
+      return memoryTypeChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MemoryTypeChanged implements MemoryFormEvent {
+  const factory _MemoryTypeChanged() = _$MemoryTypeChangedImpl;
+}
+
+/// @nodoc
 abstract class _$$MemoryContentChangedImplCopyWith<$Res> {
   factory _$$MemoryContentChangedImplCopyWith(_$MemoryContentChangedImpl value,
           $Res Function(_$MemoryContentChangedImpl) then) =
       __$$MemoryContentChangedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({MemoryContent memoryContent});
+
+  $MemoryContentCopyWith<$Res> get memoryContent;
 }
 
 /// @nodoc
@@ -376,67 +398,107 @@ class __$$MemoryContentChangedImplCopyWithImpl<$Res>
 
   /// Create a copy of MemoryFormEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? memoryContent = null,
+  }) {
+    return _then(_$MemoryContentChangedImpl(
+      null == memoryContent
+          ? _value.memoryContent
+          : memoryContent // ignore: cast_nullable_to_non_nullable
+              as MemoryContent,
+    ));
+  }
+
+  /// Create a copy of MemoryFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $MemoryContentCopyWith<$Res> get memoryContent {
+    return $MemoryContentCopyWith<$Res>(_value.memoryContent, (value) {
+      return _then(_value.copyWith(memoryContent: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$MemoryContentChangedImpl implements _MemoryContentChanged {
-  const _$MemoryContentChangedImpl();
+  const _$MemoryContentChangedImpl(this.memoryContent);
+
+  @override
+  final MemoryContent memoryContent;
 
   @override
   String toString() {
-    return 'MemoryFormEvent.memoryContentChanged()';
+    return 'MemoryFormEvent.memoryContentChanged(memoryContent: $memoryContent)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MemoryContentChangedImpl);
+            other is _$MemoryContentChangedImpl &&
+            (identical(other.memoryContent, memoryContent) ||
+                other.memoryContent == memoryContent));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, memoryContent);
+
+  /// Create a copy of MemoryFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MemoryContentChangedImplCopyWith<_$MemoryContentChangedImpl>
+      get copyWith =>
+          __$$MemoryContentChangedImplCopyWithImpl<_$MemoryContentChangedImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() memoryTypeChanged,
     required TResult Function() dateTimeChanged,
-    required TResult Function() memoryContentChanged,
+    required TResult Function() memoryTypeChanged,
+    required TResult Function(MemoryContent memoryContent) memoryContentChanged,
     required TResult Function() imagePickerPressed,
     required TResult Function() datePickerPressed,
+    required TResult Function() voiceButtonPressed,
     required TResult Function() saved,
   }) {
-    return memoryContentChanged();
+    return memoryContentChanged(memoryContent);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? memoryTypeChanged,
     TResult? Function()? dateTimeChanged,
-    TResult? Function()? memoryContentChanged,
+    TResult? Function()? memoryTypeChanged,
+    TResult? Function(MemoryContent memoryContent)? memoryContentChanged,
     TResult? Function()? imagePickerPressed,
     TResult? Function()? datePickerPressed,
+    TResult? Function()? voiceButtonPressed,
     TResult? Function()? saved,
   }) {
-    return memoryContentChanged?.call();
+    return memoryContentChanged?.call(memoryContent);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? memoryTypeChanged,
     TResult Function()? dateTimeChanged,
-    TResult Function()? memoryContentChanged,
+    TResult Function()? memoryTypeChanged,
+    TResult Function(MemoryContent memoryContent)? memoryContentChanged,
     TResult Function()? imagePickerPressed,
     TResult Function()? datePickerPressed,
+    TResult Function()? voiceButtonPressed,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
     if (memoryContentChanged != null) {
-      return memoryContentChanged();
+      return memoryContentChanged(memoryContent);
     }
     return orElse();
   }
@@ -444,11 +506,12 @@ class _$MemoryContentChangedImpl implements _MemoryContentChanged {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_MemoryTypeChanged value) memoryTypeChanged,
     required TResult Function(_DateTimeChanged value) dateTimeChanged,
+    required TResult Function(_MemoryTypeChanged value) memoryTypeChanged,
     required TResult Function(_MemoryContentChanged value) memoryContentChanged,
     required TResult Function(_ImagePickerPressed value) imagePickerPressed,
     required TResult Function(_DatePickerPressed value) datePickerPressed,
+    required TResult Function(_VoiceButtonPressed value) voiceButtonPressed,
     required TResult Function(_Saved value) saved,
   }) {
     return memoryContentChanged(this);
@@ -457,11 +520,12 @@ class _$MemoryContentChangedImpl implements _MemoryContentChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult? Function(_DateTimeChanged value)? dateTimeChanged,
+    TResult? Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult? Function(_MemoryContentChanged value)? memoryContentChanged,
     TResult? Function(_ImagePickerPressed value)? imagePickerPressed,
     TResult? Function(_DatePickerPressed value)? datePickerPressed,
+    TResult? Function(_VoiceButtonPressed value)? voiceButtonPressed,
     TResult? Function(_Saved value)? saved,
   }) {
     return memoryContentChanged?.call(this);
@@ -470,11 +534,12 @@ class _$MemoryContentChangedImpl implements _MemoryContentChanged {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult Function(_DateTimeChanged value)? dateTimeChanged,
+    TResult Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult Function(_MemoryContentChanged value)? memoryContentChanged,
     TResult Function(_ImagePickerPressed value)? imagePickerPressed,
     TResult Function(_DatePickerPressed value)? datePickerPressed,
+    TResult Function(_VoiceButtonPressed value)? voiceButtonPressed,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -486,7 +551,16 @@ class _$MemoryContentChangedImpl implements _MemoryContentChanged {
 }
 
 abstract class _MemoryContentChanged implements MemoryFormEvent {
-  const factory _MemoryContentChanged() = _$MemoryContentChangedImpl;
+  const factory _MemoryContentChanged(final MemoryContent memoryContent) =
+      _$MemoryContentChangedImpl;
+
+  MemoryContent get memoryContent;
+
+  /// Create a copy of MemoryFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MemoryContentChangedImplCopyWith<_$MemoryContentChangedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -530,11 +604,12 @@ class _$ImagePickerPressedImpl implements _ImagePickerPressed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() memoryTypeChanged,
     required TResult Function() dateTimeChanged,
-    required TResult Function() memoryContentChanged,
+    required TResult Function() memoryTypeChanged,
+    required TResult Function(MemoryContent memoryContent) memoryContentChanged,
     required TResult Function() imagePickerPressed,
     required TResult Function() datePickerPressed,
+    required TResult Function() voiceButtonPressed,
     required TResult Function() saved,
   }) {
     return imagePickerPressed();
@@ -543,11 +618,12 @@ class _$ImagePickerPressedImpl implements _ImagePickerPressed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? memoryTypeChanged,
     TResult? Function()? dateTimeChanged,
-    TResult? Function()? memoryContentChanged,
+    TResult? Function()? memoryTypeChanged,
+    TResult? Function(MemoryContent memoryContent)? memoryContentChanged,
     TResult? Function()? imagePickerPressed,
     TResult? Function()? datePickerPressed,
+    TResult? Function()? voiceButtonPressed,
     TResult? Function()? saved,
   }) {
     return imagePickerPressed?.call();
@@ -556,11 +632,12 @@ class _$ImagePickerPressedImpl implements _ImagePickerPressed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? memoryTypeChanged,
     TResult Function()? dateTimeChanged,
-    TResult Function()? memoryContentChanged,
+    TResult Function()? memoryTypeChanged,
+    TResult Function(MemoryContent memoryContent)? memoryContentChanged,
     TResult Function()? imagePickerPressed,
     TResult Function()? datePickerPressed,
+    TResult Function()? voiceButtonPressed,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -573,11 +650,12 @@ class _$ImagePickerPressedImpl implements _ImagePickerPressed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_MemoryTypeChanged value) memoryTypeChanged,
     required TResult Function(_DateTimeChanged value) dateTimeChanged,
+    required TResult Function(_MemoryTypeChanged value) memoryTypeChanged,
     required TResult Function(_MemoryContentChanged value) memoryContentChanged,
     required TResult Function(_ImagePickerPressed value) imagePickerPressed,
     required TResult Function(_DatePickerPressed value) datePickerPressed,
+    required TResult Function(_VoiceButtonPressed value) voiceButtonPressed,
     required TResult Function(_Saved value) saved,
   }) {
     return imagePickerPressed(this);
@@ -586,11 +664,12 @@ class _$ImagePickerPressedImpl implements _ImagePickerPressed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult? Function(_DateTimeChanged value)? dateTimeChanged,
+    TResult? Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult? Function(_MemoryContentChanged value)? memoryContentChanged,
     TResult? Function(_ImagePickerPressed value)? imagePickerPressed,
     TResult? Function(_DatePickerPressed value)? datePickerPressed,
+    TResult? Function(_VoiceButtonPressed value)? voiceButtonPressed,
     TResult? Function(_Saved value)? saved,
   }) {
     return imagePickerPressed?.call(this);
@@ -599,11 +678,12 @@ class _$ImagePickerPressedImpl implements _ImagePickerPressed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult Function(_DateTimeChanged value)? dateTimeChanged,
+    TResult Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult Function(_MemoryContentChanged value)? memoryContentChanged,
     TResult Function(_ImagePickerPressed value)? imagePickerPressed,
     TResult Function(_DatePickerPressed value)? datePickerPressed,
+    TResult Function(_VoiceButtonPressed value)? voiceButtonPressed,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -659,11 +739,12 @@ class _$DatePickerPressedImpl implements _DatePickerPressed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() memoryTypeChanged,
     required TResult Function() dateTimeChanged,
-    required TResult Function() memoryContentChanged,
+    required TResult Function() memoryTypeChanged,
+    required TResult Function(MemoryContent memoryContent) memoryContentChanged,
     required TResult Function() imagePickerPressed,
     required TResult Function() datePickerPressed,
+    required TResult Function() voiceButtonPressed,
     required TResult Function() saved,
   }) {
     return datePickerPressed();
@@ -672,11 +753,12 @@ class _$DatePickerPressedImpl implements _DatePickerPressed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? memoryTypeChanged,
     TResult? Function()? dateTimeChanged,
-    TResult? Function()? memoryContentChanged,
+    TResult? Function()? memoryTypeChanged,
+    TResult? Function(MemoryContent memoryContent)? memoryContentChanged,
     TResult? Function()? imagePickerPressed,
     TResult? Function()? datePickerPressed,
+    TResult? Function()? voiceButtonPressed,
     TResult? Function()? saved,
   }) {
     return datePickerPressed?.call();
@@ -685,11 +767,12 @@ class _$DatePickerPressedImpl implements _DatePickerPressed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? memoryTypeChanged,
     TResult Function()? dateTimeChanged,
-    TResult Function()? memoryContentChanged,
+    TResult Function()? memoryTypeChanged,
+    TResult Function(MemoryContent memoryContent)? memoryContentChanged,
     TResult Function()? imagePickerPressed,
     TResult Function()? datePickerPressed,
+    TResult Function()? voiceButtonPressed,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -702,11 +785,12 @@ class _$DatePickerPressedImpl implements _DatePickerPressed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_MemoryTypeChanged value) memoryTypeChanged,
     required TResult Function(_DateTimeChanged value) dateTimeChanged,
+    required TResult Function(_MemoryTypeChanged value) memoryTypeChanged,
     required TResult Function(_MemoryContentChanged value) memoryContentChanged,
     required TResult Function(_ImagePickerPressed value) imagePickerPressed,
     required TResult Function(_DatePickerPressed value) datePickerPressed,
+    required TResult Function(_VoiceButtonPressed value) voiceButtonPressed,
     required TResult Function(_Saved value) saved,
   }) {
     return datePickerPressed(this);
@@ -715,11 +799,12 @@ class _$DatePickerPressedImpl implements _DatePickerPressed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult? Function(_DateTimeChanged value)? dateTimeChanged,
+    TResult? Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult? Function(_MemoryContentChanged value)? memoryContentChanged,
     TResult? Function(_ImagePickerPressed value)? imagePickerPressed,
     TResult? Function(_DatePickerPressed value)? datePickerPressed,
+    TResult? Function(_VoiceButtonPressed value)? voiceButtonPressed,
     TResult? Function(_Saved value)? saved,
   }) {
     return datePickerPressed?.call(this);
@@ -728,11 +813,12 @@ class _$DatePickerPressedImpl implements _DatePickerPressed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult Function(_DateTimeChanged value)? dateTimeChanged,
+    TResult Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult Function(_MemoryContentChanged value)? memoryContentChanged,
     TResult Function(_ImagePickerPressed value)? imagePickerPressed,
     TResult Function(_DatePickerPressed value)? datePickerPressed,
+    TResult Function(_VoiceButtonPressed value)? voiceButtonPressed,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -745,6 +831,141 @@ class _$DatePickerPressedImpl implements _DatePickerPressed {
 
 abstract class _DatePickerPressed implements MemoryFormEvent {
   const factory _DatePickerPressed() = _$DatePickerPressedImpl;
+}
+
+/// @nodoc
+abstract class _$$VoiceButtonPressedImplCopyWith<$Res> {
+  factory _$$VoiceButtonPressedImplCopyWith(_$VoiceButtonPressedImpl value,
+          $Res Function(_$VoiceButtonPressedImpl) then) =
+      __$$VoiceButtonPressedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$VoiceButtonPressedImplCopyWithImpl<$Res>
+    extends _$MemoryFormEventCopyWithImpl<$Res, _$VoiceButtonPressedImpl>
+    implements _$$VoiceButtonPressedImplCopyWith<$Res> {
+  __$$VoiceButtonPressedImplCopyWithImpl(_$VoiceButtonPressedImpl _value,
+      $Res Function(_$VoiceButtonPressedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MemoryFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$VoiceButtonPressedImpl implements _VoiceButtonPressed {
+  const _$VoiceButtonPressedImpl();
+
+  @override
+  String toString() {
+    return 'MemoryFormEvent.voiceButtonPressed()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$VoiceButtonPressedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() dateTimeChanged,
+    required TResult Function() memoryTypeChanged,
+    required TResult Function(MemoryContent memoryContent) memoryContentChanged,
+    required TResult Function() imagePickerPressed,
+    required TResult Function() datePickerPressed,
+    required TResult Function() voiceButtonPressed,
+    required TResult Function() saved,
+  }) {
+    return voiceButtonPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? dateTimeChanged,
+    TResult? Function()? memoryTypeChanged,
+    TResult? Function(MemoryContent memoryContent)? memoryContentChanged,
+    TResult? Function()? imagePickerPressed,
+    TResult? Function()? datePickerPressed,
+    TResult? Function()? voiceButtonPressed,
+    TResult? Function()? saved,
+  }) {
+    return voiceButtonPressed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? dateTimeChanged,
+    TResult Function()? memoryTypeChanged,
+    TResult Function(MemoryContent memoryContent)? memoryContentChanged,
+    TResult Function()? imagePickerPressed,
+    TResult Function()? datePickerPressed,
+    TResult Function()? voiceButtonPressed,
+    TResult Function()? saved,
+    required TResult orElse(),
+  }) {
+    if (voiceButtonPressed != null) {
+      return voiceButtonPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DateTimeChanged value) dateTimeChanged,
+    required TResult Function(_MemoryTypeChanged value) memoryTypeChanged,
+    required TResult Function(_MemoryContentChanged value) memoryContentChanged,
+    required TResult Function(_ImagePickerPressed value) imagePickerPressed,
+    required TResult Function(_DatePickerPressed value) datePickerPressed,
+    required TResult Function(_VoiceButtonPressed value) voiceButtonPressed,
+    required TResult Function(_Saved value) saved,
+  }) {
+    return voiceButtonPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_DateTimeChanged value)? dateTimeChanged,
+    TResult? Function(_MemoryTypeChanged value)? memoryTypeChanged,
+    TResult? Function(_MemoryContentChanged value)? memoryContentChanged,
+    TResult? Function(_ImagePickerPressed value)? imagePickerPressed,
+    TResult? Function(_DatePickerPressed value)? datePickerPressed,
+    TResult? Function(_VoiceButtonPressed value)? voiceButtonPressed,
+    TResult? Function(_Saved value)? saved,
+  }) {
+    return voiceButtonPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DateTimeChanged value)? dateTimeChanged,
+    TResult Function(_MemoryTypeChanged value)? memoryTypeChanged,
+    TResult Function(_MemoryContentChanged value)? memoryContentChanged,
+    TResult Function(_ImagePickerPressed value)? imagePickerPressed,
+    TResult Function(_DatePickerPressed value)? datePickerPressed,
+    TResult Function(_VoiceButtonPressed value)? voiceButtonPressed,
+    TResult Function(_Saved value)? saved,
+    required TResult orElse(),
+  }) {
+    if (voiceButtonPressed != null) {
+      return voiceButtonPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _VoiceButtonPressed implements MemoryFormEvent {
+  const factory _VoiceButtonPressed() = _$VoiceButtonPressedImpl;
 }
 
 /// @nodoc
@@ -788,11 +1009,12 @@ class _$SavedImpl implements _Saved {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() memoryTypeChanged,
     required TResult Function() dateTimeChanged,
-    required TResult Function() memoryContentChanged,
+    required TResult Function() memoryTypeChanged,
+    required TResult Function(MemoryContent memoryContent) memoryContentChanged,
     required TResult Function() imagePickerPressed,
     required TResult Function() datePickerPressed,
+    required TResult Function() voiceButtonPressed,
     required TResult Function() saved,
   }) {
     return saved();
@@ -801,11 +1023,12 @@ class _$SavedImpl implements _Saved {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? memoryTypeChanged,
     TResult? Function()? dateTimeChanged,
-    TResult? Function()? memoryContentChanged,
+    TResult? Function()? memoryTypeChanged,
+    TResult? Function(MemoryContent memoryContent)? memoryContentChanged,
     TResult? Function()? imagePickerPressed,
     TResult? Function()? datePickerPressed,
+    TResult? Function()? voiceButtonPressed,
     TResult? Function()? saved,
   }) {
     return saved?.call();
@@ -814,11 +1037,12 @@ class _$SavedImpl implements _Saved {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? memoryTypeChanged,
     TResult Function()? dateTimeChanged,
-    TResult Function()? memoryContentChanged,
+    TResult Function()? memoryTypeChanged,
+    TResult Function(MemoryContent memoryContent)? memoryContentChanged,
     TResult Function()? imagePickerPressed,
     TResult Function()? datePickerPressed,
+    TResult Function()? voiceButtonPressed,
     TResult Function()? saved,
     required TResult orElse(),
   }) {
@@ -831,11 +1055,12 @@ class _$SavedImpl implements _Saved {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_MemoryTypeChanged value) memoryTypeChanged,
     required TResult Function(_DateTimeChanged value) dateTimeChanged,
+    required TResult Function(_MemoryTypeChanged value) memoryTypeChanged,
     required TResult Function(_MemoryContentChanged value) memoryContentChanged,
     required TResult Function(_ImagePickerPressed value) imagePickerPressed,
     required TResult Function(_DatePickerPressed value) datePickerPressed,
+    required TResult Function(_VoiceButtonPressed value) voiceButtonPressed,
     required TResult Function(_Saved value) saved,
   }) {
     return saved(this);
@@ -844,11 +1069,12 @@ class _$SavedImpl implements _Saved {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult? Function(_DateTimeChanged value)? dateTimeChanged,
+    TResult? Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult? Function(_MemoryContentChanged value)? memoryContentChanged,
     TResult? Function(_ImagePickerPressed value)? imagePickerPressed,
     TResult? Function(_DatePickerPressed value)? datePickerPressed,
+    TResult? Function(_VoiceButtonPressed value)? voiceButtonPressed,
     TResult? Function(_Saved value)? saved,
   }) {
     return saved?.call(this);
@@ -857,11 +1083,12 @@ class _$SavedImpl implements _Saved {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult Function(_DateTimeChanged value)? dateTimeChanged,
+    TResult Function(_MemoryTypeChanged value)? memoryTypeChanged,
     TResult Function(_MemoryContentChanged value)? memoryContentChanged,
     TResult Function(_ImagePickerPressed value)? imagePickerPressed,
     TResult Function(_DatePickerPressed value)? datePickerPressed,
+    TResult Function(_VoiceButtonPressed value)? voiceButtonPressed,
     TResult Function(_Saved value)? saved,
     required TResult orElse(),
   }) {
@@ -879,10 +1106,10 @@ abstract class _Saved implements MemoryFormEvent {
 /// @nodoc
 mixin _$MemoryFormState {
   Memory get memory => throw _privateConstructorUsedError;
-  MemoryType get type => throw _privateConstructorUsedError;
   bool get showErrorMessage => throw _privateConstructorUsedError;
   bool get isEditing => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
+  bool get isRecording => throw _privateConstructorUsedError;
   Option<Either<ValueFailure, Memory>> get failureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
@@ -901,10 +1128,10 @@ abstract class $MemoryFormStateCopyWith<$Res> {
   @useResult
   $Res call(
       {Memory memory,
-      MemoryType type,
       bool showErrorMessage,
       bool isEditing,
       bool isSaving,
+      bool isRecording,
       Option<Either<ValueFailure, Memory>> failureOrSuccessOption});
 
   $MemoryCopyWith<$Res> get memory;
@@ -926,10 +1153,10 @@ class _$MemoryFormStateCopyWithImpl<$Res, $Val extends MemoryFormState>
   @override
   $Res call({
     Object? memory = null,
-    Object? type = null,
     Object? showErrorMessage = null,
     Object? isEditing = null,
     Object? isSaving = null,
+    Object? isRecording = null,
     Object? failureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
@@ -937,10 +1164,6 @@ class _$MemoryFormStateCopyWithImpl<$Res, $Val extends MemoryFormState>
           ? _value.memory
           : memory // ignore: cast_nullable_to_non_nullable
               as Memory,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as MemoryType,
       showErrorMessage: null == showErrorMessage
           ? _value.showErrorMessage
           : showErrorMessage // ignore: cast_nullable_to_non_nullable
@@ -952,6 +1175,10 @@ class _$MemoryFormStateCopyWithImpl<$Res, $Val extends MemoryFormState>
       isSaving: null == isSaving
           ? _value.isSaving
           : isSaving // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRecording: null == isRecording
+          ? _value.isRecording
+          : isRecording // ignore: cast_nullable_to_non_nullable
               as bool,
       failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
@@ -981,10 +1208,10 @@ abstract class _$$MemoryFormStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {Memory memory,
-      MemoryType type,
       bool showErrorMessage,
       bool isEditing,
       bool isSaving,
+      bool isRecording,
       Option<Either<ValueFailure, Memory>> failureOrSuccessOption});
 
   @override
@@ -1005,10 +1232,10 @@ class __$$MemoryFormStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? memory = null,
-    Object? type = null,
     Object? showErrorMessage = null,
     Object? isEditing = null,
     Object? isSaving = null,
+    Object? isRecording = null,
     Object? failureOrSuccessOption = null,
   }) {
     return _then(_$MemoryFormStateImpl(
@@ -1016,10 +1243,6 @@ class __$$MemoryFormStateImplCopyWithImpl<$Res>
           ? _value.memory
           : memory // ignore: cast_nullable_to_non_nullable
               as Memory,
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as MemoryType,
       showErrorMessage: null == showErrorMessage
           ? _value.showErrorMessage
           : showErrorMessage // ignore: cast_nullable_to_non_nullable
@@ -1031,6 +1254,10 @@ class __$$MemoryFormStateImplCopyWithImpl<$Res>
       isSaving: null == isSaving
           ? _value.isSaving
           : isSaving // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRecording: null == isRecording
+          ? _value.isRecording
+          : isRecording // ignore: cast_nullable_to_non_nullable
               as bool,
       failureOrSuccessOption: null == failureOrSuccessOption
           ? _value.failureOrSuccessOption
@@ -1045,16 +1272,14 @@ class __$$MemoryFormStateImplCopyWithImpl<$Res>
 class _$MemoryFormStateImpl implements _MemoryFormState {
   const _$MemoryFormStateImpl(
       {required this.memory,
-      required this.type,
       required this.showErrorMessage,
       required this.isEditing,
       required this.isSaving,
+      required this.isRecording,
       required this.failureOrSuccessOption});
 
   @override
   final Memory memory;
-  @override
-  final MemoryType type;
   @override
   final bool showErrorMessage;
   @override
@@ -1062,11 +1287,13 @@ class _$MemoryFormStateImpl implements _MemoryFormState {
   @override
   final bool isSaving;
   @override
+  final bool isRecording;
+  @override
   final Option<Either<ValueFailure, Memory>> failureOrSuccessOption;
 
   @override
   String toString() {
-    return 'MemoryFormState(memory: $memory, type: $type, showErrorMessage: $showErrorMessage, isEditing: $isEditing, isSaving: $isSaving, failureOrSuccessOption: $failureOrSuccessOption)';
+    return 'MemoryFormState(memory: $memory, showErrorMessage: $showErrorMessage, isEditing: $isEditing, isSaving: $isSaving, isRecording: $isRecording, failureOrSuccessOption: $failureOrSuccessOption)';
   }
 
   @override
@@ -1075,20 +1302,21 @@ class _$MemoryFormStateImpl implements _MemoryFormState {
         (other.runtimeType == runtimeType &&
             other is _$MemoryFormStateImpl &&
             (identical(other.memory, memory) || other.memory == memory) &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.showErrorMessage, showErrorMessage) ||
                 other.showErrorMessage == showErrorMessage) &&
             (identical(other.isEditing, isEditing) ||
                 other.isEditing == isEditing) &&
             (identical(other.isSaving, isSaving) ||
                 other.isSaving == isSaving) &&
+            (identical(other.isRecording, isRecording) ||
+                other.isRecording == isRecording) &&
             (identical(other.failureOrSuccessOption, failureOrSuccessOption) ||
                 other.failureOrSuccessOption == failureOrSuccessOption));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, memory, type, showErrorMessage,
-      isEditing, isSaving, failureOrSuccessOption);
+  int get hashCode => Object.hash(runtimeType, memory, showErrorMessage,
+      isEditing, isSaving, isRecording, failureOrSuccessOption);
 
   /// Create a copy of MemoryFormState
   /// with the given fields replaced by the non-null parameter values.
@@ -1103,23 +1331,23 @@ class _$MemoryFormStateImpl implements _MemoryFormState {
 abstract class _MemoryFormState implements MemoryFormState {
   const factory _MemoryFormState(
       {required final Memory memory,
-      required final MemoryType type,
       required final bool showErrorMessage,
       required final bool isEditing,
       required final bool isSaving,
+      required final bool isRecording,
       required final Option<Either<ValueFailure, Memory>>
           failureOrSuccessOption}) = _$MemoryFormStateImpl;
 
   @override
   Memory get memory;
   @override
-  MemoryType get type;
-  @override
   bool get showErrorMessage;
   @override
   bool get isEditing;
   @override
   bool get isSaving;
+  @override
+  bool get isRecording;
   @override
   Option<Either<ValueFailure, Memory>> get failureOrSuccessOption;
 
