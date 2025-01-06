@@ -2,9 +2,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:thought_trail/domain/memory/value_objects.dart';
 part 'memory_content.freezed.dart';
 
+enum MemoryContentType { none, text, image, voice }
+
 @freezed
 class MemoryContent with _$MemoryContent {
   const factory MemoryContent._({
+    required MemoryContentType type,
     required MemoryText? text,
     required MemoryImage? image,
     required MemoryVoice? voice,
@@ -13,31 +16,25 @@ class MemoryContent with _$MemoryContent {
         text: null,
         image: null,
         voice: null,
+        type: MemoryContentType.none,
       );
   factory MemoryContent.text(MemoryText text) => MemoryContent._(
         text: text,
         image: null,
         voice: null,
+        type: MemoryContentType.text,
       );
   factory MemoryContent.image(MemoryImage path, MemoryText caption) =>
       MemoryContent._(
         text: caption,
         image: path,
         voice: null,
+        type: MemoryContentType.image,
       );
   factory MemoryContent.voice(MemoryVoice path) => MemoryContent._(
         text: null,
         image: null,
         voice: path,
-      );
-  factory MemoryContent({
-    required MemoryText text,
-    required MemoryImage image,
-    required MemoryVoice voice,
-  }) =>
-      MemoryContent._(
-        text: text,
-        image: image,
-        voice: voice,
+        type: MemoryContentType.voice,
       );
 }

@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$MemoryContent {
+  MemoryContentType get type => throw _privateConstructorUsedError;
   MemoryText? get text => throw _privateConstructorUsedError;
   MemoryImage? get image => throw _privateConstructorUsedError;
   MemoryVoice? get voice => throw _privateConstructorUsedError;
@@ -33,7 +34,11 @@ abstract class $MemoryContentCopyWith<$Res> {
           MemoryContent value, $Res Function(MemoryContent) then) =
       _$MemoryContentCopyWithImpl<$Res, MemoryContent>;
   @useResult
-  $Res call({MemoryText? text, MemoryImage? image, MemoryVoice? voice});
+  $Res call(
+      {MemoryContentType type,
+      MemoryText? text,
+      MemoryImage? image,
+      MemoryVoice? voice});
 }
 
 /// @nodoc
@@ -51,11 +56,16 @@ class _$MemoryContentCopyWithImpl<$Res, $Val extends MemoryContent>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? text = freezed,
     Object? image = freezed,
     Object? voice = freezed,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as MemoryContentType,
       text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -80,7 +90,11 @@ abstract class _$$MemoryContentImplCopyWith<$Res>
       __$$MemoryContentImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({MemoryText? text, MemoryImage? image, MemoryVoice? voice});
+  $Res call(
+      {MemoryContentType type,
+      MemoryText? text,
+      MemoryImage? image,
+      MemoryVoice? voice});
 }
 
 /// @nodoc
@@ -96,11 +110,16 @@ class __$$MemoryContentImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? text = freezed,
     Object? image = freezed,
     Object? voice = freezed,
   }) {
     return _then(_$MemoryContentImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as MemoryContentType,
       text: freezed == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -121,8 +140,13 @@ class __$$MemoryContentImplCopyWithImpl<$Res>
 
 class _$MemoryContentImpl implements _MemoryContent {
   const _$MemoryContentImpl(
-      {required this.text, required this.image, required this.voice});
+      {required this.type,
+      required this.text,
+      required this.image,
+      required this.voice});
 
+  @override
+  final MemoryContentType type;
   @override
   final MemoryText? text;
   @override
@@ -132,7 +156,7 @@ class _$MemoryContentImpl implements _MemoryContent {
 
   @override
   String toString() {
-    return 'MemoryContent._(text: $text, image: $image, voice: $voice)';
+    return 'MemoryContent._(type: $type, text: $text, image: $image, voice: $voice)';
   }
 
   @override
@@ -140,13 +164,14 @@ class _$MemoryContentImpl implements _MemoryContent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MemoryContentImpl &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.text, text) || other.text == text) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.voice, voice) || other.voice == voice));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, text, image, voice);
+  int get hashCode => Object.hash(runtimeType, type, text, image, voice);
 
   /// Create a copy of MemoryContent
   /// with the given fields replaced by the non-null parameter values.
@@ -159,10 +184,13 @@ class _$MemoryContentImpl implements _MemoryContent {
 
 abstract class _MemoryContent implements MemoryContent {
   const factory _MemoryContent(
-      {required final MemoryText? text,
+      {required final MemoryContentType type,
+      required final MemoryText? text,
       required final MemoryImage? image,
       required final MemoryVoice? voice}) = _$MemoryContentImpl;
 
+  @override
+  MemoryContentType get type;
   @override
   MemoryText? get text;
   @override
