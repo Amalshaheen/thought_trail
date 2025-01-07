@@ -11,8 +11,6 @@ part 'memory_form_bloc.freezed.dart';
 
 class MemoryFormBloc extends Bloc<MemoryFormEvent, MemoryFormState> {
   MemoryFormBloc() : super(MemoryFormState.initial()) {
-    on<MemoryFormEvent>((event, emit) {
-      emit(MemoryFormState.initial());
-    });
+    on<_Initialized>((event, emit) => emit(MemoryFormState.initial()));
   }
 }
