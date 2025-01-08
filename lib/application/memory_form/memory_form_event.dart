@@ -5,15 +5,21 @@ class MemoryFormEvent with _$MemoryFormEvent {
   const factory MemoryFormEvent.initialized(
       Option<Memory> initialMemoryOption) = _Initialized;
 
-  const factory MemoryFormEvent.dateTimeChanged() = _DateTimeChanged;
+  const factory MemoryFormEvent.dateTimeChanged(DateTime dateTime) =
+      _DateTimeChanged;
 
   const factory MemoryFormEvent.memoryTypeChanged(
-      MemoryContentType memoryContentType) = _MemoryTypeChanged;
+      MemoryContentType memoryContentType, MemoryContent memoryContent) = _MemoryTypeChanged;
 
-  const factory MemoryFormEvent.memoryContentChanged(
-      MemoryContent memoryContent) = _MemoryContentChanged;
+  
   const factory MemoryFormEvent.textContentChanged(String text) =
       _TextContentChanged;
+
+  const factory MemoryFormEvent.imageContentChanged(
+      String imagePath, String caption) = _ImageContentChanged;
+
+  const factory MemoryFormEvent.voiceContentChanged(String voicePath) =
+      _VoiceContentChanged;
 
   const factory MemoryFormEvent.voiceButtonPressed() = _VoiceButtonPressed;
 
