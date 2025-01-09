@@ -11,17 +11,20 @@ part 'memory_form_bloc.freezed.dart';
 
 class MemoryFormBloc extends Bloc<MemoryFormEvent, MemoryFormState> {
   MemoryFormBloc() : super(MemoryFormState.initial()) {
-    on<_Initialized>((event, emit) {
-      emit(event.initialMemoryOption.fold(
-        () => state.copyWith(
-          failureOrSuccessOption: none(),
+    on<_Initialized>((event, emit) async {
+      emit(
+        event.initialMemoryOption.fold(
+          () {
+            return state.copyWith(
+              failureOrSuccessOption: none(),
+            );
+          },
+          (memory) => state.copyWith(
+            memory: memory,
+            selectedType: memory.memoryContent.type,
+          ),
         ),
-        (memory) => state.copyWith(
-          memory: memory,
-          selectedType: memory.memoryContent.type,
-        ),
-      ));
-      // TODO: implement Initialized Event handler
+      );
     });
     on<_DateTimeChanged>((event, emit) {
       // TODO: implement _DateTimeChanged  event handler
@@ -46,11 +49,3 @@ class MemoryFormBloc extends Bloc<MemoryFormEvent, MemoryFormState> {
     });
   }
 }
-// _Initialized
-// 
-// 
-// 
-// 
-// 
-// 
-// 
