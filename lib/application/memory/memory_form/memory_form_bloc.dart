@@ -2,6 +2,7 @@ import 'package:fpdart/fpdart.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:thought_trail/domain/memory/i_memory_repository.dart';
 import 'package:thought_trail/domain/memory/memory.dart';
 import 'package:thought_trail/domain/memory/memory_content.dart';
@@ -11,6 +12,7 @@ part 'memory_form_event.dart';
 part 'memory_form_state.dart';
 part 'memory_form_bloc.freezed.dart';
 
+@injectable
 class MemoryFormBloc extends Bloc<MemoryFormEvent, MemoryFormState> {
   final IMemoryRepository _memoryRepository;
   MemoryFormBloc(this._memoryRepository) : super(MemoryFormState.initial()) {
