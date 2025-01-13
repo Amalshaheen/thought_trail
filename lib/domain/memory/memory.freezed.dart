@@ -22,9 +22,7 @@ mixin _$Memory {
   String? get mood => throw _privateConstructorUsedError;
   List<String>? get tags => throw _privateConstructorUsedError;
 
-  /// Create a copy of Memory
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $MemoryCopyWith<Memory> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -53,8 +51,6 @@ class _$MemoryCopyWithImpl<$Res, $Val extends Memory>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Memory
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -88,8 +84,6 @@ class _$MemoryCopyWithImpl<$Res, $Val extends Memory>
     ) as $Val);
   }
 
-  /// Create a copy of Memory
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MemoryContentCopyWith<$Res> get memoryContent {
@@ -125,8 +119,6 @@ class __$$MemoryImplCopyWithImpl<$Res>
       _$MemoryImpl _value, $Res Function(_$MemoryImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Memory
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -224,9 +216,7 @@ class _$MemoryImpl with DiagnosticableTreeMixin implements _Memory {
   int get hashCode => Object.hash(runtimeType, id, time, memoryContent, mood,
       const DeepCollectionEquality().hash(_tags));
 
-  /// Create a copy of Memory
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$MemoryImplCopyWith<_$MemoryImpl> get copyWith =>
@@ -251,11 +241,8 @@ abstract class _Memory implements Memory {
   String? get mood;
   @override
   List<String>? get tags;
-
-  /// Create a copy of Memory
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$MemoryImplCopyWith<_$MemoryImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

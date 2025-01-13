@@ -90,9 +90,6 @@ class _$MemoryFormEventCopyWithImpl<$Res, $Val extends MemoryFormEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of MemoryFormEvent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -112,8 +109,6 @@ class __$$InitializedImplCopyWithImpl<$Res>
       _$InitializedImpl _value, $Res Function(_$InitializedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of MemoryFormEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -153,9 +148,7 @@ class _$InitializedImpl implements _Initialized {
   @override
   int get hashCode => Object.hash(runtimeType, initialMemoryOption);
 
-  /// Create a copy of MemoryFormEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
@@ -247,10 +240,7 @@ abstract class _Initialized implements MemoryFormEvent {
       _$InitializedImpl;
 
   Option<Memory> get initialMemoryOption;
-
-  /// Create a copy of MemoryFormEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$InitializedImplCopyWith<_$InitializedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -274,8 +264,6 @@ class __$$MemoryContentChangedImplCopyWithImpl<$Res>
       $Res Function(_$MemoryContentChangedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of MemoryFormEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -289,8 +277,6 @@ class __$$MemoryContentChangedImplCopyWithImpl<$Res>
     ));
   }
 
-  /// Create a copy of MemoryFormEvent
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MemoryContentCopyWith<$Res> get memoryContent {
@@ -325,9 +311,7 @@ class _$MemoryContentChangedImpl implements _MemoryContentChanged {
   @override
   int get hashCode => Object.hash(runtimeType, memoryContent);
 
-  /// Create a copy of MemoryFormEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$MemoryContentChangedImplCopyWith<_$MemoryContentChangedImpl>
@@ -421,10 +405,7 @@ abstract class _MemoryContentChanged implements MemoryFormEvent {
       _$MemoryContentChangedImpl;
 
   MemoryContent get memoryContent;
-
-  /// Create a copy of MemoryFormEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$MemoryContentChangedImplCopyWith<_$MemoryContentChangedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -446,8 +427,6 @@ class __$$DateTimeChangedImplCopyWithImpl<$Res>
       _$DateTimeChangedImpl _value, $Res Function(_$DateTimeChangedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of MemoryFormEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -487,9 +466,7 @@ class _$DateTimeChangedImpl implements _DateTimeChanged {
   @override
   int get hashCode => Object.hash(runtimeType, dateTime);
 
-  /// Create a copy of MemoryFormEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$DateTimeChangedImplCopyWith<_$DateTimeChangedImpl> get copyWith =>
@@ -582,10 +559,7 @@ abstract class _DateTimeChanged implements MemoryFormEvent {
       _$DateTimeChangedImpl;
 
   DateTime get dateTime;
-
-  /// Create a copy of MemoryFormEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$DateTimeChangedImplCopyWith<_$DateTimeChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -604,9 +578,6 @@ class __$$SubmittedImplCopyWithImpl<$Res>
   __$$SubmittedImplCopyWithImpl(
       _$SubmittedImpl _value, $Res Function(_$SubmittedImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of MemoryFormEvent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -732,8 +703,6 @@ class __$$DeletedImplCopyWithImpl<$Res>
       _$DeletedImpl _value, $Res Function(_$DeletedImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of MemoryFormEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -747,8 +716,6 @@ class __$$DeletedImplCopyWithImpl<$Res>
     ));
   }
 
-  /// Create a copy of MemoryFormEvent
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MemoryCopyWith<$Res> get memory {
@@ -782,9 +749,7 @@ class _$DeletedImpl implements _Deleted {
   @override
   int get hashCode => Object.hash(runtimeType, memory);
 
-  /// Create a copy of MemoryFormEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$DeletedImplCopyWith<_$DeletedImpl> get copyWith =>
@@ -875,10 +840,7 @@ abstract class _Deleted implements MemoryFormEvent {
   const factory _Deleted(final Memory memory) = _$DeletedImpl;
 
   Memory get memory;
-
-  /// Create a copy of MemoryFormEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$DeletedImplCopyWith<_$DeletedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -892,9 +854,7 @@ mixin _$MemoryFormState {
   Option<Either<MemoryFailure, Unit>> get submissionFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
-  /// Create a copy of MemoryFormState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $MemoryFormStateCopyWith<MemoryFormState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -925,8 +885,6 @@ class _$MemoryFormStateCopyWithImpl<$Res, $Val extends MemoryFormState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of MemoryFormState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -960,8 +918,6 @@ class _$MemoryFormStateCopyWithImpl<$Res, $Val extends MemoryFormState>
     ) as $Val);
   }
 
-  /// Create a copy of MemoryFormState
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $MemoryCopyWith<$Res> get memory {
@@ -998,8 +954,6 @@ class __$$MemoryFormStateImplCopyWithImpl<$Res>
       _$MemoryFormStateImpl _value, $Res Function(_$MemoryFormStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of MemoryFormState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -1082,9 +1036,7 @@ class _$MemoryFormStateImpl implements _MemoryFormState {
   int get hashCode => Object.hash(runtimeType, memory, isEditing, isProcessing,
       showErrorMessages, submissionFailureOrSuccessOption);
 
-  /// Create a copy of MemoryFormState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$MemoryFormStateImplCopyWith<_$MemoryFormStateImpl> get copyWith =>
@@ -1111,11 +1063,8 @@ abstract class _MemoryFormState implements MemoryFormState {
   bool get showErrorMessages;
   @override
   Option<Either<MemoryFailure, Unit>> get submissionFailureOrSuccessOption;
-
-  /// Create a copy of MemoryFormState
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$MemoryFormStateImplCopyWith<_$MemoryFormStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

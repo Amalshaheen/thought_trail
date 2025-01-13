@@ -85,9 +85,6 @@ class _$MemoryContentCopyWithImpl<$Res, $Val extends MemoryContent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  /// Create a copy of MemoryContent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -106,8 +103,6 @@ class __$$TextImplCopyWithImpl<$Res>
   __$$TextImplCopyWithImpl(_$TextImpl _value, $Res Function(_$TextImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of MemoryContent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -146,9 +141,7 @@ class _$TextImpl implements _Text {
   @override
   int get hashCode => Object.hash(runtimeType, text);
 
-  /// Create a copy of MemoryContent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TextImplCopyWith<_$TextImpl> get copyWith =>
@@ -234,10 +227,7 @@ abstract class _Text implements MemoryContent {
   const factory _Text(final MemoryText text) = _$TextImpl;
 
   MemoryText get text;
-
-  /// Create a copy of MemoryContent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$TextImplCopyWith<_$TextImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -259,8 +249,6 @@ class __$$ImageImplCopyWithImpl<$Res>
       _$ImageImpl _value, $Res Function(_$ImageImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of MemoryContent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -307,9 +295,7 @@ class _$ImageImpl implements _Image {
   @override
   int get hashCode => Object.hash(runtimeType, image, caption);
 
-  /// Create a copy of MemoryContent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$ImageImplCopyWith<_$ImageImpl> get copyWith =>
@@ -398,10 +384,7 @@ abstract class _Image implements MemoryContent {
 
   MemoryImage get image;
   Option<MemoryCaption> get caption;
-
-  /// Create a copy of MemoryContent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$ImageImplCopyWith<_$ImageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -423,8 +406,6 @@ class __$$VoiceImplCopyWithImpl<$Res>
       _$VoiceImpl _value, $Res Function(_$VoiceImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of MemoryContent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -463,9 +444,7 @@ class _$VoiceImpl implements _Voice {
   @override
   int get hashCode => Object.hash(runtimeType, voice);
 
-  /// Create a copy of MemoryContent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$VoiceImplCopyWith<_$VoiceImpl> get copyWith =>
@@ -551,10 +530,7 @@ abstract class _Voice implements MemoryContent {
   const factory _Voice(final MemoryVoice voice) = _$VoiceImpl;
 
   MemoryVoice get voice;
-
-  /// Create a copy of MemoryContent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$VoiceImplCopyWith<_$VoiceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -572,9 +548,6 @@ class __$$NoneImplCopyWithImpl<$Res>
     implements _$$NoneImplCopyWith<$Res> {
   __$$NoneImplCopyWithImpl(_$NoneImpl _value, $Res Function(_$NoneImpl) _then)
       : super(_value, _then);
-
-  /// Create a copy of MemoryContent
-  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
