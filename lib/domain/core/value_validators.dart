@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:thought_trail/domain/core/failures.dart';
 
 Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {

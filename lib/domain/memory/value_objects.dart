@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:thought_trail/domain/core/failures.dart';
 import 'package:thought_trail/domain/core/value_object.dart';
 import 'package:thought_trail/domain/core/value_validators.dart';
