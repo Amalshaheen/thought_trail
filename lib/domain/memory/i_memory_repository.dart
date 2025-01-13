@@ -1,16 +1,17 @@
 import 'package:dartz/dartz.dart';
-import 'package:thought_trail/domain/core/failures.dart';
+
 import 'package:thought_trail/domain/memory/memory.dart';
+import 'package:thought_trail/domain/memory/memory_failure.dart';
 
 abstract class IMemoryRepository {
-  Future<Either<ValueFailure, Unit>> create({
+  Future<Either<MemoryFailure, Unit>> create({
     required Memory memory,
   });
-  Future<Either<ValueFailure, Unit>> delete({
+  Future<Either<MemoryFailure, Unit>> delete({
     required Memory memory,
   });
-  Future<Either<ValueFailure, Unit>> update({
+  Future<Either<MemoryFailure, Unit>> update({
     required Memory memory,
   });
-  Future<Either<ValueFailure, List<Memory>>> getAll();
+  Future<Either<MemoryFailure, List<Memory>>> getAll();
 }
