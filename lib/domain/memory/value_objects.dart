@@ -37,3 +37,14 @@ class MemoryVoice extends ValueObject<String> {
 
   MemoryVoice._(this.value);
 }
+
+class MemoryCaption extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory MemoryCaption(String text) {
+    return MemoryCaption._(right(text));
+  }
+
+  MemoryCaption._(this.value);
+}
