@@ -15,6 +15,25 @@ class MemoryContent with _$MemoryContent {
   ) = _Image;
   const factory MemoryContent.voice(MemoryVoice voice) = _Voice;
   const factory MemoryContent.none() = _None;
+  factory MemoryContent.fromType(MemoryContentType type,
+      {required String memoryContent,required String caption}) {
+    switch (type) {
+      case MemoryContentType.text:
+        return MemoryContent.text(MemoryText(memoryContent));
+        
+      case MemoryContentType.image:
+        return MemoryContent.image(MemoryImage(memoryContent),optionOf(MemoryCaption(caption)));
+        
+
+      case MemoryContentType.voice:
+        return MemoryContent.voice(MemoryVoice(memoryContent));
+        
+
+      case MemoryContentType.none:
+        return MemoryContent.none();
+        
+    }
+  }
 }
 
 extension MemoryContentX on MemoryContent {
