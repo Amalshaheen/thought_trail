@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Memory {
-  String get id => throw _privateConstructorUsedError;
+  UniqueId get id => throw _privateConstructorUsedError;
   DateTime get time => throw _privateConstructorUsedError;
   MemoryContent get memoryContent => throw _privateConstructorUsedError;
   String? get mood => throw _privateConstructorUsedError;
@@ -32,7 +32,7 @@ abstract class $MemoryCopyWith<$Res> {
       _$MemoryCopyWithImpl<$Res, Memory>;
   @useResult
   $Res call(
-      {String id,
+      {UniqueId id,
       DateTime time,
       MemoryContent memoryContent,
       String? mood,
@@ -64,7 +64,7 @@ class _$MemoryCopyWithImpl<$Res, $Val extends Memory>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UniqueId,
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
@@ -101,7 +101,7 @@ abstract class _$$MemoryImplCopyWith<$Res> implements $MemoryCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
+      {UniqueId id,
       DateTime time,
       MemoryContent memoryContent,
       String? mood,
@@ -132,7 +132,7 @@ class __$$MemoryImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UniqueId,
       time: null == time
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
@@ -165,7 +165,7 @@ class _$MemoryImpl with DiagnosticableTreeMixin implements _Memory {
       : _tags = tags;
 
   @override
-  final String id;
+  final UniqueId id;
   @override
   final DateTime time;
   @override
@@ -225,14 +225,14 @@ class _$MemoryImpl with DiagnosticableTreeMixin implements _Memory {
 
 abstract class _Memory implements Memory {
   const factory _Memory(
-      {required final String id,
+      {required final UniqueId id,
       required final DateTime time,
       required final MemoryContent memoryContent,
       final String? mood,
       final List<String>? tags}) = _$MemoryImpl;
 
   @override
-  String get id;
+  UniqueId get id;
   @override
   DateTime get time;
   @override
