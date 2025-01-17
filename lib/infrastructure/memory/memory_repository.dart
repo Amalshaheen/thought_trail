@@ -11,7 +11,9 @@ import 'package:thought_trail/infrastructure/memory/memory_dto.dart';
 
 @LazySingleton(as: IMemoryRepository)
 class MemoryRepository implements IMemoryRepository {
-  Future<Isar> initializeIsar() async {
+  late final Future<Isar> _isarInstance = _initializeIsar();
+
+  Future<Isar> _initializeIsar() async {
     final dir = await getApplicationDocumentsDirectory();
     if (Isar.instanceNames.isEmpty) {
       return await Isar.open([MemoryDtoSchema], directory: dir.path);
@@ -22,7 +24,7 @@ class MemoryRepository implements IMemoryRepository {
   @override
   Future<Either<MemoryFailure, Unit>> create({required Memory memory}) async {
     try {
-      final isar = await initializeIsar();
+      final isar = await _isarInstance;
 
       // Convert the domain model to DTO
       final memoryDto = MemoryDto.fromDomain(memory);
@@ -47,7 +49,7 @@ class MemoryRepository implements IMemoryRepository {
   @override
   Future<Either<MemoryFailure, List<Memory>>> getAll() async {
     try {
-      final isar = await initializeIsar();
+      final isar = await _isarInstance;
 
       // Get all the memory DTOs
       final memoryDtos = await isar.memoryDtos.where().sortByTime().findAll();
@@ -70,7 +72,7 @@ class MemoryRepository implements IMemoryRepository {
   @override
   Future<Either<MemoryFailure, Unit>> update({required Memory memory}) async {
     try {
-      final isar = await initializeIsar();
+      final isar = await _isarInstance;
 
       // Convert the domain model to DTO
       final memoryDto = MemoryDto.fromDomain(memory);
@@ -95,7 +97,7 @@ class MemoryRepository implements IMemoryRepository {
   @override
   Future<Either<MemoryFailure, Unit>> delete({required Memory memory}) async {
     try {
-      final isar = await initializeIsar();
+      final isar = await _isarInstance;
 
       // Convert the domain model to DTO
       final memoryDto = MemoryDto.fromDomain(memory);
