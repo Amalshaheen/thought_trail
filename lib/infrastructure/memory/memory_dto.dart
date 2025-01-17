@@ -11,7 +11,7 @@ part 'memory_dto.g.dart';
 @collection
 class MemoryDto {
   final Id? id;
-  @Index()
+  @Index(unique: true, replace: true)
   final String uid;
   final String memoryContent;
   final String? caption;

@@ -53,8 +53,8 @@ const MemoryDtoSchema = CollectionSchema(
     r'uid': IndexSchema(
       id: 8193695471701937315,
       name: r'uid',
-      unique: false,
-      replace: false,
+      unique: true,
+      replace: true,
       properties: [
         IndexPropertySchema(
           name: r'uid',
@@ -69,7 +69,7 @@ const MemoryDtoSchema = CollectionSchema(
   getId: _memoryDtoGetId,
   getLinks: _memoryDtoGetLinks,
   attach: _memoryDtoAttach,
-  version: '3.1.0+1',
+  version: '3.1.8',
 );
 
 int _memoryDtoEstimateSize(
@@ -165,6 +165,60 @@ List<IsarLinkBase<dynamic>> _memoryDtoGetLinks(MemoryDto object) {
 }
 
 void _memoryDtoAttach(IsarCollection<dynamic> col, Id id, MemoryDto object) {}
+
+extension MemoryDtoByIndex on IsarCollection<MemoryDto> {
+  Future<MemoryDto?> getByUid(String uid) {
+    return getByIndex(r'uid', [uid]);
+  }
+
+  MemoryDto? getByUidSync(String uid) {
+    return getByIndexSync(r'uid', [uid]);
+  }
+
+  Future<bool> deleteByUid(String uid) {
+    return deleteByIndex(r'uid', [uid]);
+  }
+
+  bool deleteByUidSync(String uid) {
+    return deleteByIndexSync(r'uid', [uid]);
+  }
+
+  Future<List<MemoryDto?>> getAllByUid(List<String> uidValues) {
+    final values = uidValues.map((e) => [e]).toList();
+    return getAllByIndex(r'uid', values);
+  }
+
+  List<MemoryDto?> getAllByUidSync(List<String> uidValues) {
+    final values = uidValues.map((e) => [e]).toList();
+    return getAllByIndexSync(r'uid', values);
+  }
+
+  Future<int> deleteAllByUid(List<String> uidValues) {
+    final values = uidValues.map((e) => [e]).toList();
+    return deleteAllByIndex(r'uid', values);
+  }
+
+  int deleteAllByUidSync(List<String> uidValues) {
+    final values = uidValues.map((e) => [e]).toList();
+    return deleteAllByIndexSync(r'uid', values);
+  }
+
+  Future<Id> putByUid(MemoryDto object) {
+    return putByIndex(r'uid', object);
+  }
+
+  Id putByUidSync(MemoryDto object, {bool saveLinks = true}) {
+    return putByIndexSync(r'uid', object, saveLinks: saveLinks);
+  }
+
+  Future<List<Id>> putAllByUid(List<MemoryDto> objects) {
+    return putAllByIndex(r'uid', objects);
+  }
+
+  List<Id> putAllByUidSync(List<MemoryDto> objects, {bool saveLinks = true}) {
+    return putAllByIndexSync(r'uid', objects, saveLinks: saveLinks);
+  }
+}
 
 extension MemoryDtoQueryWhereSort
     on QueryBuilder<MemoryDto, MemoryDto, QWhere> {
