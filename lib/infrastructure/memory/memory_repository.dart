@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
 import 'package:isar/isar.dart';
@@ -19,27 +21,99 @@ class MemoryRepository implements IMemoryRepository {
 
   @override
   Future<Either<MemoryFailure, Unit>> create({required Memory memory}) async {
-    final isar = await initializeIsar();
-    final memoryDto = MemoryDto.fromDomain(memory);
+    try {
+      final isar = await initializeIsar();
 
-    throw UnimplementedError();
+      // Convert the domain model to DTO
+      final memoryDto = MemoryDto.fromDomain(memory);
+
+      // Perform the transaction
+      await isar.writeTxn(() async {
+        await isar.memoryDtos.putByUid(memoryDto);
+      });
+
+      // If successful, return success
+      return right(unit);
+    } catch (e, stackTrace) {
+      // Log the error for debugging
+      log("Error during Memory creation: $e");
+      log(stackTrace.toString());
+
+      // Return an unexpected failure
+      return left(MemoryFailure.unexpected());
+    }
   }
 
   @override
-  Future<Either<MemoryFailure, Unit>> delete({required Memory memory}) {
-    // TODO: implement delete
-    throw UnimplementedError();
+  Future<Either<MemoryFailure, List<Memory>>> getAll() async {
+    try {
+      final isar = await initializeIsar();
+
+      // Get all the memory DTOs
+      final memoryDtos = await isar.memoryDtos.where().sortByTime().findAll();
+
+      // Convert the DTOs to domain models
+      final memories = memoryDtos.map((dto) => dto.toDomain()).toList();
+
+      // Yield the list of memories
+      return right(memories);
+    } catch (e, stackTrace) {
+      // Log the error for debugging
+      log("Error during Memory retrieval: $e");
+      log(stackTrace.toString());
+
+      // Return an unexpected failure
+      return left(MemoryFailure.unexpected());
+    }
   }
 
   @override
-  Future<Either<MemoryFailure, List<Memory>>> getAll() {
-    // TODO: implement getAll
-    throw UnimplementedError();
+  Future<Either<MemoryFailure, Unit>> update({required Memory memory}) async {
+    try {
+      final isar = await initializeIsar();
+
+      // Convert the domain model to DTO
+      final memoryDto = MemoryDto.fromDomain(memory);
+
+      // Perform the transaction
+      await isar.writeTxn(() async {
+        await isar.memoryDtos.putByUid(memoryDto);
+      });
+
+      // If successful, return success
+      return right(unit);
+    } catch (e, stackTrace) {
+      // Log the error for debugging
+      log("Error during Memory update: $e");
+      log(stackTrace.toString());
+
+      // Return an unexpected failure
+      return left(MemoryFailure.unexpected());
+    }
   }
 
   @override
-  Future<Either<MemoryFailure, Unit>> update({required Memory memory}) {
-    // TODO: implement update
-    throw UnimplementedError();
+  Future<Either<MemoryFailure, Unit>> delete({required Memory memory}) async {
+    try {
+      final isar = await initializeIsar();
+
+      // Convert the domain model to DTO
+      final memoryDto = MemoryDto.fromDomain(memory);
+
+      // Perform the transaction
+      await isar.writeTxn(() async {
+        await isar.memoryDtos.deleteByUid(memoryDto.uid);
+      });
+
+      // If successful, return success
+      return right(unit);
+    } catch (e, stackTrace) {
+      // Log the error for debugging
+      log("Error during Memory deletion: $e");
+      log(stackTrace.toString());
+
+      // Return an unexpected failure
+      return left(MemoryFailure.unexpected());
+    }
   }
 }
