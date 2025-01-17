@@ -7,11 +7,11 @@ abstract class IMemoryRepository {
   Future<Either<MemoryFailure, Unit>> create({
     required Memory memory,
   });
-  Future<Either<MemoryFailure, Unit>> delete({
-    required Memory memory,
-  });
+  Future<Either<MemoryFailure, List<Memory>>> getAll();
   Future<Either<MemoryFailure, Unit>> update({
     required Memory memory,
   });
-  Future<Either<MemoryFailure, List<Memory>>> getAll();
+  Future<Either<MemoryFailure, Unit>> delete({
+    required Memory memory,
+  });
 }
