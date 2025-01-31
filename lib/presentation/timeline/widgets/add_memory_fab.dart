@@ -8,7 +8,8 @@ import 'package:thought_trail/domain/memory/memory_content.dart';
 import 'package:thought_trail/presentation/timeline/widgets/memory_input_corousel.dart';
 
 class AddMemoryFAB extends StatelessWidget {
-  const AddMemoryFAB({super.key});
+  final TextEditingController _textController = TextEditingController(text: '');
+  AddMemoryFAB({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +40,7 @@ class AddMemoryFAB extends StatelessWidget {
                               MemoryFormEvent.memoryContentChanged(content),
                             );
                       },
+                    textController: _textController,
                     ),
                     _buildSubmitButton(context, state),
                     // _handleSubmissionFailureOrSuccess(context, state),

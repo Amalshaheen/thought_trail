@@ -4,9 +4,13 @@ import 'package:thought_trail/domain/memory/value_objects.dart';
 import 'package:thought_trail/presentation/timeline/widgets/memory_content_entry_widget.dart';
 
 class MemoryInputCorousel extends StatefulWidget {
-  const MemoryInputCorousel({super.key, required this.onMemoryContentChanged});
+  const MemoryInputCorousel({
+    super.key,
+    required this.onMemoryContentChanged,
+    required this.textController,
+  });
   final void Function(MemoryContent) onMemoryContentChanged;
-
+  final TextEditingController textController;
   @override
   State<MemoryInputCorousel> createState() => _MemoryInputCorouselState();
 }
@@ -50,6 +54,7 @@ class _MemoryInputCorouselState extends State<MemoryInputCorousel> {
                     ? MemoryTextEntryWidget(
                         onChanged: (text) => widget.onMemoryContentChanged(
                             MemoryContent.text(MemoryText(text))),
+                        controller: widget.textController,
                       )
                     : Padding(
                         padding: const EdgeInsets.symmetric(vertical: 13.0),
