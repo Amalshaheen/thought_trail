@@ -1,38 +1,22 @@
 import 'package:flutter/material.dart';
 
-class MemoryEntryWidget extends StatelessWidget {
-  const MemoryEntryWidget({
+class MemoryTextEntryWidget extends StatelessWidget {
+  const MemoryTextEntryWidget({
     super.key,
+    required this.onChanged,
   });
-
+  final void Function(String text) onChanged;
   @override
   Widget build(BuildContext context) {
     return TextField(
       minLines: 1,
+      onChanged: onChanged,
       decoration: InputDecoration(
         hintText: 'Enter your memory here',
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(25)),
-        contentPadding: const EdgeInsets.all(20),
-        suffixIcon: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            IconButton.outlined(
-              onPressed: () {},
-              icon: Icon(Icons.add_a_photo),
-            ),
-            IconButton.filled(
-              onPressed: () {},
-              icon: Icon(Icons.mic),
-              style: IconButton.styleFrom(
-                  foregroundColor: Theme.of(context).colorScheme.onPrimary),
-            ),
-            SizedBox(
-              width: 5,
-            )
-          ],
-        ),
+        border: OutlineInputBorder(borderSide: BorderSide.none),
       ),
-      maxLines: 3,
+      maxLines: 5,
+      maxLength: 500,
     );
   }
 }

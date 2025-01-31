@@ -1,10 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:thought_trail/presentation/timeline/widgets/memory_content_entry_widget.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fpdart/fpdart.dart';
+import 'package:thought_trail/application/memory/memory_form/memory_form_bloc.dart';
+import 'package:thought_trail/domain/core/failures.dart';
+import 'package:thought_trail/domain/memory/memory_content.dart';
+import 'package:thought_trail/presentation/timeline/widgets/memory_input_corousel.dart';
 
 class AddMemoryFAB extends StatelessWidget {
-  const AddMemoryFAB({
-    super.key,
-  });
+  const AddMemoryFAB({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,113 +16,139 @@ class AddMemoryFAB extends StatelessWidget {
       onPressed: () {
         showModalBottomSheet(
           context: context,
-          builder: (context) {
-            ValueNotifier<DateTime> date = ValueNotifier(DateTime.now());
-            return Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text('Add Your Memory Here'),
-                  SizedBox(height: 10),
-                  Row(
-                    children: [
-                      Text('Date: '),
-                      TextButton(
-                          onPressed: () {
-                            showDatePicker(
-                              context: context,
-                              initialDate: date.value,
-                              firstDate: DateTime(2000),
-                              lastDate: DateTime(2100),
-                            ).then((value) {
-                              if (value != null) {
-                                date.value = date.value.copyWith(
-                                  year: value.year,
-                                  month: value.month,
-                                  day: value.day,
-                                );
-                              }
-                            });
-                          },
-                          child: ValueListenableBuilder(
-                              valueListenable: date,
-                              builder: (context, value, child) {
-                                return Text(
-                                    '${value.day}/${value.month}/${value.year}');
-                              })),
-                    ],
-                  ),
-    
-                  SizedBox(height: 10),
-                  //time
-                  Row(
-                    children: [
-                      Text('Time: '),
-                      TextButton(
-                        onPressed: () {
-                          showTimePicker(
-                            context: context,
-                            initialTime: TimeOfDay.now(),
-                          ).then((value) {
-                            if (value != null) {
-                              date.value = DateTime(
-                                date.value.year,
-                                date.value.month,
-                                date.value.day,
-                                value.hour,
-                                value.minute,
-                              );
-                            }
-                          });
-                        },
-                        child: ValueListenableBuilder(
-                          builder: (context, value, child) {
-                            return Text(
-                                '${value.hour.toString().padLeft(2, '0')}:${value.minute.toString().padLeft(2, '0')}');
-                          },
-                          valueListenable: date,
-                        ),
-                      ),
-                    ],
-                  ),
-    
-                  SizedBox(height: 10),
-                  MemoryEntryWidget(),
-                  SizedBox(height: 10),
-    
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          // Handle memory entry submission
-                          Navigator.pop(context);
-                        },
-                        child: Text('Cancel'),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          // Handle memory entry submission
-                          Navigator.pop(context);
-                        },
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor:
-                              Theme.of(context).colorScheme.primary,
-                          foregroundColor:
-                              Theme.of(context).colorScheme.onPrimary,
-                        ),
-                        child: Text('Add Memory'),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            );
-          },
+          builder: (context) => BlocBuilder<MemoryFormBloc, MemoryFormState>(
+            builder: (ctx, state) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    Text(
+                      'Add Memory',
+                      style:
+                          Theme.of(context).textTheme.headlineMedium?.copyWith(
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                    ),
+                    _buildDatePicker(context, ctx),
+                    MemoryInputCorousel(
+                      onMemoryContentChanged: (content) {
+                        ctx.read<MemoryFormBloc>().add(
+                              MemoryFormEvent.memoryContentChanged(content),
+                            );
+                      },
+                    ),
+                    _buildSubmitButton(context, state),
+                    // _handleSubmissionFailureOrSuccess(context, state),
+                  ],
+                ),
+              );
+            },
+          ),
         );
       },
       child: const Icon(Icons.add),
+    );
+  }
+
+  Widget _buildDatePicker(BuildContext context, BuildContext ctx) {
+    return SizedBox(
+      height: 50,
+      child: CupertinoTheme(
+        data: CupertinoThemeData(
+          textTheme: CupertinoTextThemeData(
+            dateTimePickerTextStyle: TextStyle(
+              color: Theme.of(context).colorScheme.onSurface,
+              fontSize: 18,
+            ),
+          ),
+        ),
+        child: CupertinoDatePicker(
+          onDateTimeChanged: (DateTime datetime) {
+            if (context.mounted) {
+              ctx.read<MemoryFormBloc>().add(
+                    MemoryFormEvent.dateTimeChanged(datetime),
+                  );
+            }
+          },
+          initialDateTime: DateTime.now(),
+          maximumDate: DateTime.now(),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSubmitButton(BuildContext context, MemoryFormState state) {
+    var style = ElevatedButton.styleFrom(
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      foregroundColor: Theme.of(context).colorScheme.onPrimary,
+    );
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        ElevatedButton(
+          onPressed:
+              state.isProcessing ? null : () => Navigator.of(context).pop(),
+          child: const Text('Cancel'),
+        ),
+        ElevatedButton(
+          onPressed: state.isProcessing
+              ? null
+              : () {
+                  context
+                      .read<MemoryFormBloc>()
+                      .add(MemoryFormEvent.submitted());
+                  state.memory.memoryContent.failureOption.fold(
+                    () {
+                      state.submissionFailureOrSuccessOption.fold(
+                        () {},
+                        (either) {
+                          either.fold(
+                            (memoryFailure) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(memoryFailure.map(
+                                    unexpected: (_) => 'Unexpected error',
+                                    emptyMemory: (_) =>
+                                        'Empty Entry! try adding your thought',
+                                  )),
+                                ),
+                              );
+                            },
+                            (_) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content:
+                                      const Text('Memory added successfully'),
+                                ),
+                              );
+                              Navigator.pop(context);
+                            },
+                          );
+                        },
+                      );
+                    },
+                    (valueFailure) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            valueFailure.when(
+                              empty: (_) => 'Memory Content is Empty',
+                              invalidURL: (_) => 'invalidURL',
+                              invalidAudioURL: (_) => 'invalidAudioURL',
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                },
+          style: style,
+          child: const Text('Add Memory'),
+        ),
+      ],
     );
   }
 }
