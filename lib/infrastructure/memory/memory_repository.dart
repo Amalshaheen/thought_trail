@@ -7,7 +7,6 @@ import 'package:thought_trail/domain/core/error.dart';
 import 'package:thought_trail/domain/core/unique_id.dart';
 import 'package:thought_trail/domain/memory/i_memory_repository.dart';
 import 'package:thought_trail/domain/memory/memory.dart';
-import 'package:thought_trail/domain/memory/memory_content.dart';
 import 'package:thought_trail/domain/memory/memory_failure.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:thought_trail/infrastructure/memory/memory_dto.dart';
@@ -24,14 +23,6 @@ class MemoryRepository implements IMemoryRepository {
     return Future.value(Isar.getInstance());
   }
 
-  Either<MemoryFailure, Unit> isMemoryContentNone(MemoryContent memCon) {
-    if (memCon.type == MemoryContentType.none) {
-      return left(MemoryFailure.emptyMemory());
-    } else {
-      return right(unit);
-    }
-  }
-
   @override
   Future<Either<MemoryFailure, Unit>> create({required Memory memory}) async {
     try {
@@ -45,6 +36,7 @@ class MemoryRepository implements IMemoryRepository {
         await isar.memoryDtos.putByUid(memoryDto);
       });
 
+      log("Memory created: ${memoryDto.memoryContent}");
       // If successful, return success
       return right(unit);
     } catch (e, stackTrace) {
@@ -138,6 +130,7 @@ class MemoryRepository implements IMemoryRepository {
           .filter()
           .uidEqualTo(uid.value.getOrCrash())
           .findFirst();
+
       return right(memoryDto!.toDomain());
     } catch (e, stackTrace) {
       // Log the error for debugging
