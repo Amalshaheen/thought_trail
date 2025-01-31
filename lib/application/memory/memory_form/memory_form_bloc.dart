@@ -1,5 +1,4 @@
 import 'package:fpdart/fpdart.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -15,12 +14,14 @@ part 'memory_form_bloc.freezed.dart';
 @injectable
 class MemoryFormBloc extends Bloc<MemoryFormEvent, MemoryFormState> {
   final IMemoryRepository _memoryRepository;
+
   MemoryFormBloc(this._memoryRepository) : super(MemoryFormState.initial()) {
     on<MemoryFormEvent>(
       (event, emit) async {
         await event.when(
           initialized: (initialMemoryOption) {
             final isEditing = initialMemoryOption.isSome();
+
             initialMemoryOption.fold(
               () => emit(state),
               (initialMemory) {
@@ -62,6 +63,7 @@ class MemoryFormBloc extends Bloc<MemoryFormEvent, MemoryFormState> {
               state.copyWith(
                 isProcessing: false,
                 submissionFailureOrSuccessOption: some(result),
+                showErrorMessages: true,
               ),
             );
           },
@@ -72,7 +74,9 @@ class MemoryFormBloc extends Bloc<MemoryFormEvent, MemoryFormState> {
                 submissionFailureOrSuccessOption: none(),
               ),
             );
+
             final result = await _memoryRepository.delete(memory: state.memory);
+
             emit(
               state.copyWith(
                 isProcessing: false,
