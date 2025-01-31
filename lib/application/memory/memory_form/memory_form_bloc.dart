@@ -23,7 +23,7 @@ class MemoryFormBloc extends Bloc<MemoryFormEvent, MemoryFormState> {
             final isEditing = initialMemoryOption.isSome();
 
             initialMemoryOption.fold(
-              () => emit(state),
+              () => emit(MemoryFormState.initial()),
               (initialMemory) {
                 emit(state.copyWith(
                   memory: initialMemory,
@@ -62,7 +62,7 @@ class MemoryFormBloc extends Bloc<MemoryFormEvent, MemoryFormState> {
             emit(
               state.copyWith(
                 isProcessing: false,
-                submissionFailureOrSuccessOption: some(result),
+                submissionFailureOrSuccessOption: optionOf(result),
                 showErrorMessages: true,
               ),
             );
