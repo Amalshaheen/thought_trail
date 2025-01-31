@@ -1,4 +1,5 @@
 import 'package:fpdart/fpdart.dart';
+import 'package:thought_trail/domain/core/unique_id.dart';
 
 import 'package:thought_trail/domain/memory/memory.dart';
 import 'package:thought_trail/domain/memory/memory_failure.dart';
@@ -8,6 +9,9 @@ abstract class IMemoryRepository {
     required Memory memory,
   });
   Future<Either<MemoryFailure, List<Memory>>> getAll();
+  Future<Either<MemoryFailure, Memory>> get({
+    required UniqueId uid,
+  });
   Future<Either<MemoryFailure, Unit>> update({
     required Memory memory,
   });

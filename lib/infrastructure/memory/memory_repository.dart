@@ -3,8 +3,11 @@ import 'dart:developer';
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
 import 'package:isar/isar.dart';
+import 'package:thought_trail/domain/core/error.dart';
+import 'package:thought_trail/domain/core/unique_id.dart';
 import 'package:thought_trail/domain/memory/i_memory_repository.dart';
 import 'package:thought_trail/domain/memory/memory.dart';
+import 'package:thought_trail/domain/memory/memory_content.dart';
 import 'package:thought_trail/domain/memory/memory_failure.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:thought_trail/infrastructure/memory/memory_dto.dart';
@@ -19,6 +22,14 @@ class MemoryRepository implements IMemoryRepository {
       return await Isar.open([MemoryDtoSchema], directory: dir.path);
     }
     return Future.value(Isar.getInstance());
+  }
+
+  Either<MemoryFailure, Unit> isMemoryContentNone(MemoryContent memCon) {
+    if (memCon.type == MemoryContentType.none) {
+      return left(MemoryFailure.emptyMemory());
+    } else {
+      return right(unit);
+    }
   }
 
   @override
@@ -112,6 +123,25 @@ class MemoryRepository implements IMemoryRepository {
     } catch (e, stackTrace) {
       // Log the error for debugging
       log("Error during Memory deletion: $e");
+      log(stackTrace.toString());
+
+      // Return an unexpected failure
+      return left(MemoryFailure.unexpected());
+    }
+  }
+
+  @override
+  Future<Either<MemoryFailure, Memory>> get({required UniqueId uid}) async {
+    try {
+      final isar = await _isarInstance;
+      final memoryDto = await isar.memoryDtos
+          .filter()
+          .uidEqualTo(uid.value.getOrCrash())
+          .findFirst();
+      return right(memoryDto!.toDomain());
+    } catch (e, stackTrace) {
+      // Log the error for debugging
+      log("Error during Memory retrieval: $e");
       log(stackTrace.toString());
 
       // Return an unexpected failure
