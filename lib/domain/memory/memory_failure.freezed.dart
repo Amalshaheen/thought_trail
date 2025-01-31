@@ -19,32 +19,38 @@ mixin _$MemoryFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unexpected,
+    required TResult Function() emptyMemory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unexpected,
+    TResult? Function()? emptyMemory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unexpected,
+    TResult Function()? emptyMemory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(_EmptyMemory value) emptyMemory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Unexpected value)? unexpected,
+    TResult? Function(_EmptyMemory value)? emptyMemory,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
+    TResult Function(_EmptyMemory value)? emptyMemory,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unexpected,
+    required TResult Function() emptyMemory,
   }) {
     return unexpected();
   }
@@ -115,6 +122,7 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unexpected,
+    TResult? Function()? emptyMemory,
   }) {
     return unexpected?.call();
   }
@@ -123,6 +131,7 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unexpected,
+    TResult Function()? emptyMemory,
     required TResult orElse(),
   }) {
     if (unexpected != null) {
@@ -135,6 +144,7 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(_EmptyMemory value) emptyMemory,
   }) {
     return unexpected(this);
   }
@@ -143,6 +153,7 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Unexpected value)? unexpected,
+    TResult? Function(_EmptyMemory value)? emptyMemory,
   }) {
     return unexpected?.call(this);
   }
@@ -151,6 +162,7 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
+    TResult Function(_EmptyMemory value)? emptyMemory,
     required TResult orElse(),
   }) {
     if (unexpected != null) {
@@ -162,4 +174,106 @@ class _$UnexpectedImpl implements _Unexpected {
 
 abstract class _Unexpected implements MemoryFailure {
   const factory _Unexpected() = _$UnexpectedImpl;
+}
+
+/// @nodoc
+abstract class _$$EmptyMemoryImplCopyWith<$Res> {
+  factory _$$EmptyMemoryImplCopyWith(
+          _$EmptyMemoryImpl value, $Res Function(_$EmptyMemoryImpl) then) =
+      __$$EmptyMemoryImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$EmptyMemoryImplCopyWithImpl<$Res>
+    extends _$MemoryFailureCopyWithImpl<$Res, _$EmptyMemoryImpl>
+    implements _$$EmptyMemoryImplCopyWith<$Res> {
+  __$$EmptyMemoryImplCopyWithImpl(
+      _$EmptyMemoryImpl _value, $Res Function(_$EmptyMemoryImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$EmptyMemoryImpl implements _EmptyMemory {
+  const _$EmptyMemoryImpl();
+
+  @override
+  String toString() {
+    return 'MemoryFailure.emptyMemory()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$EmptyMemoryImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unexpected,
+    required TResult Function() emptyMemory,
+  }) {
+    return emptyMemory();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? unexpected,
+    TResult? Function()? emptyMemory,
+  }) {
+    return emptyMemory?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpected,
+    TResult Function()? emptyMemory,
+    required TResult orElse(),
+  }) {
+    if (emptyMemory != null) {
+      return emptyMemory();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(_EmptyMemory value) emptyMemory,
+  }) {
+    return emptyMemory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Unexpected value)? unexpected,
+    TResult? Function(_EmptyMemory value)? emptyMemory,
+  }) {
+    return emptyMemory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unexpected value)? unexpected,
+    TResult Function(_EmptyMemory value)? emptyMemory,
+    required TResult orElse(),
+  }) {
+    if (emptyMemory != null) {
+      return emptyMemory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _EmptyMemory implements MemoryFailure {
+  const factory _EmptyMemory() = _$EmptyMemoryImpl;
 }

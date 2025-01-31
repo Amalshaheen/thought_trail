@@ -4,4 +4,5 @@ part 'memory_failure.freezed.dart';
 @freezed
 class MemoryFailure with _$MemoryFailure {
   const factory MemoryFailure.unexpected() = _Unexpected;
+  const factory MemoryFailure.emptyMemory() = _EmptyMemory;
 }
