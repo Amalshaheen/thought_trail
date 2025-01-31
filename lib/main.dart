@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:thought_trail/application/memory/memory_form/memory_form_bloc.dart';
 import 'package:thought_trail/core/injectable_configuration.dart';
 import 'package:thought_trail/core/theme.dart';
 
@@ -14,12 +16,19 @@ class NewApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: lightThemeData(),
-      darkTheme: darkThemeData(),
-      themeMode: ThemeMode.system,
-      home: const TimelinePage(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => getit<MemoryFormBloc>(),
+        ),
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: lightThemeData(),
+        darkTheme: darkThemeData(),
+        themeMode: ThemeMode.system,
+        home: TimelinePage(),
+      ),
     );
   }
 }
