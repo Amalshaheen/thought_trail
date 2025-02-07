@@ -1,5 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:thought_trail/application/memory/memory_watcher/memory_watcher_bloc.dart';
 import 'package:thought_trail/presentation/timeline/widgets/add_memory_fab.dart';
+import 'package:thought_trail/presentation/timeline/widgets/memories_list_widget.dart';
 
 import '../../core/theme.dart';
 
@@ -18,13 +23,18 @@ class TimelinePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ScrollController scrollController = ScrollController();
-
     WidgetsBinding.instance.addPostFrameCallback(
-      (_) => scrollController.animateTo(
-        scrollController.position.maxScrollExtent,
-        duration: Duration(milliseconds: 500),
-        curve: Curves.easeOut,
-      ),
+      (_) {
+        context
+            .read<MemoryWatcherBloc>()
+            .add(MemoryWatcherEvent.watchAllStarted());
+
+        scrollController.animateTo(
+          scrollController.position.maxScrollExtent,
+          duration: Duration(milliseconds: 500),
+          curve: Curves.easeOut,
+        );
+      },
     );
     return Scaffold(
       body: CustomScrollView(
@@ -44,6 +54,10 @@ class TimelinePage extends StatelessWidget {
             child: FloatingActionButton.small(
               child: Icon(Icons.arrow_downward),
               onPressed: () {
+                context
+                    .read<MemoryWatcherBloc>()
+                    .add(MemoryWatcherEvent.watchAllStarted());
+                log('pressed me');
                 scrollController.animateTo(
                     scrollController.position.maxScrollExtent,
                     duration: Duration(milliseconds: 500),
@@ -51,7 +65,7 @@ class TimelinePage extends StatelessWidget {
               },
             ),
           ),
-          // MemoriesListWidget(),
+          MemoriesListWidget(),
         ],
       ),
       floatingActionButton: AddMemoryFAB(),
