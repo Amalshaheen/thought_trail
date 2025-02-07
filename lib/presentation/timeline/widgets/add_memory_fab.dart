@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:thought_trail/application/memory/memory_form/memory_form_bloc.dart';
+import 'package:thought_trail/application/memory/memory_watcher/memory_watcher_bloc.dart';
 import 'package:thought_trail/domain/memory/memory_content.dart';
 import 'package:thought_trail/presentation/timeline/widgets/memory_input_corousel.dart';
 
@@ -86,6 +87,10 @@ class AddMemoryFAB extends StatelessWidget {
                                   ),
                                 );
                                 _textController.clear();
+                                context.read<MemoryWatcherBloc>().add(
+                                      MemoryWatcherEvent.memoryUpdated(
+                                          state.memory),
+                                    );
                                 Navigator.pop(context);
                               },
                             );
