@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:thought_trail/application/memory/memory_form/memory_form_bloc.dart';
+import 'package:thought_trail/application/memory/memory_watcher/memory_watcher_bloc.dart';
 import 'package:thought_trail/core/injectable_configuration.dart';
 import 'package:thought_trail/core/theme.dart';
 
@@ -20,6 +21,9 @@ class NewApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => getit<MemoryFormBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getit<MemoryWatcherBloc>(),
         ),
       ],
       child: MaterialApp(
