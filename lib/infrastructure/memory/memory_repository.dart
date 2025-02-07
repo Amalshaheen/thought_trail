@@ -50,25 +50,33 @@ class MemoryRepository implements IMemoryRepository {
   }
 
   @override
-  Future<Either<MemoryFailure, List<Memory>>> getAll() async {
+  Stream<Either<MemoryFailure, Memory>> watchAll() async* {
     try {
       final isar = await _isarInstance;
 
       // Get all the memory DTOs
-      final memoryDtos = await isar.memoryDtos.where().sortByTime().findAll();
+      final memoryDtosStream =
+          isar.memoryDtos.where().sortByTime().watch(fireImmediately: true);
 
       // Convert the DTOs to domain models
-      final memories = memoryDtos.map((dto) => dto.toDomain()).toList();
+      await for (final memoryDtos in memoryDtosStream) {
+        if (memoryDtos.isEmpty) {
+          yield left(MemoryFailure.emptyMemory());
+          return;
+        }
 
-      // Yield the list of memories
-      return right(memories);
+        final memory = memoryDtos.first.toDomain();
+
+        // Yield the list of memories
+        yield right(memory);
+      }
     } catch (e, stackTrace) {
       // Log the error for debugging
       log("Error during Memory retrieval: $e");
       log(stackTrace.toString());
 
       // Return an unexpected failure
-      return left(MemoryFailure.unexpected());
+      yield left(MemoryFailure.unexpected());
     }
   }
 

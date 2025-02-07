@@ -8,7 +8,7 @@ abstract class IMemoryRepository {
   Future<Either<MemoryFailure, Unit>> create({
     required Memory memory,
   });
-  Future<Either<MemoryFailure, List<Memory>>> getAll();
+  Stream<Either<MemoryFailure, Memory>> watchAll();
   Future<Either<MemoryFailure, Memory>> get({
     required UniqueId uid,
   });
