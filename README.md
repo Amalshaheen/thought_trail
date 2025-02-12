@@ -2,6 +2,14 @@
 
 ThoughtTrail is a playful and innovative app designed to capture your random thoughts, voice notes, and photos in a beautifully continuous timeline. With mood icons, random prompts, and the ability to edit entries, ThoughtTrail is here to make memory-keeping fun and engaging.
 
+### Code for Build Runner
+```bash
+
+
+dart run build_runner watch --use-polling-watcher --delete-conflicting-outputs
+
+```
+
 ## Features
 
 - **Timeline Design**: A continuous vertical timeline to organize thoughts and memories.

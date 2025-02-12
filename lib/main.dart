@@ -7,9 +7,6 @@ import 'package:thought_trail/core/theme.dart';
 
 import 'presentation/timeline/timeline_page.dart';
 
-/*
-dart run build_runner watch --use-polling-watcher --delete-conflicting-outputs
-*/
 void main() {
   configureInjectable();
   runApp(const NewApp());
