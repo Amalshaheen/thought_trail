@@ -44,26 +44,10 @@ class TimelinePage extends StatelessWidget {
           SliverAppBar(
             title: Text('ThoughtTrail'),
             floating: true,
-            snap: true,
+            pinned: true,
             actions: [
               DarkLightThemeToggleWidget(),
             ],
-          ),
-          SliverFloatingHeader(
-            snapMode: FloatingHeaderSnapMode.scroll,
-            child: FloatingActionButton.small(
-              child: Icon(Icons.arrow_downward),
-              onPressed: () {
-                context
-                    .read<MemoryWatcherBloc>()
-                    .add(MemoryWatcherEvent.watchAllStarted());
-                log('pressed me');
-                scrollController.animateTo(
-                    scrollController.position.maxScrollExtent,
-                    duration: Duration(milliseconds: 500),
-                    curve: Curves.easeOut);
-              },
-            ),
           ),
           MemoriesListWidget(),
         ],
