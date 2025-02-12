@@ -50,7 +50,7 @@ class MemoryRepository implements IMemoryRepository {
   }
 
   @override
-  Stream<Either<MemoryFailure, Memory>> watchAll() async* {
+  Stream<Either<MemoryFailure, List<Memory>>> watchAll() async* {
     try {
       final isar = await _isarInstance;
 
@@ -65,10 +65,10 @@ class MemoryRepository implements IMemoryRepository {
           return;
         }
 
-        final memory = memoryDtos.first.toDomain();
-
+        final memories = memoryDtos.map((dto) => dto.toDomain()).toList();
+        log(memories.toString());
         // Yield the list of memories
-        yield right(memory);
+        yield right(memories);
       }
     } catch (e, stackTrace) {
       // Log the error for debugging
