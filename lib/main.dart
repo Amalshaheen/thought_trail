@@ -7,6 +7,9 @@ import 'package:thought_trail/core/theme.dart';
 
 import 'presentation/timeline/timeline_page.dart';
 
+/*
+dart run build_runner watch --use-polling-watcher --delete-conflicting-outputs
+*/
 void main() {
   configureInjectable();
   runApp(const NewApp());
@@ -27,11 +30,12 @@ class NewApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'ThoughtTrail',
         theme: lightThemeData(),
         darkTheme: darkThemeData(),
         themeMode: ThemeMode.system,
         home: TimelinePage(),
+        debugShowCheckedModeBanner: false,
       ),
     );
   }
