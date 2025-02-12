@@ -17,35 +17,44 @@ class MemoryWatcherBloc extends Bloc<MemoryWatcherEvent, MemoryWatcherState> {
 
   MemoryWatcherBloc(this._memoryRepository)
       : super(const MemoryWatcherState.initial()) {
-    on<WatchAllStarted>(
-      (event, emit) async {
-        emit(MemoryWatcherState.loadInProgress());
-        log('loading the memories ');
-        List<Memory> memories = [];
-        final stream = _memoryRepository.watchAll();
-        await for (final memory in stream) {
-          memory.fold(
-            (failure) => emit(MemoryWatcherState.loadFailure(failure)),
-            (memory) {
-              memories.add(memory);
-              emit(MemoryWatcherState.loadSuccess(memories));
-            },
-          );
-        }
-      },
-    );
+    _registerEventHandlers();
+  }
 
-    on<MemoryUpdated>((event, emit) {
-      emit(
-        state.maybeMap(
-          loadSuccess: (state) => MemoryWatcherState.loadSuccess(
-            List.from(state.memories)
-              ..remove(event.memory)
-              ..add(event.memory),
-          ),
-          orElse: () => state,
+  void _registerEventHandlers() {
+    on<WatchAllStarted>(_onWatchAllStarted);
+    on<MemoriesReceived>(_onMemoriesReceived);
+    on<MemoryUpdated>(_onMemoryUpdated);
+  }
+
+  Future<void> _onWatchAllStarted(
+      WatchAllStarted event, Emitter<MemoryWatcherState> emit) async {
+    emit(const MemoryWatcherState.loadInProgress());
+    log('MemoryWatcherBloc: WatchAllStarted event - loading the memories');
+    await emit.forEach(
+      _memoryRepository.watchAll(),
+      onData: (either) => either.fold(
+        (failure) => MemoryWatcherState.loadFailure(failure),
+        (memories) => MemoryWatcherState.loadSuccess(memories),
+      ),
+    );
+  }
+
+  void _onMemoriesReceived(
+      MemoriesReceived event, Emitter<MemoryWatcherState> emit) {
+    emit(MemoryWatcherState.loadSuccess(event.memories));
+  }
+
+  void _onMemoryUpdated(MemoryUpdated event, Emitter<MemoryWatcherState> emit) {
+    emit(
+      state.maybeMap(
+        loadSuccess: (state) => MemoryWatcherState.loadSuccess(
+          [
+            ...state.memories.where((memory) => memory.id != event.memory.id),
+            event.memory
+          ],
         ),
-      );
-    });
+        orElse: () => state,
+      ),
+    );
   }
 }

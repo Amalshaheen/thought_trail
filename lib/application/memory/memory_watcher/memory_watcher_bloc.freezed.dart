@@ -19,21 +19,21 @@ mixin _$MemoryWatcherEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchAllStarted,
-    required TResult Function(List<Memory> memories) watchAllFinished,
+    required TResult Function(List<Memory> memories) memoriesReceived,
     required TResult Function(Memory memory) memoryUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? watchAllStarted,
-    TResult? Function(List<Memory> memories)? watchAllFinished,
+    TResult? Function(List<Memory> memories)? memoriesReceived,
     TResult? Function(Memory memory)? memoryUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchAllStarted,
-    TResult Function(List<Memory> memories)? watchAllFinished,
+    TResult Function(List<Memory> memories)? memoriesReceived,
     TResult Function(Memory memory)? memoryUpdated,
     required TResult orElse(),
   }) =>
@@ -41,21 +41,21 @@ mixin _$MemoryWatcherEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(WatchAllStarted value) watchAllStarted,
-    required TResult Function(WatchAllFinished value) watchAllFinished,
+    required TResult Function(MemoriesReceived value) memoriesReceived,
     required TResult Function(MemoryUpdated value) memoryUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(WatchAllStarted value)? watchAllStarted,
-    TResult? Function(WatchAllFinished value)? watchAllFinished,
+    TResult? Function(MemoriesReceived value)? memoriesReceived,
     TResult? Function(MemoryUpdated value)? memoryUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WatchAllStarted value)? watchAllStarted,
-    TResult Function(WatchAllFinished value)? watchAllFinished,
+    TResult Function(MemoriesReceived value)? memoriesReceived,
     TResult Function(MemoryUpdated value)? memoryUpdated,
     required TResult orElse(),
   }) =>
@@ -119,7 +119,7 @@ class _$WatchAllStartedImpl implements WatchAllStarted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchAllStarted,
-    required TResult Function(List<Memory> memories) watchAllFinished,
+    required TResult Function(List<Memory> memories) memoriesReceived,
     required TResult Function(Memory memory) memoryUpdated,
   }) {
     return watchAllStarted();
@@ -129,7 +129,7 @@ class _$WatchAllStartedImpl implements WatchAllStarted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? watchAllStarted,
-    TResult? Function(List<Memory> memories)? watchAllFinished,
+    TResult? Function(List<Memory> memories)? memoriesReceived,
     TResult? Function(Memory memory)? memoryUpdated,
   }) {
     return watchAllStarted?.call();
@@ -139,7 +139,7 @@ class _$WatchAllStartedImpl implements WatchAllStarted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchAllStarted,
-    TResult Function(List<Memory> memories)? watchAllFinished,
+    TResult Function(List<Memory> memories)? memoriesReceived,
     TResult Function(Memory memory)? memoryUpdated,
     required TResult orElse(),
   }) {
@@ -153,7 +153,7 @@ class _$WatchAllStartedImpl implements WatchAllStarted {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(WatchAllStarted value) watchAllStarted,
-    required TResult Function(WatchAllFinished value) watchAllFinished,
+    required TResult Function(MemoriesReceived value) memoriesReceived,
     required TResult Function(MemoryUpdated value) memoryUpdated,
   }) {
     return watchAllStarted(this);
@@ -163,7 +163,7 @@ class _$WatchAllStartedImpl implements WatchAllStarted {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(WatchAllStarted value)? watchAllStarted,
-    TResult? Function(WatchAllFinished value)? watchAllFinished,
+    TResult? Function(MemoriesReceived value)? memoriesReceived,
     TResult? Function(MemoryUpdated value)? memoryUpdated,
   }) {
     return watchAllStarted?.call(this);
@@ -173,7 +173,7 @@ class _$WatchAllStartedImpl implements WatchAllStarted {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WatchAllStarted value)? watchAllStarted,
-    TResult Function(WatchAllFinished value)? watchAllFinished,
+    TResult Function(MemoriesReceived value)? memoriesReceived,
     TResult Function(MemoryUpdated value)? memoryUpdated,
     required TResult orElse(),
   }) {
@@ -189,20 +189,20 @@ abstract class WatchAllStarted implements MemoryWatcherEvent {
 }
 
 /// @nodoc
-abstract class _$$WatchAllFinishedImplCopyWith<$Res> {
-  factory _$$WatchAllFinishedImplCopyWith(_$WatchAllFinishedImpl value,
-          $Res Function(_$WatchAllFinishedImpl) then) =
-      __$$WatchAllFinishedImplCopyWithImpl<$Res>;
+abstract class _$$MemoriesReceivedImplCopyWith<$Res> {
+  factory _$$MemoriesReceivedImplCopyWith(_$MemoriesReceivedImpl value,
+          $Res Function(_$MemoriesReceivedImpl) then) =
+      __$$MemoriesReceivedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<Memory> memories});
 }
 
 /// @nodoc
-class __$$WatchAllFinishedImplCopyWithImpl<$Res>
-    extends _$MemoryWatcherEventCopyWithImpl<$Res, _$WatchAllFinishedImpl>
-    implements _$$WatchAllFinishedImplCopyWith<$Res> {
-  __$$WatchAllFinishedImplCopyWithImpl(_$WatchAllFinishedImpl _value,
-      $Res Function(_$WatchAllFinishedImpl) _then)
+class __$$MemoriesReceivedImplCopyWithImpl<$Res>
+    extends _$MemoryWatcherEventCopyWithImpl<$Res, _$MemoriesReceivedImpl>
+    implements _$$MemoriesReceivedImplCopyWith<$Res> {
+  __$$MemoriesReceivedImplCopyWithImpl(_$MemoriesReceivedImpl _value,
+      $Res Function(_$MemoriesReceivedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -210,7 +210,7 @@ class __$$WatchAllFinishedImplCopyWithImpl<$Res>
   $Res call({
     Object? memories = null,
   }) {
-    return _then(_$WatchAllFinishedImpl(
+    return _then(_$MemoriesReceivedImpl(
       null == memories
           ? _value._memories
           : memories // ignore: cast_nullable_to_non_nullable
@@ -221,8 +221,8 @@ class __$$WatchAllFinishedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$WatchAllFinishedImpl implements WatchAllFinished {
-  const _$WatchAllFinishedImpl(final List<Memory> memories)
+class _$MemoriesReceivedImpl implements MemoriesReceived {
+  const _$MemoriesReceivedImpl(final List<Memory> memories)
       : _memories = memories;
 
   final List<Memory> _memories;
@@ -235,14 +235,14 @@ class _$WatchAllFinishedImpl implements WatchAllFinished {
 
   @override
   String toString() {
-    return 'MemoryWatcherEvent.watchAllFinished(memories: $memories)';
+    return 'MemoryWatcherEvent.memoriesReceived(memories: $memories)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WatchAllFinishedImpl &&
+            other is _$MemoriesReceivedImpl &&
             const DeepCollectionEquality().equals(other._memories, _memories));
   }
 
@@ -253,40 +253,40 @@ class _$WatchAllFinishedImpl implements WatchAllFinished {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$WatchAllFinishedImplCopyWith<_$WatchAllFinishedImpl> get copyWith =>
-      __$$WatchAllFinishedImplCopyWithImpl<_$WatchAllFinishedImpl>(
+  _$$MemoriesReceivedImplCopyWith<_$MemoriesReceivedImpl> get copyWith =>
+      __$$MemoriesReceivedImplCopyWithImpl<_$MemoriesReceivedImpl>(
           this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchAllStarted,
-    required TResult Function(List<Memory> memories) watchAllFinished,
+    required TResult Function(List<Memory> memories) memoriesReceived,
     required TResult Function(Memory memory) memoryUpdated,
   }) {
-    return watchAllFinished(memories);
+    return memoriesReceived(memories);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? watchAllStarted,
-    TResult? Function(List<Memory> memories)? watchAllFinished,
+    TResult? Function(List<Memory> memories)? memoriesReceived,
     TResult? Function(Memory memory)? memoryUpdated,
   }) {
-    return watchAllFinished?.call(memories);
+    return memoriesReceived?.call(memories);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchAllStarted,
-    TResult Function(List<Memory> memories)? watchAllFinished,
+    TResult Function(List<Memory> memories)? memoriesReceived,
     TResult Function(Memory memory)? memoryUpdated,
     required TResult orElse(),
   }) {
-    if (watchAllFinished != null) {
-      return watchAllFinished(memories);
+    if (memoriesReceived != null) {
+      return memoriesReceived(memories);
     }
     return orElse();
   }
@@ -295,44 +295,44 @@ class _$WatchAllFinishedImpl implements WatchAllFinished {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(WatchAllStarted value) watchAllStarted,
-    required TResult Function(WatchAllFinished value) watchAllFinished,
+    required TResult Function(MemoriesReceived value) memoriesReceived,
     required TResult Function(MemoryUpdated value) memoryUpdated,
   }) {
-    return watchAllFinished(this);
+    return memoriesReceived(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(WatchAllStarted value)? watchAllStarted,
-    TResult? Function(WatchAllFinished value)? watchAllFinished,
+    TResult? Function(MemoriesReceived value)? memoriesReceived,
     TResult? Function(MemoryUpdated value)? memoryUpdated,
   }) {
-    return watchAllFinished?.call(this);
+    return memoriesReceived?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WatchAllStarted value)? watchAllStarted,
-    TResult Function(WatchAllFinished value)? watchAllFinished,
+    TResult Function(MemoriesReceived value)? memoriesReceived,
     TResult Function(MemoryUpdated value)? memoryUpdated,
     required TResult orElse(),
   }) {
-    if (watchAllFinished != null) {
-      return watchAllFinished(this);
+    if (memoriesReceived != null) {
+      return memoriesReceived(this);
     }
     return orElse();
   }
 }
 
-abstract class WatchAllFinished implements MemoryWatcherEvent {
-  const factory WatchAllFinished(final List<Memory> memories) =
-      _$WatchAllFinishedImpl;
+abstract class MemoriesReceived implements MemoryWatcherEvent {
+  const factory MemoriesReceived(final List<Memory> memories) =
+      _$MemoriesReceivedImpl;
 
   List<Memory> get memories;
   @JsonKey(ignore: true)
-  _$$WatchAllFinishedImplCopyWith<_$WatchAllFinishedImpl> get copyWith =>
+  _$$MemoriesReceivedImplCopyWith<_$MemoriesReceivedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -411,7 +411,7 @@ class _$MemoryUpdatedImpl implements MemoryUpdated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchAllStarted,
-    required TResult Function(List<Memory> memories) watchAllFinished,
+    required TResult Function(List<Memory> memories) memoriesReceived,
     required TResult Function(Memory memory) memoryUpdated,
   }) {
     return memoryUpdated(memory);
@@ -421,7 +421,7 @@ class _$MemoryUpdatedImpl implements MemoryUpdated {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? watchAllStarted,
-    TResult? Function(List<Memory> memories)? watchAllFinished,
+    TResult? Function(List<Memory> memories)? memoriesReceived,
     TResult? Function(Memory memory)? memoryUpdated,
   }) {
     return memoryUpdated?.call(memory);
@@ -431,7 +431,7 @@ class _$MemoryUpdatedImpl implements MemoryUpdated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchAllStarted,
-    TResult Function(List<Memory> memories)? watchAllFinished,
+    TResult Function(List<Memory> memories)? memoriesReceived,
     TResult Function(Memory memory)? memoryUpdated,
     required TResult orElse(),
   }) {
@@ -445,7 +445,7 @@ class _$MemoryUpdatedImpl implements MemoryUpdated {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(WatchAllStarted value) watchAllStarted,
-    required TResult Function(WatchAllFinished value) watchAllFinished,
+    required TResult Function(MemoriesReceived value) memoriesReceived,
     required TResult Function(MemoryUpdated value) memoryUpdated,
   }) {
     return memoryUpdated(this);
@@ -455,7 +455,7 @@ class _$MemoryUpdatedImpl implements MemoryUpdated {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(WatchAllStarted value)? watchAllStarted,
-    TResult? Function(WatchAllFinished value)? watchAllFinished,
+    TResult? Function(MemoriesReceived value)? memoriesReceived,
     TResult? Function(MemoryUpdated value)? memoryUpdated,
   }) {
     return memoryUpdated?.call(this);
@@ -465,7 +465,7 @@ class _$MemoryUpdatedImpl implements MemoryUpdated {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(WatchAllStarted value)? watchAllStarted,
-    TResult Function(WatchAllFinished value)? watchAllFinished,
+    TResult Function(MemoriesReceived value)? memoriesReceived,
     TResult Function(MemoryUpdated value)? memoryUpdated,
     required TResult orElse(),
   }) {
