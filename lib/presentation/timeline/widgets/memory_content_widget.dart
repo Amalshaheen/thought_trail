@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:thought_trail/domain/core/error.dart';
 import 'package:thought_trail/domain/memory/memory_content.dart';
@@ -23,9 +25,9 @@ class MemoryContentWidget extends StatelessWidget {
       ),
       image: (image) => Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Image.network(
+        child: Image.file(
+          File(image.image.value.getOrCrash()),
           height: 200,
-          image.image.value.getOrCrash(),
           frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
             // print('image loaded');
             if (wasSynchronouslyLoaded) {

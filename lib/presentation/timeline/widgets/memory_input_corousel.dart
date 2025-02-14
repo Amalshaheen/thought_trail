@@ -1,6 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:thought_trail/application/memory/image_picker/image_picker_bloc.dart';
+import 'package:thought_trail/core/injectable_configuration.dart';
+import 'package:thought_trail/domain/core/error.dart';
 import 'package:thought_trail/domain/memory/memory_content.dart';
 import 'package:thought_trail/domain/memory/value_objects.dart';
+import 'package:thought_trail/presentation/timeline/widgets/image_picker_widget.dart';
 import 'package:thought_trail/presentation/timeline/widgets/memory_content_entry_widget.dart';
 
 class MemoryInputCorousel extends StatefulWidget {
@@ -84,7 +91,7 @@ class _MemoryInputCorouselState extends State<MemoryInputCorousel> {
                     : const Icon(Icons.mic),
               ),
             ),
-
+            //IMAGE
             GestureDetector(
               onTap: () {
                 setState(() => _selectedIndex = 2);
@@ -94,18 +101,19 @@ class _MemoryInputCorouselState extends State<MemoryInputCorousel> {
                 curve: fastOutSlowIn,
                 duration: duration,
                 width: _selectedIndex == 2 ? selectedWidth : unselectedWidth,
-                height: 50,
                 alignment: Alignment.center,
                 child: _selectedIndex == 2
-                    ? Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(Icons.image, color: Colors.green),
-                          SizedBox(width: 8),
-                          Flexible(child: Text('Upload Image')),
-                        ],
-                      )
-                    : const Icon(Icons.image),
+                    ? ConstrainedBox(
+                        constraints: BoxConstraints(
+                          minHeight: 50,
+                          // maxHeight: 200,
+                        ),
+                        child: Flexible(child: ImagePickerWidget()))
+                    : ConstrainedBox(
+                        constraints: BoxConstraints(
+                          minHeight: 50,
+                        ),
+                        child: const Icon(Icons.image)),
               ),
             ),
           ],
