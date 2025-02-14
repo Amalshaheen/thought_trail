@@ -22,6 +22,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidURL,
     required TResult Function(T failedValue) invalidAudioURL,
+    required TResult Function(T failedValue) invalidFilePath,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -29,6 +30,7 @@ mixin _$ValueFailure<T> {
     TResult? Function(T failedValue)? empty,
     TResult? Function(T failedValue)? invalidURL,
     TResult? Function(T failedValue)? invalidAudioURL,
+    TResult? Function(T failedValue)? invalidFilePath,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +38,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? invalidAudioURL,
+    TResult Function(T failedValue)? invalidFilePath,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,6 +47,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidURL<T> value) invalidURL,
     required TResult Function(InvalidAudioURL<T> value) invalidAudioURL,
+    required TResult Function(_InvalidFilePath<T> value) invalidFilePath,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +55,7 @@ mixin _$ValueFailure<T> {
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(InvalidURL<T> value)? invalidURL,
     TResult? Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult? Function(_InvalidFilePath<T> value)? invalidFilePath,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +63,7 @@ mixin _$ValueFailure<T> {
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidURL<T> value)? invalidURL,
     TResult Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult Function(_InvalidFilePath<T> value)? invalidFilePath,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -171,6 +177,7 @@ class _$EmptyImpl<T> implements Empty<T> {
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidURL,
     required TResult Function(T failedValue) invalidAudioURL,
+    required TResult Function(T failedValue) invalidFilePath,
   }) {
     return empty(failedValue);
   }
@@ -181,6 +188,7 @@ class _$EmptyImpl<T> implements Empty<T> {
     TResult? Function(T failedValue)? empty,
     TResult? Function(T failedValue)? invalidURL,
     TResult? Function(T failedValue)? invalidAudioURL,
+    TResult? Function(T failedValue)? invalidFilePath,
   }) {
     return empty?.call(failedValue);
   }
@@ -191,6 +199,7 @@ class _$EmptyImpl<T> implements Empty<T> {
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? invalidAudioURL,
+    TResult Function(T failedValue)? invalidFilePath,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -205,6 +214,7 @@ class _$EmptyImpl<T> implements Empty<T> {
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidURL<T> value) invalidURL,
     required TResult Function(InvalidAudioURL<T> value) invalidAudioURL,
+    required TResult Function(_InvalidFilePath<T> value) invalidFilePath,
   }) {
     return empty(this);
   }
@@ -215,6 +225,7 @@ class _$EmptyImpl<T> implements Empty<T> {
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(InvalidURL<T> value)? invalidURL,
     TResult? Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult? Function(_InvalidFilePath<T> value)? invalidFilePath,
   }) {
     return empty?.call(this);
   }
@@ -225,6 +236,7 @@ class _$EmptyImpl<T> implements Empty<T> {
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidURL<T> value)? invalidURL,
     TResult Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult Function(_InvalidFilePath<T> value)? invalidFilePath,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -316,6 +328,7 @@ class _$InvalidURLImpl<T> implements InvalidURL<T> {
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidURL,
     required TResult Function(T failedValue) invalidAudioURL,
+    required TResult Function(T failedValue) invalidFilePath,
   }) {
     return invalidURL(failedValue);
   }
@@ -326,6 +339,7 @@ class _$InvalidURLImpl<T> implements InvalidURL<T> {
     TResult? Function(T failedValue)? empty,
     TResult? Function(T failedValue)? invalidURL,
     TResult? Function(T failedValue)? invalidAudioURL,
+    TResult? Function(T failedValue)? invalidFilePath,
   }) {
     return invalidURL?.call(failedValue);
   }
@@ -336,6 +350,7 @@ class _$InvalidURLImpl<T> implements InvalidURL<T> {
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? invalidAudioURL,
+    TResult Function(T failedValue)? invalidFilePath,
     required TResult orElse(),
   }) {
     if (invalidURL != null) {
@@ -350,6 +365,7 @@ class _$InvalidURLImpl<T> implements InvalidURL<T> {
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidURL<T> value) invalidURL,
     required TResult Function(InvalidAudioURL<T> value) invalidAudioURL,
+    required TResult Function(_InvalidFilePath<T> value) invalidFilePath,
   }) {
     return invalidURL(this);
   }
@@ -360,6 +376,7 @@ class _$InvalidURLImpl<T> implements InvalidURL<T> {
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(InvalidURL<T> value)? invalidURL,
     TResult? Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult? Function(_InvalidFilePath<T> value)? invalidFilePath,
   }) {
     return invalidURL?.call(this);
   }
@@ -370,6 +387,7 @@ class _$InvalidURLImpl<T> implements InvalidURL<T> {
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidURL<T> value)? invalidURL,
     TResult Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult Function(_InvalidFilePath<T> value)? invalidFilePath,
     required TResult orElse(),
   }) {
     if (invalidURL != null) {
@@ -463,6 +481,7 @@ class _$InvalidAudioURLImpl<T> implements InvalidAudioURL<T> {
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidURL,
     required TResult Function(T failedValue) invalidAudioURL,
+    required TResult Function(T failedValue) invalidFilePath,
   }) {
     return invalidAudioURL(failedValue);
   }
@@ -473,6 +492,7 @@ class _$InvalidAudioURLImpl<T> implements InvalidAudioURL<T> {
     TResult? Function(T failedValue)? empty,
     TResult? Function(T failedValue)? invalidURL,
     TResult? Function(T failedValue)? invalidAudioURL,
+    TResult? Function(T failedValue)? invalidFilePath,
   }) {
     return invalidAudioURL?.call(failedValue);
   }
@@ -483,6 +503,7 @@ class _$InvalidAudioURLImpl<T> implements InvalidAudioURL<T> {
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidURL,
     TResult Function(T failedValue)? invalidAudioURL,
+    TResult Function(T failedValue)? invalidFilePath,
     required TResult orElse(),
   }) {
     if (invalidAudioURL != null) {
@@ -497,6 +518,7 @@ class _$InvalidAudioURLImpl<T> implements InvalidAudioURL<T> {
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidURL<T> value) invalidURL,
     required TResult Function(InvalidAudioURL<T> value) invalidAudioURL,
+    required TResult Function(_InvalidFilePath<T> value) invalidFilePath,
   }) {
     return invalidAudioURL(this);
   }
@@ -507,6 +529,7 @@ class _$InvalidAudioURLImpl<T> implements InvalidAudioURL<T> {
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(InvalidURL<T> value)? invalidURL,
     TResult? Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult? Function(_InvalidFilePath<T> value)? invalidFilePath,
   }) {
     return invalidAudioURL?.call(this);
   }
@@ -517,6 +540,7 @@ class _$InvalidAudioURLImpl<T> implements InvalidAudioURL<T> {
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidURL<T> value)? invalidURL,
     TResult Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult Function(_InvalidFilePath<T> value)? invalidFilePath,
     required TResult orElse(),
   }) {
     if (invalidAudioURL != null) {
@@ -535,5 +559,158 @@ abstract class InvalidAudioURL<T> implements ValueFailure<T> {
   @override
   @JsonKey(ignore: true)
   _$$InvalidAudioURLImplCopyWith<T, _$InvalidAudioURLImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$InvalidFilePathImplCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory _$$InvalidFilePathImplCopyWith(_$InvalidFilePathImpl<T> value,
+          $Res Function(_$InvalidFilePathImpl<T>) then) =
+      __$$InvalidFilePathImplCopyWithImpl<T, $Res>;
+  @override
+  @useResult
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class __$$InvalidFilePathImplCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res, _$InvalidFilePathImpl<T>>
+    implements _$$InvalidFilePathImplCopyWith<T, $Res> {
+  __$$InvalidFilePathImplCopyWithImpl(_$InvalidFilePathImpl<T> _value,
+      $Res Function(_$InvalidFilePathImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(_$InvalidFilePathImpl<T>(
+      failedValue: freezed == failedValue
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InvalidFilePathImpl<T> implements _InvalidFilePath<T> {
+  const _$InvalidFilePathImpl({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.invalidFilePath(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InvalidFilePathImpl<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InvalidFilePathImplCopyWith<T, _$InvalidFilePathImpl<T>> get copyWith =>
+      __$$InvalidFilePathImplCopyWithImpl<T, _$InvalidFilePathImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) invalidURL,
+    required TResult Function(T failedValue) invalidAudioURL,
+    required TResult Function(T failedValue) invalidFilePath,
+  }) {
+    return invalidFilePath(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? invalidURL,
+    TResult? Function(T failedValue)? invalidAudioURL,
+    TResult? Function(T failedValue)? invalidFilePath,
+  }) {
+    return invalidFilePath?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? invalidURL,
+    TResult Function(T failedValue)? invalidAudioURL,
+    TResult Function(T failedValue)? invalidFilePath,
+    required TResult orElse(),
+  }) {
+    if (invalidFilePath != null) {
+      return invalidFilePath(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(InvalidURL<T> value) invalidURL,
+    required TResult Function(InvalidAudioURL<T> value) invalidAudioURL,
+    required TResult Function(_InvalidFilePath<T> value) invalidFilePath,
+  }) {
+    return invalidFilePath(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(InvalidURL<T> value)? invalidURL,
+    TResult? Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult? Function(_InvalidFilePath<T> value)? invalidFilePath,
+  }) {
+    return invalidFilePath?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(InvalidURL<T> value)? invalidURL,
+    TResult Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult Function(_InvalidFilePath<T> value)? invalidFilePath,
+    required TResult orElse(),
+  }) {
+    if (invalidFilePath != null) {
+      return invalidFilePath(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InvalidFilePath<T> implements ValueFailure<T> {
+  const factory _InvalidFilePath({required final T failedValue}) =
+      _$InvalidFilePathImpl<T>;
+
+  @override
+  T get failedValue;
+  @override
+  @JsonKey(ignore: true)
+  _$$InvalidFilePathImplCopyWith<T, _$InvalidFilePathImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

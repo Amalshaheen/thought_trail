@@ -9,4 +9,6 @@ class ValueFailure<T> with _$ValueFailure<T> {
       InvalidURL<T>;
   const factory ValueFailure.invalidAudioURL({required T failedValue}) =
       InvalidAudioURL<T>;
+  const factory ValueFailure.invalidFilePath({required T failedValue}) =
+      _InvalidFilePath;
 }
