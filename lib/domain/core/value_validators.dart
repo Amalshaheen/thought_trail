@@ -9,6 +9,15 @@ Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
   }
 }
 
+Either<ValueFailure<String>, String> validateFilePath(String filePath) {
+  final regex = r'([a-zA-Z0-9\s_\\.\-\(\):])+(.jpg|.jpeg|.png)';
+  if (RegExp(regex).hasMatch(filePath)) {
+    return right(filePath);
+  } else {
+    return left(ValueFailure.invalidFilePath(failedValue: filePath));
+  }
+}
+
 Either<ValueFailure<String>, String> validateURL(String input) {
   final regex =
       r'((http|https|ftp|file)://)(www.)?[a-zA-Z0-9@:%._\\+~#?&//=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%._\\+~#?&//=]*)';

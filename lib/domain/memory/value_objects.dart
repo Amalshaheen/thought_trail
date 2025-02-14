@@ -20,7 +20,7 @@ class MemoryImage extends ValueObject<String> {
 
   factory MemoryImage(String imagePath) {
     return MemoryImage._(
-        validateStringNotEmpty(imagePath).flatMap(validateURL));
+        validateStringNotEmpty(imagePath).flatMap(validateFilePath));
   }
 
   MemoryImage._(this.value);
