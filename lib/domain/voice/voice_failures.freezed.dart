@@ -18,51 +18,51 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$VoiceFailures {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fileDontExist,
+    required TResult Function() fileDoesNotExist,
     required TResult Function() unexpected,
     required TResult Function() voiceNotSelected,
-    required TResult Function() cancelledByUser,
+    required TResult Function() canceledByUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fileDontExist,
+    TResult? Function()? fileDoesNotExist,
     TResult? Function()? unexpected,
     TResult? Function()? voiceNotSelected,
-    TResult? Function()? cancelledByUser,
+    TResult? Function()? canceledByUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fileDontExist,
+    TResult Function()? fileDoesNotExist,
     TResult Function()? unexpected,
     TResult Function()? voiceNotSelected,
-    TResult Function()? cancelledByUser,
+    TResult Function()? canceledByUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FileDontExist value) fileDontExist,
+    required TResult Function(_FileDoesNotExist value) fileDoesNotExist,
     required TResult Function(_Unexpected value) unexpected,
     required TResult Function(_VoiceNotSelected value) voiceNotSelected,
-    required TResult Function(_CancelledByUser value) cancelledByUser,
+    required TResult Function(_CanceledByUser value) canceledByUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FileDontExist value)? fileDontExist,
+    TResult? Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult? Function(_Unexpected value)? unexpected,
     TResult? Function(_VoiceNotSelected value)? voiceNotSelected,
-    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_CanceledByUser value)? canceledByUser,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FileDontExist value)? fileDontExist,
+    TResult Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult Function(_Unexpected value)? unexpected,
     TResult Function(_VoiceNotSelected value)? voiceNotSelected,
-    TResult Function(_CancelledByUser value)? cancelledByUser,
+    TResult Function(_CanceledByUser value)? canceledByUser,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -87,35 +87,35 @@ class _$VoiceFailuresCopyWithImpl<$Res, $Val extends VoiceFailures>
 }
 
 /// @nodoc
-abstract class _$$FileDontExistImplCopyWith<$Res> {
-  factory _$$FileDontExistImplCopyWith(
-          _$FileDontExistImpl value, $Res Function(_$FileDontExistImpl) then) =
-      __$$FileDontExistImplCopyWithImpl<$Res>;
+abstract class _$$FileDoesNotExistImplCopyWith<$Res> {
+  factory _$$FileDoesNotExistImplCopyWith(_$FileDoesNotExistImpl value,
+          $Res Function(_$FileDoesNotExistImpl) then) =
+      __$$FileDoesNotExistImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$FileDontExistImplCopyWithImpl<$Res>
-    extends _$VoiceFailuresCopyWithImpl<$Res, _$FileDontExistImpl>
-    implements _$$FileDontExistImplCopyWith<$Res> {
-  __$$FileDontExistImplCopyWithImpl(
-      _$FileDontExistImpl _value, $Res Function(_$FileDontExistImpl) _then)
+class __$$FileDoesNotExistImplCopyWithImpl<$Res>
+    extends _$VoiceFailuresCopyWithImpl<$Res, _$FileDoesNotExistImpl>
+    implements _$$FileDoesNotExistImplCopyWith<$Res> {
+  __$$FileDoesNotExistImplCopyWithImpl(_$FileDoesNotExistImpl _value,
+      $Res Function(_$FileDoesNotExistImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$FileDontExistImpl implements _FileDontExist {
-  const _$FileDontExistImpl();
+class _$FileDoesNotExistImpl implements _FileDoesNotExist {
+  const _$FileDoesNotExistImpl();
 
   @override
   String toString() {
-    return 'VoiceFailures.fileDontExist()';
+    return 'VoiceFailures.fileDoesNotExist()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FileDontExistImpl);
+        (other.runtimeType == runtimeType && other is _$FileDoesNotExistImpl);
   }
 
   @override
@@ -124,36 +124,36 @@ class _$FileDontExistImpl implements _FileDontExist {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fileDontExist,
+    required TResult Function() fileDoesNotExist,
     required TResult Function() unexpected,
     required TResult Function() voiceNotSelected,
-    required TResult Function() cancelledByUser,
+    required TResult Function() canceledByUser,
   }) {
-    return fileDontExist();
+    return fileDoesNotExist();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fileDontExist,
+    TResult? Function()? fileDoesNotExist,
     TResult? Function()? unexpected,
     TResult? Function()? voiceNotSelected,
-    TResult? Function()? cancelledByUser,
+    TResult? Function()? canceledByUser,
   }) {
-    return fileDontExist?.call();
+    return fileDoesNotExist?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fileDontExist,
+    TResult Function()? fileDoesNotExist,
     TResult Function()? unexpected,
     TResult Function()? voiceNotSelected,
-    TResult Function()? cancelledByUser,
+    TResult Function()? canceledByUser,
     required TResult orElse(),
   }) {
-    if (fileDontExist != null) {
-      return fileDontExist();
+    if (fileDoesNotExist != null) {
+      return fileDoesNotExist();
     }
     return orElse();
   }
@@ -161,43 +161,43 @@ class _$FileDontExistImpl implements _FileDontExist {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FileDontExist value) fileDontExist,
+    required TResult Function(_FileDoesNotExist value) fileDoesNotExist,
     required TResult Function(_Unexpected value) unexpected,
     required TResult Function(_VoiceNotSelected value) voiceNotSelected,
-    required TResult Function(_CancelledByUser value) cancelledByUser,
+    required TResult Function(_CanceledByUser value) canceledByUser,
   }) {
-    return fileDontExist(this);
+    return fileDoesNotExist(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FileDontExist value)? fileDontExist,
+    TResult? Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult? Function(_Unexpected value)? unexpected,
     TResult? Function(_VoiceNotSelected value)? voiceNotSelected,
-    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_CanceledByUser value)? canceledByUser,
   }) {
-    return fileDontExist?.call(this);
+    return fileDoesNotExist?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FileDontExist value)? fileDontExist,
+    TResult Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult Function(_Unexpected value)? unexpected,
     TResult Function(_VoiceNotSelected value)? voiceNotSelected,
-    TResult Function(_CancelledByUser value)? cancelledByUser,
+    TResult Function(_CanceledByUser value)? canceledByUser,
     required TResult orElse(),
   }) {
-    if (fileDontExist != null) {
-      return fileDontExist(this);
+    if (fileDoesNotExist != null) {
+      return fileDoesNotExist(this);
     }
     return orElse();
   }
 }
 
-abstract class _FileDontExist implements VoiceFailures {
-  const factory _FileDontExist() = _$FileDontExistImpl;
+abstract class _FileDoesNotExist implements VoiceFailures {
+  const factory _FileDoesNotExist() = _$FileDoesNotExistImpl;
 }
 
 /// @nodoc
@@ -238,10 +238,10 @@ class _$UnexpectedImpl implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fileDontExist,
+    required TResult Function() fileDoesNotExist,
     required TResult Function() unexpected,
     required TResult Function() voiceNotSelected,
-    required TResult Function() cancelledByUser,
+    required TResult Function() canceledByUser,
   }) {
     return unexpected();
   }
@@ -249,10 +249,10 @@ class _$UnexpectedImpl implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fileDontExist,
+    TResult? Function()? fileDoesNotExist,
     TResult? Function()? unexpected,
     TResult? Function()? voiceNotSelected,
-    TResult? Function()? cancelledByUser,
+    TResult? Function()? canceledByUser,
   }) {
     return unexpected?.call();
   }
@@ -260,10 +260,10 @@ class _$UnexpectedImpl implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fileDontExist,
+    TResult Function()? fileDoesNotExist,
     TResult Function()? unexpected,
     TResult Function()? voiceNotSelected,
-    TResult Function()? cancelledByUser,
+    TResult Function()? canceledByUser,
     required TResult orElse(),
   }) {
     if (unexpected != null) {
@@ -275,10 +275,10 @@ class _$UnexpectedImpl implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FileDontExist value) fileDontExist,
+    required TResult Function(_FileDoesNotExist value) fileDoesNotExist,
     required TResult Function(_Unexpected value) unexpected,
     required TResult Function(_VoiceNotSelected value) voiceNotSelected,
-    required TResult Function(_CancelledByUser value) cancelledByUser,
+    required TResult Function(_CanceledByUser value) canceledByUser,
   }) {
     return unexpected(this);
   }
@@ -286,10 +286,10 @@ class _$UnexpectedImpl implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FileDontExist value)? fileDontExist,
+    TResult? Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult? Function(_Unexpected value)? unexpected,
     TResult? Function(_VoiceNotSelected value)? voiceNotSelected,
-    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_CanceledByUser value)? canceledByUser,
   }) {
     return unexpected?.call(this);
   }
@@ -297,10 +297,10 @@ class _$UnexpectedImpl implements _Unexpected {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FileDontExist value)? fileDontExist,
+    TResult Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult Function(_Unexpected value)? unexpected,
     TResult Function(_VoiceNotSelected value)? voiceNotSelected,
-    TResult Function(_CancelledByUser value)? cancelledByUser,
+    TResult Function(_CanceledByUser value)? canceledByUser,
     required TResult orElse(),
   }) {
     if (unexpected != null) {
@@ -352,10 +352,10 @@ class _$VoiceNotSelectedImpl implements _VoiceNotSelected {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fileDontExist,
+    required TResult Function() fileDoesNotExist,
     required TResult Function() unexpected,
     required TResult Function() voiceNotSelected,
-    required TResult Function() cancelledByUser,
+    required TResult Function() canceledByUser,
   }) {
     return voiceNotSelected();
   }
@@ -363,10 +363,10 @@ class _$VoiceNotSelectedImpl implements _VoiceNotSelected {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fileDontExist,
+    TResult? Function()? fileDoesNotExist,
     TResult? Function()? unexpected,
     TResult? Function()? voiceNotSelected,
-    TResult? Function()? cancelledByUser,
+    TResult? Function()? canceledByUser,
   }) {
     return voiceNotSelected?.call();
   }
@@ -374,10 +374,10 @@ class _$VoiceNotSelectedImpl implements _VoiceNotSelected {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fileDontExist,
+    TResult Function()? fileDoesNotExist,
     TResult Function()? unexpected,
     TResult Function()? voiceNotSelected,
-    TResult Function()? cancelledByUser,
+    TResult Function()? canceledByUser,
     required TResult orElse(),
   }) {
     if (voiceNotSelected != null) {
@@ -389,10 +389,10 @@ class _$VoiceNotSelectedImpl implements _VoiceNotSelected {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FileDontExist value) fileDontExist,
+    required TResult Function(_FileDoesNotExist value) fileDoesNotExist,
     required TResult Function(_Unexpected value) unexpected,
     required TResult Function(_VoiceNotSelected value) voiceNotSelected,
-    required TResult Function(_CancelledByUser value) cancelledByUser,
+    required TResult Function(_CanceledByUser value) canceledByUser,
   }) {
     return voiceNotSelected(this);
   }
@@ -400,10 +400,10 @@ class _$VoiceNotSelectedImpl implements _VoiceNotSelected {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FileDontExist value)? fileDontExist,
+    TResult? Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult? Function(_Unexpected value)? unexpected,
     TResult? Function(_VoiceNotSelected value)? voiceNotSelected,
-    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_CanceledByUser value)? canceledByUser,
   }) {
     return voiceNotSelected?.call(this);
   }
@@ -411,10 +411,10 @@ class _$VoiceNotSelectedImpl implements _VoiceNotSelected {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FileDontExist value)? fileDontExist,
+    TResult Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult Function(_Unexpected value)? unexpected,
     TResult Function(_VoiceNotSelected value)? voiceNotSelected,
-    TResult Function(_CancelledByUser value)? cancelledByUser,
+    TResult Function(_CanceledByUser value)? canceledByUser,
     required TResult orElse(),
   }) {
     if (voiceNotSelected != null) {
@@ -429,35 +429,35 @@ abstract class _VoiceNotSelected implements VoiceFailures {
 }
 
 /// @nodoc
-abstract class _$$CancelledByUserImplCopyWith<$Res> {
-  factory _$$CancelledByUserImplCopyWith(_$CancelledByUserImpl value,
-          $Res Function(_$CancelledByUserImpl) then) =
-      __$$CancelledByUserImplCopyWithImpl<$Res>;
+abstract class _$$CanceledByUserImplCopyWith<$Res> {
+  factory _$$CanceledByUserImplCopyWith(_$CanceledByUserImpl value,
+          $Res Function(_$CanceledByUserImpl) then) =
+      __$$CanceledByUserImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CancelledByUserImplCopyWithImpl<$Res>
-    extends _$VoiceFailuresCopyWithImpl<$Res, _$CancelledByUserImpl>
-    implements _$$CancelledByUserImplCopyWith<$Res> {
-  __$$CancelledByUserImplCopyWithImpl(
-      _$CancelledByUserImpl _value, $Res Function(_$CancelledByUserImpl) _then)
+class __$$CanceledByUserImplCopyWithImpl<$Res>
+    extends _$VoiceFailuresCopyWithImpl<$Res, _$CanceledByUserImpl>
+    implements _$$CanceledByUserImplCopyWith<$Res> {
+  __$$CanceledByUserImplCopyWithImpl(
+      _$CanceledByUserImpl _value, $Res Function(_$CanceledByUserImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CancelledByUserImpl implements _CancelledByUser {
-  const _$CancelledByUserImpl();
+class _$CanceledByUserImpl implements _CanceledByUser {
+  const _$CanceledByUserImpl();
 
   @override
   String toString() {
-    return 'VoiceFailures.cancelledByUser()';
+    return 'VoiceFailures.canceledByUser()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CancelledByUserImpl);
+        (other.runtimeType == runtimeType && other is _$CanceledByUserImpl);
   }
 
   @override
@@ -466,36 +466,36 @@ class _$CancelledByUserImpl implements _CancelledByUser {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fileDontExist,
+    required TResult Function() fileDoesNotExist,
     required TResult Function() unexpected,
     required TResult Function() voiceNotSelected,
-    required TResult Function() cancelledByUser,
+    required TResult Function() canceledByUser,
   }) {
-    return cancelledByUser();
+    return canceledByUser();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? fileDontExist,
+    TResult? Function()? fileDoesNotExist,
     TResult? Function()? unexpected,
     TResult? Function()? voiceNotSelected,
-    TResult? Function()? cancelledByUser,
+    TResult? Function()? canceledByUser,
   }) {
-    return cancelledByUser?.call();
+    return canceledByUser?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fileDontExist,
+    TResult Function()? fileDoesNotExist,
     TResult Function()? unexpected,
     TResult Function()? voiceNotSelected,
-    TResult Function()? cancelledByUser,
+    TResult Function()? canceledByUser,
     required TResult orElse(),
   }) {
-    if (cancelledByUser != null) {
-      return cancelledByUser();
+    if (canceledByUser != null) {
+      return canceledByUser();
     }
     return orElse();
   }
@@ -503,41 +503,41 @@ class _$CancelledByUserImpl implements _CancelledByUser {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FileDontExist value) fileDontExist,
+    required TResult Function(_FileDoesNotExist value) fileDoesNotExist,
     required TResult Function(_Unexpected value) unexpected,
     required TResult Function(_VoiceNotSelected value) voiceNotSelected,
-    required TResult Function(_CancelledByUser value) cancelledByUser,
+    required TResult Function(_CanceledByUser value) canceledByUser,
   }) {
-    return cancelledByUser(this);
+    return canceledByUser(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FileDontExist value)? fileDontExist,
+    TResult? Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult? Function(_Unexpected value)? unexpected,
     TResult? Function(_VoiceNotSelected value)? voiceNotSelected,
-    TResult? Function(_CancelledByUser value)? cancelledByUser,
+    TResult? Function(_CanceledByUser value)? canceledByUser,
   }) {
-    return cancelledByUser?.call(this);
+    return canceledByUser?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FileDontExist value)? fileDontExist,
+    TResult Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult Function(_Unexpected value)? unexpected,
     TResult Function(_VoiceNotSelected value)? voiceNotSelected,
-    TResult Function(_CancelledByUser value)? cancelledByUser,
+    TResult Function(_CanceledByUser value)? canceledByUser,
     required TResult orElse(),
   }) {
-    if (cancelledByUser != null) {
-      return cancelledByUser(this);
+    if (canceledByUser != null) {
+      return canceledByUser(this);
     }
     return orElse();
   }
 }
 
-abstract class _CancelledByUser implements VoiceFailures {
-  const factory _CancelledByUser() = _$CancelledByUserImpl;
+abstract class _CanceledByUser implements VoiceFailures {
+  const factory _CanceledByUser() = _$CanceledByUserImpl;
 }
