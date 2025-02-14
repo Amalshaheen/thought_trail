@@ -28,29 +28,32 @@ class AddMemoryFAB extends StatelessWidget {
           builder: (context) => BlocListener<MemoryFormBloc, MemoryFormState>(
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 10.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                mainAxisSize: MainAxisSize.min,
-                spacing: 10,
-                children: [
-                  Text(
-                    'Add Memory',
-                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
-                  ),
-                  _buildDatePicker(context),
-                  MemoryInputCorousel(
-                    onMemoryContentChanged: (content) {
-                      context.read<MemoryFormBloc>().add(
-                            MemoryFormEvent.memoryContentChanged(content),
-                          );
-                    },
-                    textController: _textController,
-                  ),
-                  _buildSubmitButton(context),
-                  // _handleSubmissionFailureOrSuccess(context, state),
-                ],
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  // mainAxisSize: MainAxisSize.min,
+                  spacing: 10,
+                  children: [
+                    Text(
+                      'Add Memory',
+                      style:
+                          Theme.of(context).textTheme.headlineMedium?.copyWith(
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                    ),
+                    _buildDatePicker(context),
+                    MemoryInputCorousel(
+                      onMemoryContentChanged: (content) {
+                        context.read<MemoryFormBloc>().add(
+                              MemoryFormEvent.memoryContentChanged(content),
+                            );
+                      },
+                      textController: _textController,
+                    ),
+                    _buildSubmitButton(context),
+                    // _handleSubmissionFailureOrSuccess(context, state),
+                  ],
+                ),
               ),
             ),
             listener: (ctx, state) {
@@ -106,6 +109,7 @@ class AddMemoryFAB extends StatelessWidget {
                                       empty: (_) => 'Memory Content is Empty',
                                       invalidURL: (_) => 'invalidURL',
                                       invalidAudioURL: (_) => 'invalidAudioURL',
+                                      invalidFilePath: (_) => 'invalidFilePath',
                                     ),
                                   ),
                                 ),
