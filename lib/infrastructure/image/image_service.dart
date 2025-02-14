@@ -2,12 +2,14 @@ import 'dart:developer';
 import 'dart:io';
 import 'package:fpdart/fpdart.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 import 'package:thought_trail/domain/image/i_image_service.dart';
 import 'package:thought_trail/domain/image/image_failures.dart';
 import 'package:thought_trail/domain/memory/value_objects.dart';
 
+@LazySingleton(as: IImageService)
 class ImageService implements IImageService {
   final ImagePicker _picker = ImagePicker();
 
