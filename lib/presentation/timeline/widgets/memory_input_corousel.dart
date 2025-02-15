@@ -1,10 +1,5 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:thought_trail/application/memory/image_picker/image_picker_bloc.dart';
-import 'package:thought_trail/core/injectable_configuration.dart';
-import 'package:thought_trail/domain/core/error.dart';
+
 import 'package:thought_trail/domain/memory/memory_content.dart';
 import 'package:thought_trail/domain/memory/value_objects.dart';
 import 'package:thought_trail/presentation/timeline/widgets/image_picker_widget.dart';
@@ -37,7 +32,7 @@ class _MemoryInputCorouselState extends State<MemoryInputCorousel> {
     return LayoutBuilder(
       builder: (context, constraints) {
         final maxWidth = constraints.maxWidth;
-        final selectedWidth = maxWidth * 0.7;
+        final selectedWidth = maxWidth - 140;
         final unselectedWidth = 50.0;
 
         return Row(
@@ -46,75 +41,74 @@ class _MemoryInputCorouselState extends State<MemoryInputCorousel> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             // Text Input
-            GestureDetector(
-              onTap: () {
-                setState(() => _selectedIndex = 0);
-              },
-              child: AnimatedContainer(
-                decoration: boxDecoration,
-                curve: fastOutSlowIn,
-                duration: duration,
-                width: _selectedIndex == 0 ? selectedWidth : unselectedWidth,
-                // height: _selectedIndex == 0 ? 500 : 50,
-                alignment: Alignment.center,
-                child: _selectedIndex == 0
-                    ? MemoryTextEntryWidget(
-                        onChanged: (text) => widget.onMemoryContentChanged(
-                            MemoryContent.text(MemoryText(text))),
-                        controller: widget.textController,
-                      )
-                    : Padding(
+            AnimatedContainer(
+              decoration: boxDecoration,
+              curve: fastOutSlowIn,
+              duration: duration,
+              width: _selectedIndex == 0 ? selectedWidth : unselectedWidth,
+              // height: _selectedIndex == 0 ? 500 : 50,
+              alignment: Alignment.center,
+              child: _selectedIndex == 0
+                  ? MemoryTextEntryWidget(
+                      onChanged: (text) => widget.onMemoryContentChanged(
+                          MemoryContent.text(MemoryText(text))),
+                      controller: widget.textController,
+                    )
+                  : GestureDetector(
+                      onTap: () {
+                        setState(() => _selectedIndex = 0);
+                      },
+                      child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 13.0),
                         child: const Icon(Icons.text_fields),
                       ),
-              ),
+                    ),
             ),
 
-            GestureDetector(
-              onTap: () => setState(() => _selectedIndex = 1),
-              child: AnimatedContainer(
-                decoration: boxDecoration,
-                curve: fastOutSlowIn,
-                duration: duration,
-                width: _selectedIndex == 1 ? selectedWidth : unselectedWidth,
-                height: 50,
-                alignment: Alignment.center,
-                child: _selectedIndex == 1
-                    ? Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(Icons.mic, color: Colors.red),
-                          SizedBox(width: 8),
-                          Flexible(child: Text('Recording...')),
-                        ],
-                      )
-                    : const Icon(Icons.mic),
-              ),
+            AnimatedContainer(
+              decoration: boxDecoration,
+              curve: fastOutSlowIn,
+              duration: duration,
+              width: _selectedIndex == 1 ? selectedWidth : unselectedWidth,
+              height: 50,
+              alignment: Alignment.center,
+              child: _selectedIndex == 1
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(Icons.mic, color: Colors.red),
+                        SizedBox(width: 8),
+                        Flexible(child: Text('Recording...')),
+                      ],
+                    )
+                  : GestureDetector(
+                      onTap: () => setState(() => _selectedIndex = 1),
+                      child: const Icon(Icons.mic)),
             ),
             //IMAGE
-            GestureDetector(
-              onTap: () {
-                setState(() => _selectedIndex = 2);
-              },
-              child: AnimatedContainer(
-                decoration: boxDecoration,
-                curve: fastOutSlowIn,
-                duration: duration,
-                width: _selectedIndex == 2 ? selectedWidth : unselectedWidth,
-                alignment: Alignment.center,
-                child: _selectedIndex == 2
-                    ? ConstrainedBox(
-                        constraints: BoxConstraints(
-                          minHeight: 50,
-                          // maxHeight: 200,
-                        ),
-                        child: Flexible(child: ImagePickerWidget()))
-                    : ConstrainedBox(
-                        constraints: BoxConstraints(
-                          minHeight: 50,
-                        ),
-                        child: const Icon(Icons.image)),
-              ),
+            AnimatedContainer(
+              decoration: boxDecoration,
+              curve: fastOutSlowIn,
+              duration: duration,
+              width: _selectedIndex == 2 ? selectedWidth : unselectedWidth,
+              alignment: Alignment.center,
+              child: _selectedIndex == 2
+                  ? ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: 50,
+                        // maxHeight: 200,
+                      ),
+                      child: Flexible(child: ImagePickerWidget()))
+                  : GestureDetector(
+                      onTap: () {
+                        setState(() => _selectedIndex = 2);
+                      },
+                      child: ConstrainedBox(
+                          constraints: BoxConstraints(
+                            minHeight: 50,
+                          ),
+                          child: const Icon(Icons.image)),
+                    ),
             ),
           ],
         );
