@@ -16,6 +16,10 @@ class MemoryTextEntryWidget extends StatelessWidget {
       onChanged: onChanged,
       decoration: InputDecoration(
         hintText: 'Enter your memory here',
+        hintMaxLines: 1,
+        hintStyle: TextStyle(
+          overflow: TextOverflow.ellipsis,
+        ),
         border: OutlineInputBorder(borderSide: BorderSide.none),
       ),
       maxLines: 5,
