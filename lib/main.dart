@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:thought_trail/application/memory/image_picker/image_picker_bloc.dart';
 import 'package:thought_trail/application/memory/memory_form/memory_form_bloc.dart';
 import 'package:thought_trail/application/memory/memory_watcher/memory_watcher_bloc.dart';
 import 'package:thought_trail/core/injectable_configuration.dart';
@@ -25,6 +26,9 @@ class NewApp extends StatelessWidget {
         BlocProvider(
           create: (context) => getit<MemoryWatcherBloc>(),
         ),
+        BlocProvider(
+          create: (context) => getit<ImagePickerBloc>(),
+        )
       ],
       child: MaterialApp(
         title: 'ThoughtTrail',
