@@ -20,14 +20,22 @@ class ImagePickerWidget extends StatelessWidget {
       child: BlocBuilder<ImagePickerBloc, ImagePickerState>(
         builder: (context, state) {
           return state.map(
-            initial: (_) => TextButton.icon(
-              onPressed: () {
-                context
-                    .read<ImagePickerBloc>()
-                    .add(const ImagePickerEvent.pickImage());
-              },
-              label: const Text('Upload Image'),
-              icon: const Icon(Icons.image),
+            initial: (_) => SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: TextButton.icon(
+                onPressed: () {
+                  context
+                      .read<ImagePickerBloc>()
+                      .add(const ImagePickerEvent.pickImage());
+                },
+                label: const Text(
+                  'Upload Image',
+                  softWrap: false,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
+                icon: const Icon(Icons.image),
+              ),
             ),
             loading: (_) => const CircularProgressIndicator(),
             success: (state) {
