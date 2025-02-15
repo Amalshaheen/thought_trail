@@ -16,39 +16,56 @@ import '../../core/theme.dart';
 /// 7. mood and its ambience
 /// 8. FAB for adding new entry
 class TimelinePage extends StatelessWidget {
-  const TimelinePage({super.key});
-
+  TimelinePage({super.key});
+  final ScrollController scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
-    final ScrollController scrollController = ScrollController();
     WidgetsBinding.instance.addPostFrameCallback(
       (_) {
         context
             .read<MemoryWatcherBloc>()
             .add(MemoryWatcherEvent.watchAllStarted());
-
-        scrollController.animateTo(
-          scrollController.position.maxScrollExtent,
-          duration: Duration(milliseconds: 500),
-          curve: Curves.easeOut,
-        );
+        scrollController.animateTo(scrollController.position.maxScrollExtent,
+            duration: Duration(milliseconds: 300), curve: Curves.easeOut);
       },
     );
     return Scaffold(
-      body: CustomScrollView(
-        controller: scrollController,
-        shrinkWrap: true,
-        slivers: [
-          SliverAppBar(
-            title: Text('ThoughtTrail'),
-            floating: true,
-            pinned: true,
-            actions: [
-              DarkLightThemeToggleWidget(),
+      body: BlocBuilder<MemoryWatcherBloc, MemoryWatcherState>(
+        builder: (context, state) {
+          return CustomScrollView(
+            controller: scrollController,
+            shrinkWrap: true,
+            slivers: [
+              SliverAppBar(
+                title: Text('ThoughtTrail'),
+                floating: true,
+                // pinned: true,
+                actions: [
+                  DarkLightThemeToggleWidget(),
+                ],
+              ),
+              state.map(
+                initial: (_) => SliverToBoxAdapter(child: Text('initial')),
+                loadInProgress: (_) => SliverToBoxAdapter(
+                  child: const Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                ),
+                loadSuccess: (state) {
+                  final memories = state.memories;
+                  return MemoriesListWidget(
+                    memories: memories,
+                  );
+                },
+                loadFailure: (_) => SliverToBoxAdapter(
+                  child: const Center(
+                    child: Text('Something went wrong'),
+                  ),
+                ),
+              )
             ],
-          ),
-          MemoriesListWidget(),
-        ],
+          );
+        },
       ),
       floatingActionButton: AddMemoryFAB(),
     );
