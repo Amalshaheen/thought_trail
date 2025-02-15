@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:thought_trail/application/memory/image_picker/image_picker_bloc.dart';
+import 'package:thought_trail/application/memory/memory_form/memory_form_bloc.dart';
 
 import 'package:thought_trail/domain/memory/memory_content.dart';
 import 'package:thought_trail/domain/memory/value_objects.dart';
@@ -54,13 +57,17 @@ class _MemoryInputCorouselState extends State<MemoryInputCorousel> {
                           MemoryContent.text(MemoryText(text))),
                       controller: widget.textController,
                     )
-                  : GestureDetector(
-                      onTap: () {
-                        setState(() => _selectedIndex = 0);
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 13.0),
-                        child: const Icon(Icons.text_fields),
+                  : SizedBox(
+                      height: 50,
+                      child: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            resetSelection(context);
+
+                            _selectedIndex = 0;
+                          });
+                        },
+                        icon: const Icon(Icons.text_fields),
                       ),
                     ),
             ),
@@ -81,9 +88,13 @@ class _MemoryInputCorouselState extends State<MemoryInputCorousel> {
                         Flexible(child: Text('Recording...')),
                       ],
                     )
-                  : GestureDetector(
-                      onTap: () => setState(() => _selectedIndex = 1),
-                      child: const Icon(Icons.mic)),
+                  : IconButton(
+                      onPressed: () {
+                        resetSelection(context);
+
+                        setState(() => _selectedIndex = 1);
+                      },
+                      icon: const Icon(Icons.mic)),
             ),
             //IMAGE
             AnimatedContainer(
@@ -98,21 +109,34 @@ class _MemoryInputCorouselState extends State<MemoryInputCorousel> {
                         minHeight: 50,
                         // maxHeight: 200,
                       ),
-                      child: Flexible(child: ImagePickerWidget()))
-                  : GestureDetector(
-                      onTap: () {
-                        setState(() => _selectedIndex = 2);
-                      },
-                      child: ConstrainedBox(
-                          constraints: BoxConstraints(
-                            minHeight: 50,
-                          ),
-                          child: const Icon(Icons.image)),
+                      child: Flexible(
+                        child: ImagePickerWidget(),
+                      ),
+                    )
+                  : SizedBox(
+                      height: 50,
+                      child: IconButton(
+                        onPressed: () {
+                          context
+                              .read<ImagePickerBloc>()
+                              .add(const ImagePickerEvent.started());
+                          resetSelection(context);
+
+                          setState(() => _selectedIndex = 2);
+                        },
+                        icon: const Icon(Icons.image),
+                      ),
                     ),
             ),
           ],
         );
       },
     );
+  }
+
+  void resetSelection(BuildContext context) {
+    context
+        .read<MemoryFormBloc>()
+        .add(MemoryFormEvent.memoryContentChanged(MemoryContent.none()));
   }
 }
