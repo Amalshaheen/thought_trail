@@ -24,36 +24,42 @@ class AddMemoryFAB extends StatelessWidget {
             );
 
         showModalBottomSheet(
+          showDragHandle: true,
+          isScrollControlled: true,
           context: context,
           builder: (context) => BlocListener<MemoryFormBloc, MemoryFormState>(
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  // mainAxisSize: MainAxisSize.min,
-                  spacing: 10,
-                  children: [
-                    Text(
-                      'Add Memory',
-                      style:
-                          Theme.of(context).textTheme.headlineMedium?.copyWith(
-                                color: Theme.of(context).colorScheme.primary,
-                              ),
-                    ),
-                    _buildDatePicker(context),
-                    MemoryInputCorousel(
-                      onMemoryContentChanged: (content) {
-                        context.read<MemoryFormBloc>().add(
-                              MemoryFormEvent.memoryContentChanged(content),
-                            );
-                      },
-                      textController: _textController,
-                    ),
-                    _buildSubmitButton(context),
-                    // _handleSubmissionFailureOrSuccess(context, state),
-                  ],
-                ),
+              padding: EdgeInsets.only(
+                  top: 10.0, bottom: MediaQuery.of(context).viewInsets.bottom),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                mainAxisSize: MainAxisSize.min,
+                spacing: 15,
+                children: [
+                  Text(
+                    'Add Memory',
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
+                  ),
+                  _buildDatePicker(context),
+                  MemoryInputCorousel(
+                    onMemoryContentChanged: (content) {
+                      context.read<MemoryFormBloc>().add(
+                            MemoryFormEvent.memoryContentChanged(content),
+                          );
+                    },
+                    textController: _textController,
+                  ),
+                  _buildSubmitButton(context),
+                  // _handleSubmissionFailureOrSuccess(context, state),
+                  AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 300),
+                    child: context.read<MemoryFormBloc>().state.isProcessing
+                        ? const LinearProgressIndicator()
+                        : const SizedBox.shrink(),
+                  ),
+                ],
               ),
             ),
             listener: (ctx, state) {
@@ -85,8 +91,7 @@ class AddMemoryFAB extends StatelessWidget {
                               (_) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
-                                    content: Text(
-                                        'Memory added successfully : ${state.memory.memoryContent}'),
+                                    content: Text('Memory added successfully'),
                                   ),
                                 );
                                 _textController.clear();
