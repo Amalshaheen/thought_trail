@@ -9,9 +9,22 @@ class MemoryTimelineWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Stack(
-      alignment: Alignment.topCenter,
+      alignment: Alignment.center,
       children: [
-        Container(width: 2, color: theme.dividerColor),
+        Container(
+          width: 2,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                theme.dividerColor.withAlpha(150),
+                theme.dividerColor,
+                theme.dividerColor.withAlpha(150),
+              ],
+            ),
+          ),
+        ),
         Container(
           width: 10,
           height: 10,

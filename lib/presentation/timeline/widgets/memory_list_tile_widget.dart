@@ -48,7 +48,7 @@ class MemoryListTileWidget extends StatelessWidget {
     return IntrinsicHeight(
       child: Row(
         // direction: Axis.horizontal,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         // mainAxisAlignment: MainAxisAlignment.spaceAround,
 
         children: [
