@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:thought_trail/domain/core/error.dart';
 import 'package:thought_trail/domain/memory/memory_content.dart';
 
@@ -19,37 +20,45 @@ class MemoryContentWidget extends StatelessWidget {
     //   height: 50,
     // );
 
-    return memoryContent.map(
-      text: (text) => Text(
-        text.text.value.getOrCrash(),
-      ),
-      image: (image) => Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Image.file(
-          File(image.image.value.getOrCrash()),
-          height: 200,
-          frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
-            // print('image loaded');
-            if (wasSynchronouslyLoaded) {
-              return child;
-            } else {
-              return AnimatedOpacity(
-                opacity: frame == null ? 0 : 1,
-                duration: const Duration(seconds: 1),
-                curve: Curves.easeOut,
-                child: child,
-              );
-            }
-          },
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: memoryContent.map(
+        text: (text) => Text(
+          text.text.value.getOrCrash(),
+          style: TextStyle(
+            fontFamily: GoogleFonts.patrickHand().fontFamily,
+            fontSize: 17,
+          ),
         ),
+        image: (image) => ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Image.file(
+            fit: BoxFit.cover,
+            File(image.image.value.getOrCrash()),
+            // height: 200,
+            frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
+              // print('image loaded');
+              if (wasSynchronouslyLoaded) {
+                return child;
+              } else {
+                return AnimatedOpacity(
+                  opacity: frame == null ? 0 : 1,
+                  duration: const Duration(seconds: 1),
+                  curve: Curves.easeOut,
+                  child: child,
+                );
+              }
+            },
+          ),
+        ),
+        voice: (value) => Container(
+          height: 50,
+          color: Colors.red[300],
+        ),
+        none: (value) {
+          return const SizedBox();
+        },
       ),
-      voice: (value) => Container(
-        height: 50,
-        color: Colors.red[300],
-      ),
-      none: (value) {
-        return const SizedBox();
-      },
     );
   }
 }
