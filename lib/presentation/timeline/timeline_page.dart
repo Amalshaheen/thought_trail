@@ -39,7 +39,7 @@ class TimelinePage extends StatelessWidget {
               SliverAppBar(
                 title: Text('ThoughtTrail'),
                 floating: true,
-                // pinned: true,
+                pinned: true,
                 actions: [
                   DarkLightThemeToggleWidget(),
                 ],

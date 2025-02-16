@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:thought_trail/application/memory/memory_form/memory_form_bloc.dart';
 import 'package:thought_trail/application/memory/memory_watcher/memory_watcher_bloc.dart';
@@ -28,38 +29,42 @@ class AddMemoryFAB extends StatelessWidget {
           isScrollControlled: true,
           context: context,
           builder: (context) => BlocListener<MemoryFormBloc, MemoryFormState>(
-            child: Padding(
-              padding: EdgeInsets.only(
-                  top: 10.0, bottom: MediaQuery.of(context).viewInsets.bottom),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                mainAxisSize: MainAxisSize.min,
-                spacing: 15,
-                children: [
-                  Text(
-                    'Add Memory',
-                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
-                  ),
-                  _buildDatePicker(context),
-                  MemoryInputCorousel(
-                    onMemoryContentChanged: (content) {
-                      context.read<MemoryFormBloc>().add(
-                            MemoryFormEvent.memoryContentChanged(content),
-                          );
-                    },
-                    textController: _textController,
-                  ),
-                  _buildSubmitButton(context),
-                  // _handleSubmissionFailureOrSuccess(context, state),
-                  AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 300),
-                    child: context.read<MemoryFormBloc>().state.isProcessing
-                        ? const LinearProgressIndicator()
-                        : const SizedBox.shrink(),
-                  ),
-                ],
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.only(
+                    top: 10.0,
+                    bottom: MediaQuery.of(context).viewInsets.bottom),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisSize: MainAxisSize.min,
+                  spacing: 15,
+                  children: [
+                    Text(
+                      'Add Memory',
+                      style:
+                          Theme.of(context).textTheme.headlineMedium?.copyWith(
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                    ),
+                    _buildDatePicker(context),
+                    MemoryInputCorousel(
+                      onMemoryContentChanged: (content) {
+                        context.read<MemoryFormBloc>().add(
+                              MemoryFormEvent.memoryContentChanged(content),
+                            );
+                      },
+                      textController: _textController,
+                    ),
+                    _buildSubmitButton(context),
+                    // _handleSubmissionFailureOrSuccess(context, state),
+                    AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 300),
+                      child: context.read<MemoryFormBloc>().state.isProcessing
+                          ? const LinearProgressIndicator()
+                          : const SizedBox.shrink(),
+                    ),
+                  ],
+                ),
               ),
             ),
             listener: (ctx, state) {
@@ -75,24 +80,17 @@ class AddMemoryFAB extends StatelessWidget {
                             either.fold(
                               (memoryFailure) {
                                 state.showErrorMessages
-                                    ? ScaffoldMessenger.of(context)
-                                        .showSnackBar(
-                                        SnackBar(
-                                          content: Text(memoryFailure.map(
-                                            unexpected: (_) =>
-                                                'Unexpected error',
-                                            emptyMemory: (_) =>
-                                                'Empty Entry! try adding your thought',
-                                          )),
-                                        ),
-                                      )
+                                    ? Fluttertoast.showToast(
+                                        msg: memoryFailure.map(
+                                        unexpected: (_) => 'Unexpected error',
+                                        emptyMemory: (_) =>
+                                            'Empty Entry! try adding your thought',
+                                      ))
                                     : {null};
                               },
                               (_) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    content: Text('Memory added successfully'),
-                                  ),
+                                Fluttertoast.showToast(
+                                  msg: 'Memory Added',
                                 );
                                 _textController.clear();
                                 context.read<MemoryWatcherBloc>().add(
@@ -107,16 +105,12 @@ class AddMemoryFAB extends StatelessWidget {
                       },
                       (valueFailure) {
                         state.showErrorMessages
-                            ? ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text(
-                                    valueFailure.when(
-                                      empty: (_) => 'Memory Content is Empty',
-                                      invalidURL: (_) => 'invalidURL',
-                                      invalidAudioURL: (_) => 'invalidAudioURL',
-                                      invalidFilePath: (_) => 'invalidFilePath',
-                                    ),
-                                  ),
+                            ? Fluttertoast.showToast(
+                                msg: valueFailure.when(
+                                  empty: (_) => 'Memory Content is Empty',
+                                  invalidURL: (_) => 'invalidURL',
+                                  invalidAudioURL: (_) => 'invalidAudioURL',
+                                  invalidFilePath: (_) => 'invalidFilePath',
                                 ),
                               )
                             : null;
