@@ -26,7 +26,11 @@ class _MemoryInputCorouselState extends State<MemoryInputCorousel> {
   @override
   Widget build(BuildContext context) {
     final boxDecoration = BoxDecoration(
-      border: Border.all(color: Theme.of(context).colorScheme.onSurface),
+      border: Border.all(color: Theme.of(context).dividerColor),
+      borderRadius: BorderRadius.circular(10),
+    );
+    final boxDecorationSelected = BoxDecoration(
+      border: Border.all(color: Theme.of(context).colorScheme.primary),
       borderRadius: BorderRadius.circular(10),
     );
     const fastOutSlowIn = Curves.fastOutSlowIn;
@@ -45,7 +49,8 @@ class _MemoryInputCorouselState extends State<MemoryInputCorousel> {
           children: [
             // Text Input
             AnimatedContainer(
-              decoration: boxDecoration,
+              decoration:
+                  _selectedIndex == 0 ? boxDecorationSelected : boxDecoration,
               curve: fastOutSlowIn,
               duration: duration,
               width: _selectedIndex == 0 ? selectedWidth : unselectedWidth,
@@ -73,32 +78,41 @@ class _MemoryInputCorouselState extends State<MemoryInputCorousel> {
             ),
 
             AnimatedContainer(
-              decoration: boxDecoration,
+              decoration:
+                  _selectedIndex == 1 ? boxDecorationSelected : boxDecoration,
               curve: fastOutSlowIn,
               duration: duration,
               width: _selectedIndex == 1 ? selectedWidth : unselectedWidth,
-              height: 50,
+              // height: 50,
               alignment: Alignment.center,
-              child: _selectedIndex == 1
-                  ? Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Icon(Icons.mic, color: Colors.red),
-                        SizedBox(width: 8),
-                        Flexible(child: Text('Recording...')),
-                      ],
-                    )
-                  : IconButton(
-                      onPressed: () {
-                        resetSelection(context);
+              child: SizedBox(
+                height: 50,
+                child: _selectedIndex == 1
+                    ? Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Icon(Icons.mic, color: Colors.red),
+                          SizedBox(width: 8),
+                          Flexible(
+                              child: Text(
+                            'Recording...',
+                            maxLines: 1,
+                          )),
+                        ],
+                      )
+                    : IconButton(
+                        onPressed: () {
+                          resetSelection(context);
 
-                        setState(() => _selectedIndex = 1);
-                      },
-                      icon: const Icon(Icons.mic)),
+                          setState(() => _selectedIndex = 1);
+                        },
+                        icon: const Icon(Icons.mic)),
+              ),
             ),
             //IMAGE
             AnimatedContainer(
-              decoration: boxDecoration,
+              decoration:
+                  _selectedIndex == 2 ? boxDecorationSelected : boxDecoration,
               curve: fastOutSlowIn,
               duration: duration,
               width: _selectedIndex == 2 ? selectedWidth : unselectedWidth,
@@ -109,9 +123,7 @@ class _MemoryInputCorouselState extends State<MemoryInputCorousel> {
                         minHeight: 50,
                         // maxHeight: 200,
                       ),
-                      child: Flexible(
-                        child: ImagePickerWidget(),
-                      ),
+                      child: ImagePickerWidget(),
                     )
                   : SizedBox(
                       height: 50,
