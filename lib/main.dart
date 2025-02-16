@@ -35,7 +35,7 @@ class NewApp extends StatelessWidget {
         theme: lightThemeData(),
         darkTheme: darkThemeData(),
         themeMode: ThemeMode.system,
-        home: TimelinePage(),
+        home: SafeArea(child: TimelinePage()),
         debugShowCheckedModeBanner: false,
       ),
     );
