@@ -30,26 +30,8 @@ class MemoryContentWidget extends StatelessWidget {
             fontSize: 17,
           ),
         ),
-        image: (image) => ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Image.file(
-            fit: BoxFit.cover,
-            File(image.image.value.getOrCrash()),
-            // height: 200,
-            frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
-              // print('image loaded');
-              if (wasSynchronouslyLoaded) {
-                return child;
-              } else {
-                return AnimatedOpacity(
-                  opacity: frame == null ? 0 : 1,
-                  duration: const Duration(seconds: 1),
-                  curve: Curves.easeOut,
-                  child: child,
-                );
-              }
-            },
-          ),
+        image: (image) => MemoryImageWidget(
+          image: image.image.value.getOrCrash(),
         ),
         voice: (value) => Container(
           height: 50,
@@ -58,6 +40,43 @@ class MemoryContentWidget extends StatelessWidget {
         none: (value) {
           return const SizedBox();
         },
+      ),
+    );
+  }
+}
+
+class MemoryImageWidget extends StatelessWidget {
+  const MemoryImageWidget({
+    super.key,
+    required this.image,
+  });
+  final String image;
+  @override
+  Widget build(BuildContext context) {
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        maxHeight: 500,
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(10),
+        child: Image.file(
+          fit: BoxFit.cover,
+          File(image),
+          // height: 200,
+          frameBuilder: (context, child, frame, wasSynchronouslyLoaded) {
+            // print('image loaded');
+            if (wasSynchronouslyLoaded) {
+              return child;
+            } else {
+              return AnimatedOpacity(
+                opacity: frame == null ? 0 : 1,
+                duration: const Duration(seconds: 1),
+                curve: Curves.easeOut,
+                child: child,
+              );
+            }
+          },
+        ),
       ),
     );
   }
