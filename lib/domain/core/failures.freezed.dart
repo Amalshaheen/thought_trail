@@ -21,24 +21,27 @@ mixin _$ValueFailure<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidURL,
-    required TResult Function(T failedValue) invalidAudioURL,
+    required TResult Function(T failedValue) invalidAudioFormat,
     required TResult Function(T failedValue) invalidFilePath,
+    required TResult Function(T failedValue) invalidImageFormat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failedValue)? empty,
     TResult? Function(T failedValue)? invalidURL,
-    TResult? Function(T failedValue)? invalidAudioURL,
+    TResult? Function(T failedValue)? invalidAudioFormat,
     TResult? Function(T failedValue)? invalidFilePath,
+    TResult? Function(T failedValue)? invalidImageFormat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidURL,
-    TResult Function(T failedValue)? invalidAudioURL,
+    TResult Function(T failedValue)? invalidAudioFormat,
     TResult Function(T failedValue)? invalidFilePath,
+    TResult Function(T failedValue)? invalidImageFormat,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -46,24 +49,27 @@ mixin _$ValueFailure<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidURL<T> value) invalidURL,
-    required TResult Function(InvalidAudioURL<T> value) invalidAudioURL,
+    required TResult Function(InvalidAudioFormat<T> value) invalidAudioFormat,
     required TResult Function(_InvalidFilePath<T> value) invalidFilePath,
+    required TResult Function(_InvalidImageFormat<T> value) invalidImageFormat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(InvalidURL<T> value)? invalidURL,
-    TResult? Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult? Function(InvalidAudioFormat<T> value)? invalidAudioFormat,
     TResult? Function(_InvalidFilePath<T> value)? invalidFilePath,
+    TResult? Function(_InvalidImageFormat<T> value)? invalidImageFormat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidURL<T> value)? invalidURL,
-    TResult Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult Function(InvalidAudioFormat<T> value)? invalidAudioFormat,
     TResult Function(_InvalidFilePath<T> value)? invalidFilePath,
+    TResult Function(_InvalidImageFormat<T> value)? invalidImageFormat,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -176,8 +182,9 @@ class _$EmptyImpl<T> implements Empty<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidURL,
-    required TResult Function(T failedValue) invalidAudioURL,
+    required TResult Function(T failedValue) invalidAudioFormat,
     required TResult Function(T failedValue) invalidFilePath,
+    required TResult Function(T failedValue) invalidImageFormat,
   }) {
     return empty(failedValue);
   }
@@ -187,8 +194,9 @@ class _$EmptyImpl<T> implements Empty<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failedValue)? empty,
     TResult? Function(T failedValue)? invalidURL,
-    TResult? Function(T failedValue)? invalidAudioURL,
+    TResult? Function(T failedValue)? invalidAudioFormat,
     TResult? Function(T failedValue)? invalidFilePath,
+    TResult? Function(T failedValue)? invalidImageFormat,
   }) {
     return empty?.call(failedValue);
   }
@@ -198,8 +206,9 @@ class _$EmptyImpl<T> implements Empty<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidURL,
-    TResult Function(T failedValue)? invalidAudioURL,
+    TResult Function(T failedValue)? invalidAudioFormat,
     TResult Function(T failedValue)? invalidFilePath,
+    TResult Function(T failedValue)? invalidImageFormat,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -213,8 +222,9 @@ class _$EmptyImpl<T> implements Empty<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidURL<T> value) invalidURL,
-    required TResult Function(InvalidAudioURL<T> value) invalidAudioURL,
+    required TResult Function(InvalidAudioFormat<T> value) invalidAudioFormat,
     required TResult Function(_InvalidFilePath<T> value) invalidFilePath,
+    required TResult Function(_InvalidImageFormat<T> value) invalidImageFormat,
   }) {
     return empty(this);
   }
@@ -224,8 +234,9 @@ class _$EmptyImpl<T> implements Empty<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(InvalidURL<T> value)? invalidURL,
-    TResult? Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult? Function(InvalidAudioFormat<T> value)? invalidAudioFormat,
     TResult? Function(_InvalidFilePath<T> value)? invalidFilePath,
+    TResult? Function(_InvalidImageFormat<T> value)? invalidImageFormat,
   }) {
     return empty?.call(this);
   }
@@ -235,8 +246,9 @@ class _$EmptyImpl<T> implements Empty<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidURL<T> value)? invalidURL,
-    TResult Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult Function(InvalidAudioFormat<T> value)? invalidAudioFormat,
     TResult Function(_InvalidFilePath<T> value)? invalidFilePath,
+    TResult Function(_InvalidImageFormat<T> value)? invalidImageFormat,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -327,8 +339,9 @@ class _$InvalidURLImpl<T> implements InvalidURL<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidURL,
-    required TResult Function(T failedValue) invalidAudioURL,
+    required TResult Function(T failedValue) invalidAudioFormat,
     required TResult Function(T failedValue) invalidFilePath,
+    required TResult Function(T failedValue) invalidImageFormat,
   }) {
     return invalidURL(failedValue);
   }
@@ -338,8 +351,9 @@ class _$InvalidURLImpl<T> implements InvalidURL<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failedValue)? empty,
     TResult? Function(T failedValue)? invalidURL,
-    TResult? Function(T failedValue)? invalidAudioURL,
+    TResult? Function(T failedValue)? invalidAudioFormat,
     TResult? Function(T failedValue)? invalidFilePath,
+    TResult? Function(T failedValue)? invalidImageFormat,
   }) {
     return invalidURL?.call(failedValue);
   }
@@ -349,8 +363,9 @@ class _$InvalidURLImpl<T> implements InvalidURL<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidURL,
-    TResult Function(T failedValue)? invalidAudioURL,
+    TResult Function(T failedValue)? invalidAudioFormat,
     TResult Function(T failedValue)? invalidFilePath,
+    TResult Function(T failedValue)? invalidImageFormat,
     required TResult orElse(),
   }) {
     if (invalidURL != null) {
@@ -364,8 +379,9 @@ class _$InvalidURLImpl<T> implements InvalidURL<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidURL<T> value) invalidURL,
-    required TResult Function(InvalidAudioURL<T> value) invalidAudioURL,
+    required TResult Function(InvalidAudioFormat<T> value) invalidAudioFormat,
     required TResult Function(_InvalidFilePath<T> value) invalidFilePath,
+    required TResult Function(_InvalidImageFormat<T> value) invalidImageFormat,
   }) {
     return invalidURL(this);
   }
@@ -375,8 +391,9 @@ class _$InvalidURLImpl<T> implements InvalidURL<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(InvalidURL<T> value)? invalidURL,
-    TResult? Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult? Function(InvalidAudioFormat<T> value)? invalidAudioFormat,
     TResult? Function(_InvalidFilePath<T> value)? invalidFilePath,
+    TResult? Function(_InvalidImageFormat<T> value)? invalidImageFormat,
   }) {
     return invalidURL?.call(this);
   }
@@ -386,8 +403,9 @@ class _$InvalidURLImpl<T> implements InvalidURL<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidURL<T> value)? invalidURL,
-    TResult Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult Function(InvalidAudioFormat<T> value)? invalidAudioFormat,
     TResult Function(_InvalidFilePath<T> value)? invalidFilePath,
+    TResult Function(_InvalidImageFormat<T> value)? invalidImageFormat,
     required TResult orElse(),
   }) {
     if (invalidURL != null) {
@@ -410,22 +428,22 @@ abstract class InvalidURL<T> implements ValueFailure<T> {
 }
 
 /// @nodoc
-abstract class _$$InvalidAudioURLImplCopyWith<T, $Res>
+abstract class _$$InvalidAudioFormatImplCopyWith<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
-  factory _$$InvalidAudioURLImplCopyWith(_$InvalidAudioURLImpl<T> value,
-          $Res Function(_$InvalidAudioURLImpl<T>) then) =
-      __$$InvalidAudioURLImplCopyWithImpl<T, $Res>;
+  factory _$$InvalidAudioFormatImplCopyWith(_$InvalidAudioFormatImpl<T> value,
+          $Res Function(_$InvalidAudioFormatImpl<T>) then) =
+      __$$InvalidAudioFormatImplCopyWithImpl<T, $Res>;
   @override
   @useResult
   $Res call({T failedValue});
 }
 
 /// @nodoc
-class __$$InvalidAudioURLImplCopyWithImpl<T, $Res>
-    extends _$ValueFailureCopyWithImpl<T, $Res, _$InvalidAudioURLImpl<T>>
-    implements _$$InvalidAudioURLImplCopyWith<T, $Res> {
-  __$$InvalidAudioURLImplCopyWithImpl(_$InvalidAudioURLImpl<T> _value,
-      $Res Function(_$InvalidAudioURLImpl<T>) _then)
+class __$$InvalidAudioFormatImplCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res, _$InvalidAudioFormatImpl<T>>
+    implements _$$InvalidAudioFormatImplCopyWith<T, $Res> {
+  __$$InvalidAudioFormatImplCopyWithImpl(_$InvalidAudioFormatImpl<T> _value,
+      $Res Function(_$InvalidAudioFormatImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -433,7 +451,7 @@ class __$$InvalidAudioURLImplCopyWithImpl<T, $Res>
   $Res call({
     Object? failedValue = freezed,
   }) {
-    return _then(_$InvalidAudioURLImpl<T>(
+    return _then(_$InvalidAudioFormatImpl<T>(
       failedValue: freezed == failedValue
           ? _value.failedValue
           : failedValue // ignore: cast_nullable_to_non_nullable
@@ -444,22 +462,22 @@ class __$$InvalidAudioURLImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$InvalidAudioURLImpl<T> implements InvalidAudioURL<T> {
-  const _$InvalidAudioURLImpl({required this.failedValue});
+class _$InvalidAudioFormatImpl<T> implements InvalidAudioFormat<T> {
+  const _$InvalidAudioFormatImpl({required this.failedValue});
 
   @override
   final T failedValue;
 
   @override
   String toString() {
-    return 'ValueFailure<$T>.invalidAudioURL(failedValue: $failedValue)';
+    return 'ValueFailure<$T>.invalidAudioFormat(failedValue: $failedValue)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InvalidAudioURLImpl<T> &&
+            other is _$InvalidAudioFormatImpl<T> &&
             const DeepCollectionEquality()
                 .equals(other.failedValue, failedValue));
   }
@@ -471,19 +489,20 @@ class _$InvalidAudioURLImpl<T> implements InvalidAudioURL<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$InvalidAudioURLImplCopyWith<T, _$InvalidAudioURLImpl<T>> get copyWith =>
-      __$$InvalidAudioURLImplCopyWithImpl<T, _$InvalidAudioURLImpl<T>>(
-          this, _$identity);
+  _$$InvalidAudioFormatImplCopyWith<T, _$InvalidAudioFormatImpl<T>>
+      get copyWith => __$$InvalidAudioFormatImplCopyWithImpl<T,
+          _$InvalidAudioFormatImpl<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidURL,
-    required TResult Function(T failedValue) invalidAudioURL,
+    required TResult Function(T failedValue) invalidAudioFormat,
     required TResult Function(T failedValue) invalidFilePath,
+    required TResult Function(T failedValue) invalidImageFormat,
   }) {
-    return invalidAudioURL(failedValue);
+    return invalidAudioFormat(failedValue);
   }
 
   @override
@@ -491,10 +510,11 @@ class _$InvalidAudioURLImpl<T> implements InvalidAudioURL<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failedValue)? empty,
     TResult? Function(T failedValue)? invalidURL,
-    TResult? Function(T failedValue)? invalidAudioURL,
+    TResult? Function(T failedValue)? invalidAudioFormat,
     TResult? Function(T failedValue)? invalidFilePath,
+    TResult? Function(T failedValue)? invalidImageFormat,
   }) {
-    return invalidAudioURL?.call(failedValue);
+    return invalidAudioFormat?.call(failedValue);
   }
 
   @override
@@ -502,12 +522,13 @@ class _$InvalidAudioURLImpl<T> implements InvalidAudioURL<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidURL,
-    TResult Function(T failedValue)? invalidAudioURL,
+    TResult Function(T failedValue)? invalidAudioFormat,
     TResult Function(T failedValue)? invalidFilePath,
+    TResult Function(T failedValue)? invalidImageFormat,
     required TResult orElse(),
   }) {
-    if (invalidAudioURL != null) {
-      return invalidAudioURL(failedValue);
+    if (invalidAudioFormat != null) {
+      return invalidAudioFormat(failedValue);
     }
     return orElse();
   }
@@ -517,10 +538,11 @@ class _$InvalidAudioURLImpl<T> implements InvalidAudioURL<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidURL<T> value) invalidURL,
-    required TResult Function(InvalidAudioURL<T> value) invalidAudioURL,
+    required TResult Function(InvalidAudioFormat<T> value) invalidAudioFormat,
     required TResult Function(_InvalidFilePath<T> value) invalidFilePath,
+    required TResult Function(_InvalidImageFormat<T> value) invalidImageFormat,
   }) {
-    return invalidAudioURL(this);
+    return invalidAudioFormat(this);
   }
 
   @override
@@ -528,10 +550,11 @@ class _$InvalidAudioURLImpl<T> implements InvalidAudioURL<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(InvalidURL<T> value)? invalidURL,
-    TResult? Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult? Function(InvalidAudioFormat<T> value)? invalidAudioFormat,
     TResult? Function(_InvalidFilePath<T> value)? invalidFilePath,
+    TResult? Function(_InvalidImageFormat<T> value)? invalidImageFormat,
   }) {
-    return invalidAudioURL?.call(this);
+    return invalidAudioFormat?.call(this);
   }
 
   @override
@@ -539,27 +562,28 @@ class _$InvalidAudioURLImpl<T> implements InvalidAudioURL<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidURL<T> value)? invalidURL,
-    TResult Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult Function(InvalidAudioFormat<T> value)? invalidAudioFormat,
     TResult Function(_InvalidFilePath<T> value)? invalidFilePath,
+    TResult Function(_InvalidImageFormat<T> value)? invalidImageFormat,
     required TResult orElse(),
   }) {
-    if (invalidAudioURL != null) {
-      return invalidAudioURL(this);
+    if (invalidAudioFormat != null) {
+      return invalidAudioFormat(this);
     }
     return orElse();
   }
 }
 
-abstract class InvalidAudioURL<T> implements ValueFailure<T> {
-  const factory InvalidAudioURL({required final T failedValue}) =
-      _$InvalidAudioURLImpl<T>;
+abstract class InvalidAudioFormat<T> implements ValueFailure<T> {
+  const factory InvalidAudioFormat({required final T failedValue}) =
+      _$InvalidAudioFormatImpl<T>;
 
   @override
   T get failedValue;
   @override
   @JsonKey(ignore: true)
-  _$$InvalidAudioURLImplCopyWith<T, _$InvalidAudioURLImpl<T>> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$InvalidAudioFormatImplCopyWith<T, _$InvalidAudioFormatImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -633,8 +657,9 @@ class _$InvalidFilePathImpl<T> implements _InvalidFilePath<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) empty,
     required TResult Function(T failedValue) invalidURL,
-    required TResult Function(T failedValue) invalidAudioURL,
+    required TResult Function(T failedValue) invalidAudioFormat,
     required TResult Function(T failedValue) invalidFilePath,
+    required TResult Function(T failedValue) invalidImageFormat,
   }) {
     return invalidFilePath(failedValue);
   }
@@ -644,8 +669,9 @@ class _$InvalidFilePathImpl<T> implements _InvalidFilePath<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failedValue)? empty,
     TResult? Function(T failedValue)? invalidURL,
-    TResult? Function(T failedValue)? invalidAudioURL,
+    TResult? Function(T failedValue)? invalidAudioFormat,
     TResult? Function(T failedValue)? invalidFilePath,
+    TResult? Function(T failedValue)? invalidImageFormat,
   }) {
     return invalidFilePath?.call(failedValue);
   }
@@ -655,8 +681,9 @@ class _$InvalidFilePathImpl<T> implements _InvalidFilePath<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? empty,
     TResult Function(T failedValue)? invalidURL,
-    TResult Function(T failedValue)? invalidAudioURL,
+    TResult Function(T failedValue)? invalidAudioFormat,
     TResult Function(T failedValue)? invalidFilePath,
+    TResult Function(T failedValue)? invalidImageFormat,
     required TResult orElse(),
   }) {
     if (invalidFilePath != null) {
@@ -670,8 +697,9 @@ class _$InvalidFilePathImpl<T> implements _InvalidFilePath<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(Empty<T> value) empty,
     required TResult Function(InvalidURL<T> value) invalidURL,
-    required TResult Function(InvalidAudioURL<T> value) invalidAudioURL,
+    required TResult Function(InvalidAudioFormat<T> value) invalidAudioFormat,
     required TResult Function(_InvalidFilePath<T> value) invalidFilePath,
+    required TResult Function(_InvalidImageFormat<T> value) invalidImageFormat,
   }) {
     return invalidFilePath(this);
   }
@@ -681,8 +709,9 @@ class _$InvalidFilePathImpl<T> implements _InvalidFilePath<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(Empty<T> value)? empty,
     TResult? Function(InvalidURL<T> value)? invalidURL,
-    TResult? Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult? Function(InvalidAudioFormat<T> value)? invalidAudioFormat,
     TResult? Function(_InvalidFilePath<T> value)? invalidFilePath,
+    TResult? Function(_InvalidImageFormat<T> value)? invalidImageFormat,
   }) {
     return invalidFilePath?.call(this);
   }
@@ -692,8 +721,9 @@ class _$InvalidFilePathImpl<T> implements _InvalidFilePath<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Empty<T> value)? empty,
     TResult Function(InvalidURL<T> value)? invalidURL,
-    TResult Function(InvalidAudioURL<T> value)? invalidAudioURL,
+    TResult Function(InvalidAudioFormat<T> value)? invalidAudioFormat,
     TResult Function(_InvalidFilePath<T> value)? invalidFilePath,
+    TResult Function(_InvalidImageFormat<T> value)? invalidImageFormat,
     required TResult orElse(),
   }) {
     if (invalidFilePath != null) {
@@ -713,4 +743,163 @@ abstract class _InvalidFilePath<T> implements ValueFailure<T> {
   @JsonKey(ignore: true)
   _$$InvalidFilePathImplCopyWith<T, _$InvalidFilePathImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$InvalidImageFormatImplCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory _$$InvalidImageFormatImplCopyWith(_$InvalidImageFormatImpl<T> value,
+          $Res Function(_$InvalidImageFormatImpl<T>) then) =
+      __$$InvalidImageFormatImplCopyWithImpl<T, $Res>;
+  @override
+  @useResult
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class __$$InvalidImageFormatImplCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res, _$InvalidImageFormatImpl<T>>
+    implements _$$InvalidImageFormatImplCopyWith<T, $Res> {
+  __$$InvalidImageFormatImplCopyWithImpl(_$InvalidImageFormatImpl<T> _value,
+      $Res Function(_$InvalidImageFormatImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(_$InvalidImageFormatImpl<T>(
+      failedValue: freezed == failedValue
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InvalidImageFormatImpl<T> implements _InvalidImageFormat<T> {
+  const _$InvalidImageFormatImpl({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.invalidImageFormat(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InvalidImageFormatImpl<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InvalidImageFormatImplCopyWith<T, _$InvalidImageFormatImpl<T>>
+      get copyWith => __$$InvalidImageFormatImplCopyWithImpl<T,
+          _$InvalidImageFormatImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) invalidURL,
+    required TResult Function(T failedValue) invalidAudioFormat,
+    required TResult Function(T failedValue) invalidFilePath,
+    required TResult Function(T failedValue) invalidImageFormat,
+  }) {
+    return invalidImageFormat(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? invalidURL,
+    TResult? Function(T failedValue)? invalidAudioFormat,
+    TResult? Function(T failedValue)? invalidFilePath,
+    TResult? Function(T failedValue)? invalidImageFormat,
+  }) {
+    return invalidImageFormat?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? invalidURL,
+    TResult Function(T failedValue)? invalidAudioFormat,
+    TResult Function(T failedValue)? invalidFilePath,
+    TResult Function(T failedValue)? invalidImageFormat,
+    required TResult orElse(),
+  }) {
+    if (invalidImageFormat != null) {
+      return invalidImageFormat(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(InvalidURL<T> value) invalidURL,
+    required TResult Function(InvalidAudioFormat<T> value) invalidAudioFormat,
+    required TResult Function(_InvalidFilePath<T> value) invalidFilePath,
+    required TResult Function(_InvalidImageFormat<T> value) invalidImageFormat,
+  }) {
+    return invalidImageFormat(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(InvalidURL<T> value)? invalidURL,
+    TResult? Function(InvalidAudioFormat<T> value)? invalidAudioFormat,
+    TResult? Function(_InvalidFilePath<T> value)? invalidFilePath,
+    TResult? Function(_InvalidImageFormat<T> value)? invalidImageFormat,
+  }) {
+    return invalidImageFormat?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(InvalidURL<T> value)? invalidURL,
+    TResult Function(InvalidAudioFormat<T> value)? invalidAudioFormat,
+    TResult Function(_InvalidFilePath<T> value)? invalidFilePath,
+    TResult Function(_InvalidImageFormat<T> value)? invalidImageFormat,
+    required TResult orElse(),
+  }) {
+    if (invalidImageFormat != null) {
+      return invalidImageFormat(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InvalidImageFormat<T> implements ValueFailure<T> {
+  const factory _InvalidImageFormat({required final T failedValue}) =
+      _$InvalidImageFormatImpl<T>;
+
+  @override
+  T get failedValue;
+  @override
+  @JsonKey(ignore: true)
+  _$$InvalidImageFormatImplCopyWith<T, _$InvalidImageFormatImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
