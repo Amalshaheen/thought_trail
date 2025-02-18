@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:fpdart/fpdart.dart';
 import 'package:thought_trail/domain/core/failures.dart';
 
@@ -10,11 +12,21 @@ Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
 }
 
 Either<ValueFailure<String>, String> validateFilePath(String filePath) {
-  final regex = r'([a-zA-Z0-9\s_\\.\-\(\):])+(.jpg|.jpeg|.png)';
-  if (RegExp(regex).hasMatch(filePath)) {
+  File file = File(filePath);
+
+  if (file.existsSync()) {
     return right(filePath);
   } else {
     return left(ValueFailure.invalidFilePath(failedValue: filePath));
+  }
+}
+
+Either<ValueFailure<String>, String> validateImage(String filePath) {
+  final regex = r'\.(jpg|jpeg|png|gif)$';
+  if (RegExp(regex, caseSensitive: false).hasMatch(filePath)) {
+    return right(filePath);
+  } else {
+    return left(ValueFailure.invalidImageFormat(failedValue: filePath));
   }
 }
 
@@ -28,11 +40,11 @@ Either<ValueFailure<String>, String> validateURL(String input) {
   }
 }
 
-Either<ValueFailure<String>, String> validateAudioURL(String input) {
-  final regex = r'((http|https|ftp|file)://).*(.mp3|.wav|.ogg)';
+Either<ValueFailure<String>, String> validateAudio(String input) {
+  final regex = r'\.(mp3|wav|ogg)';
   if (RegExp(regex).hasMatch(input)) {
     return right(input);
   } else {
-    return left(ValueFailure.invalidAudioURL(failedValue: input));
+    return left(ValueFailure.invalidAudioFormat(failedValue: input));
   }
 }
