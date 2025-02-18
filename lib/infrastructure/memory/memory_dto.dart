@@ -5,6 +5,7 @@ import 'package:thought_trail/domain/core/unique_id.dart';
 import 'package:thought_trail/domain/memory/memory.dart';
 import 'package:thought_trail/domain/memory/memory_content.dart';
 import 'package:thought_trail/domain/memory/value_objects.dart';
+import 'package:thought_trail/domain/voice/voice_object.dart';
 
 part 'memory_dto.g.dart';
 

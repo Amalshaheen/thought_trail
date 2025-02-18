@@ -26,18 +26,6 @@ class MemoryImage extends ValueObject<String> {
   MemoryImage._(this.value);
 }
 
-class MemoryVoice extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory MemoryVoice(String audioPath) {
-    return MemoryVoice._(
-        validateStringNotEmpty(audioPath).flatMap(validateAudioURL));
-  }
-
-  MemoryVoice._(this.value);
-}
-
 class MemoryCaption extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;

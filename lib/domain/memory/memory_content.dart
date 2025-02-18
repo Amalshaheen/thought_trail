@@ -2,6 +2,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:thought_trail/domain/core/failures.dart';
 import 'package:thought_trail/domain/memory/value_objects.dart';
+import 'package:thought_trail/domain/voice/voice_object.dart';
 part 'memory_content.freezed.dart';
 
 enum MemoryContentType { none, text, image, voice }
@@ -16,22 +17,20 @@ class MemoryContent with _$MemoryContent {
   const factory MemoryContent.voice(MemoryVoice voice) = _Voice;
   const factory MemoryContent.none() = _None;
   factory MemoryContent.fromType(MemoryContentType type,
-      {required String memoryContent,required String caption}) {
+      {required String memoryContent, required String caption}) {
     switch (type) {
       case MemoryContentType.text:
         return MemoryContent.text(MemoryText(memoryContent));
-        
+
       case MemoryContentType.image:
-        return MemoryContent.image(MemoryImage(memoryContent),optionOf(MemoryCaption(caption)));
-        
+        return MemoryContent.image(
+            MemoryImage(memoryContent), optionOf(MemoryCaption(caption)));
 
       case MemoryContentType.voice:
         return MemoryContent.voice(MemoryVoice(memoryContent));
-        
 
       case MemoryContentType.none:
         return MemoryContent.none();
-        
     }
   }
 }
