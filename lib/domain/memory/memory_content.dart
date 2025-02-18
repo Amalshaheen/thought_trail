@@ -1,6 +1,7 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:thought_trail/domain/core/failures.dart';
+import 'package:thought_trail/domain/image/image_object.dart';
 import 'package:thought_trail/domain/memory/value_objects.dart';
 import 'package:thought_trail/domain/voice/voice_object.dart';
 part 'memory_content.freezed.dart';

@@ -13,26 +13,3 @@ class MemoryText extends ValueObject<String> {
 
   MemoryText._(this.value);
 }
-
-class MemoryImage extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory MemoryImage(String imagePath) {
-    return MemoryImage._(
-        validateStringNotEmpty(imagePath).flatMap(validateFilePath));
-  }
-
-  MemoryImage._(this.value);
-}
-
-class MemoryCaption extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory MemoryCaption(String text) {
-    return MemoryCaption._(right(text));
-  }
-
-  MemoryCaption._(this.value);
-}

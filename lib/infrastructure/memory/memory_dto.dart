@@ -2,6 +2,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:isar/isar.dart';
 import 'package:thought_trail/domain/core/error.dart';
 import 'package:thought_trail/domain/core/unique_id.dart';
+import 'package:thought_trail/domain/image/image_object.dart';
 import 'package:thought_trail/domain/memory/memory.dart';
 import 'package:thought_trail/domain/memory/memory_content.dart';
 import 'package:thought_trail/domain/memory/value_objects.dart';
