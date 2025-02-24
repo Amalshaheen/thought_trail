@@ -20,24 +20,27 @@ mixin _$VoiceFailures {
   TResult when<TResult extends Object?>({
     required TResult Function() fileDoesNotExist,
     required TResult Function() unexpected,
-    required TResult Function() voiceNotSelected,
+    required TResult Function() permissionDenied,
     required TResult Function() canceledByUser,
+    required TResult Function() recordNotStarted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fileDoesNotExist,
     TResult? Function()? unexpected,
-    TResult? Function()? voiceNotSelected,
+    TResult? Function()? permissionDenied,
     TResult? Function()? canceledByUser,
+    TResult? Function()? recordNotStarted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fileDoesNotExist,
     TResult Function()? unexpected,
-    TResult Function()? voiceNotSelected,
+    TResult Function()? permissionDenied,
     TResult Function()? canceledByUser,
+    TResult Function()? recordNotStarted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -45,24 +48,27 @@ mixin _$VoiceFailures {
   TResult map<TResult extends Object?>({
     required TResult Function(_FileDoesNotExist value) fileDoesNotExist,
     required TResult Function(_Unexpected value) unexpected,
-    required TResult Function(_VoiceNotSelected value) voiceNotSelected,
+    required TResult Function(_PermissionDenied value) permissionDenied,
     required TResult Function(_CanceledByUser value) canceledByUser,
+    required TResult Function(_RecordNotStarted value) recordNotStarted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult? Function(_Unexpected value)? unexpected,
-    TResult? Function(_VoiceNotSelected value)? voiceNotSelected,
+    TResult? Function(_PermissionDenied value)? permissionDenied,
     TResult? Function(_CanceledByUser value)? canceledByUser,
+    TResult? Function(_RecordNotStarted value)? recordNotStarted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult Function(_Unexpected value)? unexpected,
-    TResult Function(_VoiceNotSelected value)? voiceNotSelected,
+    TResult Function(_PermissionDenied value)? permissionDenied,
     TResult Function(_CanceledByUser value)? canceledByUser,
+    TResult Function(_RecordNotStarted value)? recordNotStarted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,8 +132,9 @@ class _$FileDoesNotExistImpl implements _FileDoesNotExist {
   TResult when<TResult extends Object?>({
     required TResult Function() fileDoesNotExist,
     required TResult Function() unexpected,
-    required TResult Function() voiceNotSelected,
+    required TResult Function() permissionDenied,
     required TResult Function() canceledByUser,
+    required TResult Function() recordNotStarted,
   }) {
     return fileDoesNotExist();
   }
@@ -137,8 +144,9 @@ class _$FileDoesNotExistImpl implements _FileDoesNotExist {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fileDoesNotExist,
     TResult? Function()? unexpected,
-    TResult? Function()? voiceNotSelected,
+    TResult? Function()? permissionDenied,
     TResult? Function()? canceledByUser,
+    TResult? Function()? recordNotStarted,
   }) {
     return fileDoesNotExist?.call();
   }
@@ -148,8 +156,9 @@ class _$FileDoesNotExistImpl implements _FileDoesNotExist {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fileDoesNotExist,
     TResult Function()? unexpected,
-    TResult Function()? voiceNotSelected,
+    TResult Function()? permissionDenied,
     TResult Function()? canceledByUser,
+    TResult Function()? recordNotStarted,
     required TResult orElse(),
   }) {
     if (fileDoesNotExist != null) {
@@ -163,8 +172,9 @@ class _$FileDoesNotExistImpl implements _FileDoesNotExist {
   TResult map<TResult extends Object?>({
     required TResult Function(_FileDoesNotExist value) fileDoesNotExist,
     required TResult Function(_Unexpected value) unexpected,
-    required TResult Function(_VoiceNotSelected value) voiceNotSelected,
+    required TResult Function(_PermissionDenied value) permissionDenied,
     required TResult Function(_CanceledByUser value) canceledByUser,
+    required TResult Function(_RecordNotStarted value) recordNotStarted,
   }) {
     return fileDoesNotExist(this);
   }
@@ -174,8 +184,9 @@ class _$FileDoesNotExistImpl implements _FileDoesNotExist {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult? Function(_Unexpected value)? unexpected,
-    TResult? Function(_VoiceNotSelected value)? voiceNotSelected,
+    TResult? Function(_PermissionDenied value)? permissionDenied,
     TResult? Function(_CanceledByUser value)? canceledByUser,
+    TResult? Function(_RecordNotStarted value)? recordNotStarted,
   }) {
     return fileDoesNotExist?.call(this);
   }
@@ -185,8 +196,9 @@ class _$FileDoesNotExistImpl implements _FileDoesNotExist {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult Function(_Unexpected value)? unexpected,
-    TResult Function(_VoiceNotSelected value)? voiceNotSelected,
+    TResult Function(_PermissionDenied value)? permissionDenied,
     TResult Function(_CanceledByUser value)? canceledByUser,
+    TResult Function(_RecordNotStarted value)? recordNotStarted,
     required TResult orElse(),
   }) {
     if (fileDoesNotExist != null) {
@@ -240,8 +252,9 @@ class _$UnexpectedImpl implements _Unexpected {
   TResult when<TResult extends Object?>({
     required TResult Function() fileDoesNotExist,
     required TResult Function() unexpected,
-    required TResult Function() voiceNotSelected,
+    required TResult Function() permissionDenied,
     required TResult Function() canceledByUser,
+    required TResult Function() recordNotStarted,
   }) {
     return unexpected();
   }
@@ -251,8 +264,9 @@ class _$UnexpectedImpl implements _Unexpected {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fileDoesNotExist,
     TResult? Function()? unexpected,
-    TResult? Function()? voiceNotSelected,
+    TResult? Function()? permissionDenied,
     TResult? Function()? canceledByUser,
+    TResult? Function()? recordNotStarted,
   }) {
     return unexpected?.call();
   }
@@ -262,8 +276,9 @@ class _$UnexpectedImpl implements _Unexpected {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fileDoesNotExist,
     TResult Function()? unexpected,
-    TResult Function()? voiceNotSelected,
+    TResult Function()? permissionDenied,
     TResult Function()? canceledByUser,
+    TResult Function()? recordNotStarted,
     required TResult orElse(),
   }) {
     if (unexpected != null) {
@@ -277,8 +292,9 @@ class _$UnexpectedImpl implements _Unexpected {
   TResult map<TResult extends Object?>({
     required TResult Function(_FileDoesNotExist value) fileDoesNotExist,
     required TResult Function(_Unexpected value) unexpected,
-    required TResult Function(_VoiceNotSelected value) voiceNotSelected,
+    required TResult Function(_PermissionDenied value) permissionDenied,
     required TResult Function(_CanceledByUser value) canceledByUser,
+    required TResult Function(_RecordNotStarted value) recordNotStarted,
   }) {
     return unexpected(this);
   }
@@ -288,8 +304,9 @@ class _$UnexpectedImpl implements _Unexpected {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult? Function(_Unexpected value)? unexpected,
-    TResult? Function(_VoiceNotSelected value)? voiceNotSelected,
+    TResult? Function(_PermissionDenied value)? permissionDenied,
     TResult? Function(_CanceledByUser value)? canceledByUser,
+    TResult? Function(_RecordNotStarted value)? recordNotStarted,
   }) {
     return unexpected?.call(this);
   }
@@ -299,8 +316,9 @@ class _$UnexpectedImpl implements _Unexpected {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult Function(_Unexpected value)? unexpected,
-    TResult Function(_VoiceNotSelected value)? voiceNotSelected,
+    TResult Function(_PermissionDenied value)? permissionDenied,
     TResult Function(_CanceledByUser value)? canceledByUser,
+    TResult Function(_RecordNotStarted value)? recordNotStarted,
     required TResult orElse(),
   }) {
     if (unexpected != null) {
@@ -315,35 +333,35 @@ abstract class _Unexpected implements VoiceFailures {
 }
 
 /// @nodoc
-abstract class _$$VoiceNotSelectedImplCopyWith<$Res> {
-  factory _$$VoiceNotSelectedImplCopyWith(_$VoiceNotSelectedImpl value,
-          $Res Function(_$VoiceNotSelectedImpl) then) =
-      __$$VoiceNotSelectedImplCopyWithImpl<$Res>;
+abstract class _$$PermissionDeniedImplCopyWith<$Res> {
+  factory _$$PermissionDeniedImplCopyWith(_$PermissionDeniedImpl value,
+          $Res Function(_$PermissionDeniedImpl) then) =
+      __$$PermissionDeniedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$VoiceNotSelectedImplCopyWithImpl<$Res>
-    extends _$VoiceFailuresCopyWithImpl<$Res, _$VoiceNotSelectedImpl>
-    implements _$$VoiceNotSelectedImplCopyWith<$Res> {
-  __$$VoiceNotSelectedImplCopyWithImpl(_$VoiceNotSelectedImpl _value,
-      $Res Function(_$VoiceNotSelectedImpl) _then)
+class __$$PermissionDeniedImplCopyWithImpl<$Res>
+    extends _$VoiceFailuresCopyWithImpl<$Res, _$PermissionDeniedImpl>
+    implements _$$PermissionDeniedImplCopyWith<$Res> {
+  __$$PermissionDeniedImplCopyWithImpl(_$PermissionDeniedImpl _value,
+      $Res Function(_$PermissionDeniedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$VoiceNotSelectedImpl implements _VoiceNotSelected {
-  const _$VoiceNotSelectedImpl();
+class _$PermissionDeniedImpl implements _PermissionDenied {
+  const _$PermissionDeniedImpl();
 
   @override
   String toString() {
-    return 'VoiceFailures.voiceNotSelected()';
+    return 'VoiceFailures.permissionDenied()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$VoiceNotSelectedImpl);
+        (other.runtimeType == runtimeType && other is _$PermissionDeniedImpl);
   }
 
   @override
@@ -354,10 +372,11 @@ class _$VoiceNotSelectedImpl implements _VoiceNotSelected {
   TResult when<TResult extends Object?>({
     required TResult Function() fileDoesNotExist,
     required TResult Function() unexpected,
-    required TResult Function() voiceNotSelected,
+    required TResult Function() permissionDenied,
     required TResult Function() canceledByUser,
+    required TResult Function() recordNotStarted,
   }) {
-    return voiceNotSelected();
+    return permissionDenied();
   }
 
   @override
@@ -365,10 +384,11 @@ class _$VoiceNotSelectedImpl implements _VoiceNotSelected {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fileDoesNotExist,
     TResult? Function()? unexpected,
-    TResult? Function()? voiceNotSelected,
+    TResult? Function()? permissionDenied,
     TResult? Function()? canceledByUser,
+    TResult? Function()? recordNotStarted,
   }) {
-    return voiceNotSelected?.call();
+    return permissionDenied?.call();
   }
 
   @override
@@ -376,12 +396,13 @@ class _$VoiceNotSelectedImpl implements _VoiceNotSelected {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fileDoesNotExist,
     TResult Function()? unexpected,
-    TResult Function()? voiceNotSelected,
+    TResult Function()? permissionDenied,
     TResult Function()? canceledByUser,
+    TResult Function()? recordNotStarted,
     required TResult orElse(),
   }) {
-    if (voiceNotSelected != null) {
-      return voiceNotSelected();
+    if (permissionDenied != null) {
+      return permissionDenied();
     }
     return orElse();
   }
@@ -391,10 +412,11 @@ class _$VoiceNotSelectedImpl implements _VoiceNotSelected {
   TResult map<TResult extends Object?>({
     required TResult Function(_FileDoesNotExist value) fileDoesNotExist,
     required TResult Function(_Unexpected value) unexpected,
-    required TResult Function(_VoiceNotSelected value) voiceNotSelected,
+    required TResult Function(_PermissionDenied value) permissionDenied,
     required TResult Function(_CanceledByUser value) canceledByUser,
+    required TResult Function(_RecordNotStarted value) recordNotStarted,
   }) {
-    return voiceNotSelected(this);
+    return permissionDenied(this);
   }
 
   @override
@@ -402,10 +424,11 @@ class _$VoiceNotSelectedImpl implements _VoiceNotSelected {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult? Function(_Unexpected value)? unexpected,
-    TResult? Function(_VoiceNotSelected value)? voiceNotSelected,
+    TResult? Function(_PermissionDenied value)? permissionDenied,
     TResult? Function(_CanceledByUser value)? canceledByUser,
+    TResult? Function(_RecordNotStarted value)? recordNotStarted,
   }) {
-    return voiceNotSelected?.call(this);
+    return permissionDenied?.call(this);
   }
 
   @override
@@ -413,19 +436,20 @@ class _$VoiceNotSelectedImpl implements _VoiceNotSelected {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult Function(_Unexpected value)? unexpected,
-    TResult Function(_VoiceNotSelected value)? voiceNotSelected,
+    TResult Function(_PermissionDenied value)? permissionDenied,
     TResult Function(_CanceledByUser value)? canceledByUser,
+    TResult Function(_RecordNotStarted value)? recordNotStarted,
     required TResult orElse(),
   }) {
-    if (voiceNotSelected != null) {
-      return voiceNotSelected(this);
+    if (permissionDenied != null) {
+      return permissionDenied(this);
     }
     return orElse();
   }
 }
 
-abstract class _VoiceNotSelected implements VoiceFailures {
-  const factory _VoiceNotSelected() = _$VoiceNotSelectedImpl;
+abstract class _PermissionDenied implements VoiceFailures {
+  const factory _PermissionDenied() = _$PermissionDeniedImpl;
 }
 
 /// @nodoc
@@ -468,8 +492,9 @@ class _$CanceledByUserImpl implements _CanceledByUser {
   TResult when<TResult extends Object?>({
     required TResult Function() fileDoesNotExist,
     required TResult Function() unexpected,
-    required TResult Function() voiceNotSelected,
+    required TResult Function() permissionDenied,
     required TResult Function() canceledByUser,
+    required TResult Function() recordNotStarted,
   }) {
     return canceledByUser();
   }
@@ -479,8 +504,9 @@ class _$CanceledByUserImpl implements _CanceledByUser {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fileDoesNotExist,
     TResult? Function()? unexpected,
-    TResult? Function()? voiceNotSelected,
+    TResult? Function()? permissionDenied,
     TResult? Function()? canceledByUser,
+    TResult? Function()? recordNotStarted,
   }) {
     return canceledByUser?.call();
   }
@@ -490,8 +516,9 @@ class _$CanceledByUserImpl implements _CanceledByUser {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fileDoesNotExist,
     TResult Function()? unexpected,
-    TResult Function()? voiceNotSelected,
+    TResult Function()? permissionDenied,
     TResult Function()? canceledByUser,
+    TResult Function()? recordNotStarted,
     required TResult orElse(),
   }) {
     if (canceledByUser != null) {
@@ -505,8 +532,9 @@ class _$CanceledByUserImpl implements _CanceledByUser {
   TResult map<TResult extends Object?>({
     required TResult Function(_FileDoesNotExist value) fileDoesNotExist,
     required TResult Function(_Unexpected value) unexpected,
-    required TResult Function(_VoiceNotSelected value) voiceNotSelected,
+    required TResult Function(_PermissionDenied value) permissionDenied,
     required TResult Function(_CanceledByUser value) canceledByUser,
+    required TResult Function(_RecordNotStarted value) recordNotStarted,
   }) {
     return canceledByUser(this);
   }
@@ -516,8 +544,9 @@ class _$CanceledByUserImpl implements _CanceledByUser {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult? Function(_Unexpected value)? unexpected,
-    TResult? Function(_VoiceNotSelected value)? voiceNotSelected,
+    TResult? Function(_PermissionDenied value)? permissionDenied,
     TResult? Function(_CanceledByUser value)? canceledByUser,
+    TResult? Function(_RecordNotStarted value)? recordNotStarted,
   }) {
     return canceledByUser?.call(this);
   }
@@ -527,8 +556,9 @@ class _$CanceledByUserImpl implements _CanceledByUser {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FileDoesNotExist value)? fileDoesNotExist,
     TResult Function(_Unexpected value)? unexpected,
-    TResult Function(_VoiceNotSelected value)? voiceNotSelected,
+    TResult Function(_PermissionDenied value)? permissionDenied,
     TResult Function(_CanceledByUser value)? canceledByUser,
+    TResult Function(_RecordNotStarted value)? recordNotStarted,
     required TResult orElse(),
   }) {
     if (canceledByUser != null) {
@@ -540,4 +570,124 @@ class _$CanceledByUserImpl implements _CanceledByUser {
 
 abstract class _CanceledByUser implements VoiceFailures {
   const factory _CanceledByUser() = _$CanceledByUserImpl;
+}
+
+/// @nodoc
+abstract class _$$RecordNotStartedImplCopyWith<$Res> {
+  factory _$$RecordNotStartedImplCopyWith(_$RecordNotStartedImpl value,
+          $Res Function(_$RecordNotStartedImpl) then) =
+      __$$RecordNotStartedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RecordNotStartedImplCopyWithImpl<$Res>
+    extends _$VoiceFailuresCopyWithImpl<$Res, _$RecordNotStartedImpl>
+    implements _$$RecordNotStartedImplCopyWith<$Res> {
+  __$$RecordNotStartedImplCopyWithImpl(_$RecordNotStartedImpl _value,
+      $Res Function(_$RecordNotStartedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$RecordNotStartedImpl implements _RecordNotStarted {
+  const _$RecordNotStartedImpl();
+
+  @override
+  String toString() {
+    return 'VoiceFailures.recordNotStarted()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RecordNotStartedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() fileDoesNotExist,
+    required TResult Function() unexpected,
+    required TResult Function() permissionDenied,
+    required TResult Function() canceledByUser,
+    required TResult Function() recordNotStarted,
+  }) {
+    return recordNotStarted();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? fileDoesNotExist,
+    TResult? Function()? unexpected,
+    TResult? Function()? permissionDenied,
+    TResult? Function()? canceledByUser,
+    TResult? Function()? recordNotStarted,
+  }) {
+    return recordNotStarted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? fileDoesNotExist,
+    TResult Function()? unexpected,
+    TResult Function()? permissionDenied,
+    TResult Function()? canceledByUser,
+    TResult Function()? recordNotStarted,
+    required TResult orElse(),
+  }) {
+    if (recordNotStarted != null) {
+      return recordNotStarted();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_FileDoesNotExist value) fileDoesNotExist,
+    required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(_PermissionDenied value) permissionDenied,
+    required TResult Function(_CanceledByUser value) canceledByUser,
+    required TResult Function(_RecordNotStarted value) recordNotStarted,
+  }) {
+    return recordNotStarted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_FileDoesNotExist value)? fileDoesNotExist,
+    TResult? Function(_Unexpected value)? unexpected,
+    TResult? Function(_PermissionDenied value)? permissionDenied,
+    TResult? Function(_CanceledByUser value)? canceledByUser,
+    TResult? Function(_RecordNotStarted value)? recordNotStarted,
+  }) {
+    return recordNotStarted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_FileDoesNotExist value)? fileDoesNotExist,
+    TResult Function(_Unexpected value)? unexpected,
+    TResult Function(_PermissionDenied value)? permissionDenied,
+    TResult Function(_CanceledByUser value)? canceledByUser,
+    TResult Function(_RecordNotStarted value)? recordNotStarted,
+    required TResult orElse(),
+  }) {
+    if (recordNotStarted != null) {
+      return recordNotStarted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RecordNotStarted implements VoiceFailures {
+  const factory _RecordNotStarted() = _$RecordNotStartedImpl;
 }

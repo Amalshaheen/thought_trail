@@ -9,7 +9,8 @@ class MemoryVoice extends ValueObject<String> {
 
   factory MemoryVoice(String audioPath) {
     return MemoryVoice._(
-        validateStringNotEmpty(audioPath).flatMap(validateAudioURL));
+        validateStringNotEmpty(audioPath).flatMap(validateFilePath)
+          ..flatMap(validateAudio));
   }
 
   MemoryVoice._(this.value);
