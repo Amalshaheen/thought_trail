@@ -109,8 +109,10 @@ class AddMemoryFAB extends StatelessWidget {
                                 msg: valueFailure.when(
                                   empty: (_) => 'Memory Content is Empty',
                                   invalidURL: (_) => 'invalidURL',
-                                  invalidAudioURL: (_) => 'invalidAudioURL',
+                                  invalidAudioFormat: (_) => 'invalidAudioURL',
                                   invalidFilePath: (_) => 'invalidFilePath',
+                                  invalidImageFormat: (_) =>
+                                      'Invalid file format',
                                 ),
                               )
                             : null;
