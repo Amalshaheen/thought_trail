@@ -30,6 +30,7 @@ environment:
 isar_version: &isar_version 3.1.8 # define the version to be used
 
 dependencies:
+  audioplayers: ^6.1.2
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
@@ -51,6 +52,7 @@ dependencies:
   logger: ^2.5.0
   path: ^1.9.0
   path_provider: ^2.1.5
+  record: ^5.2.0
   uuid: ^4.5.1
 
 dev_dependencies:
