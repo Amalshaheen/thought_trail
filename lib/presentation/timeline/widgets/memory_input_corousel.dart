@@ -86,8 +86,11 @@ class _MemoryInputCorouselState extends State<MemoryInputCorousel> {
               width: _selectedIndex == 1 ? selectedWidth : unselectedWidth,
               // height: 50,
               alignment: Alignment.center,
-              child: SizedBox(
-                height: 50,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  minHeight: 50,
+                  maxHeight: 200,
+                ),
                 child: _selectedIndex == 1
                     ? VoiceRecorder()
                     : IconButton(
