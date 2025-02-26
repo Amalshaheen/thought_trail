@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
@@ -22,10 +24,9 @@ class VoiceService implements IVoiceService {
       final filePath =
           '${directory.path}/voice_recording${DateTime.now().microsecondsSinceEpoch}.tt';
       await _audioRecorder.start(RecordConfig(), path: filePath);
-      return await _audioRecorder.isRecording()
-          ? right(unit)
-          : left(VoiceFailures.unexpected());
+      return right(unit);
     } catch (e) {
+      log(e.toString());
       return left(VoiceFailures.unexpected());
     }
   }
@@ -39,6 +40,8 @@ class VoiceService implements IVoiceService {
       await _audioRecorder.pause();
       return right(unit);
     } catch (e) {
+      log(e.toString());
+
       return left(VoiceFailures.unexpected());
     }
   }
@@ -56,6 +59,8 @@ class VoiceService implements IVoiceService {
 
       return right(MemoryVoice(path));
     } catch (e) {
+      log(e.toString());
+
       return left(VoiceFailures.unexpected());
     }
   }
@@ -66,6 +71,8 @@ class VoiceService implements IVoiceService {
       await _audioPlayer.pause();
       return right(unit);
     } catch (e) {
+      log(e.toString());
+
       return left(VoiceFailures.unexpected());
     }
   }
@@ -76,6 +83,8 @@ class VoiceService implements IVoiceService {
       await _audioPlayer.play(DeviceFileSource(filePath));
       return right(unit);
     } catch (e) {
+      log(e.toString());
+
       return left(VoiceFailures.unexpected());
     }
   }
@@ -86,6 +95,8 @@ class VoiceService implements IVoiceService {
       await _audioPlayer.stop();
       return right(unit);
     } catch (e) {
+      log(e.toString());
+
       return left(VoiceFailures.unexpected());
     }
   }
@@ -96,6 +107,8 @@ class VoiceService implements IVoiceService {
       await _audioRecorder.cancel();
       return right(unit);
     } catch (e) {
+      log(e.toString());
+
       return left(VoiceFailures.unexpected());
     }
   }
