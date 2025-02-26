@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:thought_trail/application/memory/voice_recorder/voice_recorder_bloc.dart';
@@ -97,18 +98,14 @@ class VoiceRecorder extends StatelessWidget {
           ),
           recordingStopped: (memoryVoice) => Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(Icons.mic_off, color: Colors.grey),
-              const SizedBox(height: 8),
-              const Text('Stopped'),
-            ],
+            children: [],
           ),
           error: (message) => Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Icon(Icons.error, color: Colors.red),
               const SizedBox(height: 8),
-              Text(message),
+              Text(message.toString()),
             ],
           ),
         );
