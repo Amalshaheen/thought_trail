@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:thought_trail/domain/voice/i_voice_service.dart';
 import 'package:thought_trail/domain/voice/voice_failures.dart';
 import 'package:thought_trail/domain/voice/voice_object.dart';
@@ -9,6 +10,7 @@ part 'voice_recorder_event.dart';
 part 'voice_recorder_state.dart';
 part 'voice_recorder_bloc.freezed.dart';
 
+@injectable
 class VoiceRecorderBloc extends Bloc<VoiceRecorderEvent, VoiceRecorderState> {
   final IVoiceService _voiceService;
 

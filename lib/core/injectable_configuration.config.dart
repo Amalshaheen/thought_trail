@@ -16,6 +16,8 @@ import 'package:thought_trail/application/memory/memory_form/memory_form_bloc.da
     as _i10;
 import 'package:thought_trail/application/memory/memory_watcher/memory_watcher_bloc.dart'
     as _i11;
+import 'package:thought_trail/application/memory/voice_recorder/voice_recorder_bloc.dart'
+    as _i12;
 import 'package:thought_trail/domain/image/i_image_service.dart' as _i3;
 import 'package:thought_trail/domain/memory/i_memory_repository.dart' as _i5;
 import 'package:thought_trail/domain/voice/i_voice_service.dart' as _i7;
@@ -44,6 +46,8 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i10.MemoryFormBloc(gh<_i5.IMemoryRepository>()));
     gh.factory<_i11.MemoryWatcherBloc>(
         () => _i11.MemoryWatcherBloc(gh<_i5.IMemoryRepository>()));
+    gh.factory<_i12.VoiceRecorderBloc>(
+        () => _i12.VoiceRecorderBloc(gh<_i7.IVoiceService>()));
     return this;
   }
 }
