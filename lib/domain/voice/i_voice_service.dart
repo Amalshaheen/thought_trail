@@ -11,6 +11,9 @@ abstract class IVoiceService {
   /// Stops recording and returns the saved file path
   Future<Either<VoiceFailures, MemoryVoice>> stopRecording();
 
+  /// Abort recording
+  Future<Either<VoiceFailures, Unit>> abortRecording();
+
   /// Plays a recorded voice file
   Future<Either<VoiceFailures, Unit>> playVoice(String filePath);
 

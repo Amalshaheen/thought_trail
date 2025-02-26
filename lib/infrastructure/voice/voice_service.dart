@@ -1,14 +1,17 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:fpdart/fpdart.dart';
+import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:record/record.dart';
 import 'package:thought_trail/domain/voice/i_voice_service.dart';
 import 'package:thought_trail/domain/voice/voice_failures.dart';
 import 'package:thought_trail/domain/voice/voice_object.dart';
 
+@LazySingleton(as: IVoiceService)
 class VoiceService implements IVoiceService {
   final AudioRecorder _audioRecorder = AudioRecorder();
   final AudioPlayer _audioPlayer = AudioPlayer();
+
   @override
   Future<Either<VoiceFailures, Unit>> startRecording() async {
     try {
@@ -81,6 +84,16 @@ class VoiceService implements IVoiceService {
   Future<Either<VoiceFailures, Unit>> stopVoice() async {
     try {
       await _audioPlayer.stop();
+      return right(unit);
+    } catch (e) {
+      return left(VoiceFailures.unexpected());
+    }
+  }
+
+  @override
+  Future<Either<VoiceFailures, Unit>> abortRecording() async {
+    try {
+      await _audioRecorder.cancel();
       return right(unit);
     } catch (e) {
       return left(VoiceFailures.unexpected());
