@@ -8,7 +8,6 @@ import 'package:path/path.dart';
 import 'package:thought_trail/domain/image/i_image_service.dart';
 import 'package:thought_trail/domain/image/image_failures.dart';
 import 'package:thought_trail/domain/image/image_object.dart';
-import 'package:thought_trail/domain/memory/value_objects.dart';
 
 @LazySingleton(as: IImageService)
 class ImageService implements IImageService {

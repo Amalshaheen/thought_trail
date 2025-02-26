@@ -4,7 +4,6 @@ import 'package:injectable/injectable.dart';
 import 'package:thought_trail/domain/image/i_image_service.dart';
 import 'package:thought_trail/domain/image/image_failures.dart';
 import 'package:thought_trail/domain/image/image_object.dart';
-import 'package:thought_trail/domain/memory/value_objects.dart';
 part 'image_picker_event.dart';
 part 'image_picker_state.dart';
 part 'image_picker_bloc.freezed.dart';
