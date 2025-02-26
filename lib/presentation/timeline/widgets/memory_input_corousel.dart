@@ -7,6 +7,7 @@ import 'package:thought_trail/domain/memory/memory_content.dart';
 import 'package:thought_trail/domain/memory/value_objects.dart';
 import 'package:thought_trail/presentation/timeline/widgets/image_picker_widget.dart';
 import 'package:thought_trail/presentation/timeline/widgets/memory_content_entry_widget.dart';
+import 'package:thought_trail/presentation/timeline/widgets/voice_recorder.dart';
 
 class MemoryInputCorousel extends StatefulWidget {
   const MemoryInputCorousel({
@@ -88,18 +89,7 @@ class _MemoryInputCorouselState extends State<MemoryInputCorousel> {
               child: SizedBox(
                 height: 50,
                 child: _selectedIndex == 1
-                    ? Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(Icons.mic, color: Colors.red),
-                          SizedBox(width: 8),
-                          Flexible(
-                              child: Text(
-                            'Recording...',
-                            maxLines: 1,
-                          )),
-                        ],
-                      )
+                    ? VoiceRecorder()
                     : IconButton(
                         onPressed: () {
                           resetSelection(context);
