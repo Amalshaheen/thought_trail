@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:thought_trail/application/memory/image_picker/image_picker_bloc.dart';
 import 'package:thought_trail/application/memory/memory_form/memory_form_bloc.dart';
 import 'package:thought_trail/application/memory/memory_watcher/memory_watcher_bloc.dart';
+import 'package:thought_trail/application/memory/voice_player/voice_player_bloc.dart';
 import 'package:thought_trail/application/memory/voice_recorder/voice_recorder_bloc.dart';
 import 'package:thought_trail/core/injectable_configuration.dart';
 import 'package:thought_trail/core/theme.dart';
@@ -32,6 +33,9 @@ class NewApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => getit<VoiceRecorderBloc>(),
+        ),
+        BlocProvider(
+          create: (context) => getit<VoicePlayerBloc>(),
         )
       ],
       child: MaterialApp(
