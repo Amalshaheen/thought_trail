@@ -5,6 +5,7 @@ import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:record/record.dart';
+import 'package:thought_trail/domain/core/error.dart';
 import 'package:thought_trail/domain/voice/i_voice_service.dart';
 import 'package:thought_trail/domain/voice/voice_failures.dart';
 import 'package:thought_trail/domain/voice/voice_object.dart';
@@ -78,9 +79,9 @@ class VoiceService implements IVoiceService {
   }
 
   @override
-  Future<Either<VoiceFailures, Unit>> playVoice(String filePath) async {
+  Future<Either<VoiceFailures, Unit>> playVoice(MemoryVoice voice) async {
     try {
-      await _audioPlayer.play(DeviceFileSource(filePath));
+      await _audioPlayer.play(DeviceFileSource(voice.value.getOrCrash()));
       return right(unit);
     } catch (e) {
       log(e.toString());
