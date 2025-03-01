@@ -3,6 +3,8 @@ import 'voice_failures.dart';
 import 'voice_object.dart';
 
 abstract class IVoiceService {
+  MemoryVoice? get currentlyPlayingVoice;
+
   /// Starts recording and returns success or failure
   Future<Either<VoiceFailures, Unit>> startRecording();
 
@@ -18,8 +20,8 @@ abstract class IVoiceService {
   Future<Either<VoiceFailures, Unit>> playVoice(MemoryVoice voice);
 
   /// Pauses playback
-  Future<Either<VoiceFailures, Unit>> pauseVoice();
+  Future<Either<VoiceFailures, Unit>> pauseVoice(MemoryVoice voice);
 
   /// Stops playback
-  Future<Either<VoiceFailures, Unit>> stopVoice();
+  Future<Either<VoiceFailures, Unit>> stopVoice(MemoryVoice voice);
 }
