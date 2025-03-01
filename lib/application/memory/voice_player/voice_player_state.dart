@@ -6,5 +6,6 @@ class VoicePlayerState with _$VoicePlayerState {
   const factory VoicePlayerState.playing(MemoryVoice voice) = _Playing;
   const factory VoicePlayerState.paused(MemoryVoice voice) = __Paused;
   const factory VoicePlayerState.stopped(MemoryVoice voice) = __Stopped;
-  const factory VoicePlayerState.failure(VoiceFailures message) = _Failure;
+  const factory VoicePlayerState.failure(
+      VoiceFailures message, MemoryVoice failedValue) = _Failure;
 }

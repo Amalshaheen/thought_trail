@@ -537,7 +537,8 @@ mixin _$VoicePlayerState {
     required TResult Function(MemoryVoice voice) playing,
     required TResult Function(MemoryVoice voice) paused,
     required TResult Function(MemoryVoice voice) stopped,
-    required TResult Function(VoiceFailures message) failure,
+    required TResult Function(VoiceFailures message, MemoryVoice failedValue)
+        failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -546,7 +547,7 @@ mixin _$VoicePlayerState {
     TResult? Function(MemoryVoice voice)? playing,
     TResult? Function(MemoryVoice voice)? paused,
     TResult? Function(MemoryVoice voice)? stopped,
-    TResult? Function(VoiceFailures message)? failure,
+    TResult? Function(VoiceFailures message, MemoryVoice failedValue)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -555,7 +556,7 @@ mixin _$VoicePlayerState {
     TResult Function(MemoryVoice voice)? playing,
     TResult Function(MemoryVoice voice)? paused,
     TResult Function(MemoryVoice voice)? stopped,
-    TResult Function(VoiceFailures message)? failure,
+    TResult Function(VoiceFailures message, MemoryVoice failedValue)? failure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -649,7 +650,8 @@ class _$InitialImpl implements _Initial {
     required TResult Function(MemoryVoice voice) playing,
     required TResult Function(MemoryVoice voice) paused,
     required TResult Function(MemoryVoice voice) stopped,
-    required TResult Function(VoiceFailures message) failure,
+    required TResult Function(VoiceFailures message, MemoryVoice failedValue)
+        failure,
   }) {
     return initial();
   }
@@ -661,7 +663,7 @@ class _$InitialImpl implements _Initial {
     TResult? Function(MemoryVoice voice)? playing,
     TResult? Function(MemoryVoice voice)? paused,
     TResult? Function(MemoryVoice voice)? stopped,
-    TResult? Function(VoiceFailures message)? failure,
+    TResult? Function(VoiceFailures message, MemoryVoice failedValue)? failure,
   }) {
     return initial?.call();
   }
@@ -673,7 +675,7 @@ class _$InitialImpl implements _Initial {
     TResult Function(MemoryVoice voice)? playing,
     TResult Function(MemoryVoice voice)? paused,
     TResult Function(MemoryVoice voice)? stopped,
-    TResult Function(VoiceFailures message)? failure,
+    TResult Function(VoiceFailures message, MemoryVoice failedValue)? failure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -795,7 +797,8 @@ class _$PlayingImpl implements _Playing {
     required TResult Function(MemoryVoice voice) playing,
     required TResult Function(MemoryVoice voice) paused,
     required TResult Function(MemoryVoice voice) stopped,
-    required TResult Function(VoiceFailures message) failure,
+    required TResult Function(VoiceFailures message, MemoryVoice failedValue)
+        failure,
   }) {
     return playing(voice);
   }
@@ -807,7 +810,7 @@ class _$PlayingImpl implements _Playing {
     TResult? Function(MemoryVoice voice)? playing,
     TResult? Function(MemoryVoice voice)? paused,
     TResult? Function(MemoryVoice voice)? stopped,
-    TResult? Function(VoiceFailures message)? failure,
+    TResult? Function(VoiceFailures message, MemoryVoice failedValue)? failure,
   }) {
     return playing?.call(voice);
   }
@@ -819,7 +822,7 @@ class _$PlayingImpl implements _Playing {
     TResult Function(MemoryVoice voice)? playing,
     TResult Function(MemoryVoice voice)? paused,
     TResult Function(MemoryVoice voice)? stopped,
-    TResult Function(VoiceFailures message)? failure,
+    TResult Function(VoiceFailures message, MemoryVoice failedValue)? failure,
     required TResult orElse(),
   }) {
     if (playing != null) {
@@ -946,7 +949,8 @@ class _$_PausedImpl implements __Paused {
     required TResult Function(MemoryVoice voice) playing,
     required TResult Function(MemoryVoice voice) paused,
     required TResult Function(MemoryVoice voice) stopped,
-    required TResult Function(VoiceFailures message) failure,
+    required TResult Function(VoiceFailures message, MemoryVoice failedValue)
+        failure,
   }) {
     return paused(voice);
   }
@@ -958,7 +962,7 @@ class _$_PausedImpl implements __Paused {
     TResult? Function(MemoryVoice voice)? playing,
     TResult? Function(MemoryVoice voice)? paused,
     TResult? Function(MemoryVoice voice)? stopped,
-    TResult? Function(VoiceFailures message)? failure,
+    TResult? Function(VoiceFailures message, MemoryVoice failedValue)? failure,
   }) {
     return paused?.call(voice);
   }
@@ -970,7 +974,7 @@ class _$_PausedImpl implements __Paused {
     TResult Function(MemoryVoice voice)? playing,
     TResult Function(MemoryVoice voice)? paused,
     TResult Function(MemoryVoice voice)? stopped,
-    TResult Function(VoiceFailures message)? failure,
+    TResult Function(VoiceFailures message, MemoryVoice failedValue)? failure,
     required TResult orElse(),
   }) {
     if (paused != null) {
@@ -1097,7 +1101,8 @@ class _$_StoppedImpl implements __Stopped {
     required TResult Function(MemoryVoice voice) playing,
     required TResult Function(MemoryVoice voice) paused,
     required TResult Function(MemoryVoice voice) stopped,
-    required TResult Function(VoiceFailures message) failure,
+    required TResult Function(VoiceFailures message, MemoryVoice failedValue)
+        failure,
   }) {
     return stopped(voice);
   }
@@ -1109,7 +1114,7 @@ class _$_StoppedImpl implements __Stopped {
     TResult? Function(MemoryVoice voice)? playing,
     TResult? Function(MemoryVoice voice)? paused,
     TResult? Function(MemoryVoice voice)? stopped,
-    TResult? Function(VoiceFailures message)? failure,
+    TResult? Function(VoiceFailures message, MemoryVoice failedValue)? failure,
   }) {
     return stopped?.call(voice);
   }
@@ -1121,7 +1126,7 @@ class _$_StoppedImpl implements __Stopped {
     TResult Function(MemoryVoice voice)? playing,
     TResult Function(MemoryVoice voice)? paused,
     TResult Function(MemoryVoice voice)? stopped,
-    TResult Function(VoiceFailures message)? failure,
+    TResult Function(VoiceFailures message, MemoryVoice failedValue)? failure,
     required TResult orElse(),
   }) {
     if (stopped != null) {
@@ -1186,7 +1191,7 @@ abstract class _$$FailureImplCopyWith<$Res> {
           _$FailureImpl value, $Res Function(_$FailureImpl) then) =
       __$$FailureImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({VoiceFailures message});
+  $Res call({VoiceFailures message, MemoryVoice failedValue});
 
   $VoiceFailuresCopyWith<$Res> get message;
 }
@@ -1203,12 +1208,17 @@ class __$$FailureImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? message = null,
+    Object? failedValue = null,
   }) {
     return _then(_$FailureImpl(
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as VoiceFailures,
+      null == failedValue
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as MemoryVoice,
     ));
   }
 
@@ -1224,14 +1234,16 @@ class __$$FailureImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FailureImpl implements _Failure {
-  const _$FailureImpl(this.message);
+  const _$FailureImpl(this.message, this.failedValue);
 
   @override
   final VoiceFailures message;
+  @override
+  final MemoryVoice failedValue;
 
   @override
   String toString() {
-    return 'VoicePlayerState.failure(message: $message)';
+    return 'VoicePlayerState.failure(message: $message, failedValue: $failedValue)';
   }
 
   @override
@@ -1239,11 +1251,13 @@ class _$FailureImpl implements _Failure {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FailureImpl &&
-            (identical(other.message, message) || other.message == message));
+            (identical(other.message, message) || other.message == message) &&
+            (identical(other.failedValue, failedValue) ||
+                other.failedValue == failedValue));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, message);
+  int get hashCode => Object.hash(runtimeType, message, failedValue);
 
   @JsonKey(ignore: true)
   @override
@@ -1258,9 +1272,10 @@ class _$FailureImpl implements _Failure {
     required TResult Function(MemoryVoice voice) playing,
     required TResult Function(MemoryVoice voice) paused,
     required TResult Function(MemoryVoice voice) stopped,
-    required TResult Function(VoiceFailures message) failure,
+    required TResult Function(VoiceFailures message, MemoryVoice failedValue)
+        failure,
   }) {
-    return failure(message);
+    return failure(message, failedValue);
   }
 
   @override
@@ -1270,9 +1285,9 @@ class _$FailureImpl implements _Failure {
     TResult? Function(MemoryVoice voice)? playing,
     TResult? Function(MemoryVoice voice)? paused,
     TResult? Function(MemoryVoice voice)? stopped,
-    TResult? Function(VoiceFailures message)? failure,
+    TResult? Function(VoiceFailures message, MemoryVoice failedValue)? failure,
   }) {
-    return failure?.call(message);
+    return failure?.call(message, failedValue);
   }
 
   @override
@@ -1282,11 +1297,11 @@ class _$FailureImpl implements _Failure {
     TResult Function(MemoryVoice voice)? playing,
     TResult Function(MemoryVoice voice)? paused,
     TResult Function(MemoryVoice voice)? stopped,
-    TResult Function(VoiceFailures message)? failure,
+    TResult Function(VoiceFailures message, MemoryVoice failedValue)? failure,
     required TResult orElse(),
   }) {
     if (failure != null) {
-      return failure(message);
+      return failure(message, failedValue);
     }
     return orElse();
   }
@@ -1333,9 +1348,12 @@ class _$FailureImpl implements _Failure {
 }
 
 abstract class _Failure implements VoicePlayerState {
-  const factory _Failure(final VoiceFailures message) = _$FailureImpl;
+  const factory _Failure(
+          final VoiceFailures message, final MemoryVoice failedValue) =
+      _$FailureImpl;
 
   VoiceFailures get message;
+  MemoryVoice get failedValue;
   @JsonKey(ignore: true)
   _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
       throw _privateConstructorUsedError;

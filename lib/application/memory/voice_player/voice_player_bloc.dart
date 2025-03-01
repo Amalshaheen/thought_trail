@@ -13,19 +13,28 @@ part 'voice_player_bloc.freezed.dart';
 class VoicePlayerBloc extends Bloc<VoicePlayerEvent, VoicePlayerState> {
   final IVoiceService _voiceService;
   VoicePlayerBloc(this._voiceService) : super(VoicePlayerState.initial()) {
-    on<VoicePlayerEvent>((event, emit) {
-      event.when(
+    on<VoicePlayerEvent>((event, emit) async {
+      await event.when(
         played: (voice) async {
-          await _voiceService.playVoice(voice);
-          emit(VoicePlayerState.playing(voice));
+          final result = await _voiceService.playVoice(voice);
+          return result.fold(
+            (failure) => emit(VoicePlayerState.failure(failure, voice)),
+            (r) => emit(VoicePlayerState.playing(voice)),
+          );
         },
         paused: (voice) async {
-          await _voiceService.pauseVoice();
-          emit(VoicePlayerState.paused(voice));
+          final result = await _voiceService.pauseVoice(voice);
+          return result.fold(
+            (failure) => emit(VoicePlayerState.failure(failure, voice)),
+            (r) => emit(VoicePlayerState.paused(voice)),
+          );
         },
         stopped: (voice) async {
-          await _voiceService.stopVoice();
-          emit(VoicePlayerState.stopped(voice));
+          final result = await _voiceService.stopVoice(voice);
+          return result.fold(
+            (failure) => emit(VoicePlayerState.failure(failure, voice)),
+            (r) => emit(VoicePlayerState.stopped(voice)),
+          );
         },
       );
     });

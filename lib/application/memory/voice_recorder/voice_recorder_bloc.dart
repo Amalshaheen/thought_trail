@@ -46,7 +46,7 @@ class VoiceRecorderBloc extends Bloc<VoiceRecorderEvent, VoiceRecorderState> {
           final result = await _voiceService.abortRecording();
           result.fold(
             (failure) => emit(VoiceRecorderState.error(failure.toString())),
-            (_) => emit(VoiceRecorderState.recordingStopped(memoryVoice)),
+            (_) => emit(VoiceRecorderState.initial()),
           );
         },
       );
