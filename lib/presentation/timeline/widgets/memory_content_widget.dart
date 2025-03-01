@@ -1,9 +1,14 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:thought_trail/application/memory/voice_player/voice_player_bloc.dart';
+import 'package:thought_trail/core/injectable_configuration.dart';
 import 'package:thought_trail/domain/core/error.dart';
 import 'package:thought_trail/domain/memory/memory_content.dart';
+import 'package:thought_trail/presentation/timeline/widgets/audio_player_widget.dart';
+import 'package:thought_trail/presentation/timeline/widgets/voice_recorder.dart';
 
 class MemoryContentWidget extends StatelessWidget {
   const MemoryContentWidget({
@@ -33,9 +38,11 @@ class MemoryContentWidget extends StatelessWidget {
         image: (image) => MemoryImageWidget(
           image: image.image.value.getOrCrash(),
         ),
-        voice: (value) => Container(
-          height: 50,
-          color: Colors.red[300],
+        voice: (voice) => BlocProvider(
+          create: (context) => getit<VoicePlayerBloc>(),
+          child: AudioPlayerWidget(
+            memoryVoice: voice.voice,
+          ),
         ),
         none: (value) {
           return const SizedBox();

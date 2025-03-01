@@ -34,9 +34,6 @@ class NewApp extends StatelessWidget {
         BlocProvider(
           create: (context) => getit<VoiceRecorderBloc>(),
         ),
-        BlocProvider(
-          create: (context) => getit<VoicePlayerBloc>(),
-        )
       ],
       child: MaterialApp(
         title: 'ThoughtTrail',
