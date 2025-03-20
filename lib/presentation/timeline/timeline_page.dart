@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:thought_trail/application/cubit/theme_cubit.dart';
 import 'package:thought_trail/application/memory/memory_watcher/memory_watcher_bloc.dart';
 import 'package:thought_trail/presentation/timeline/widgets/add_memory_fab.dart';
 import 'package:thought_trail/presentation/timeline/widgets/memories_list_widget.dart';
@@ -25,8 +26,6 @@ class TimelinePage extends StatelessWidget {
         context
             .read<MemoryWatcherBloc>()
             .add(MemoryWatcherEvent.watchAllStarted());
-        scrollController.animateTo(scrollController.position.maxScrollExtent,
-            duration: Duration(milliseconds: 300), curve: Curves.easeOut);
       },
     );
     return Scaffold(
@@ -44,22 +43,27 @@ class TimelinePage extends StatelessWidget {
                   DarkLightThemeToggleWidget(),
                 ],
               ),
-              state.map(
-                initial: (_) => SliverToBoxAdapter(child: Text('initial')),
-                loadInProgress: (_) => SliverToBoxAdapter(
+              state.when(
+                initial: () => SliverToBoxAdapter(child: Text('initial')),
+                loadInProgress: () => SliverToBoxAdapter(
                   child: const Center(
                     child: CircularProgressIndicator(),
                   ),
                 ),
-                loadSuccess: (state) {
-                  final memories = state.memories;
+                loadSuccess: (memoriesList) {
+                  final memories = memoriesList;
                   return MemoriesListWidget(
                     memories: memories,
                   );
                 },
-                loadFailure: (_) => SliverToBoxAdapter(
-                  child: const Center(
-                    child: Text('Something went wrong'),
+                loadFailure: (failure) => SliverToBoxAdapter(
+                  child: Center(
+                    child: Text(
+                      failure.when(
+                        unexpected: () => 'Something went wrong',
+                        emptyMemory: () => 'No memories yet!',
+                      ),
+                    ),
                   ),
                 ),
               )
@@ -79,29 +83,52 @@ class DarkLightThemeToggleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {
-        final theme = Theme.of(context);
-        final isDark = theme.brightness == Brightness.dark;
-        final newTheme = isDark ? lightThemeData() : darkThemeData();
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-                isDark ? 'Switched to light mode' : 'Switched to dark mode'),
-          ),
-        );
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(
-            builder: (context) => MaterialApp(
-              theme: newTheme,
-              home: TimelinePage(),
-            ),
-          ),
-        );
+    var state = context.watch<ThemeCubit>().state;
+    return Switch(
+      thumbIcon: WidgetStatePropertyAll(
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        Icon(state.isDarkMode ? Icons.nightlight_round : Icons.wb_sunny),
+      ),
+      value: state.isDarkMode,
+      onChanged: (value) {
+        context.read<ThemeCubit>().toggleTheme();
       },
-      icon: Theme.of(context).brightness == Brightness.light
-          ? Icon(Icons.light_mode)
-          : Icon(Icons.dark_mode),
     );
   }
 }
