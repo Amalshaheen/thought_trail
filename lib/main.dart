@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:thought_trail/application/cubit/theme_cubit.dart';
 import 'package:thought_trail/application/memory/image_picker/image_picker_bloc.dart';
 import 'package:thought_trail/application/memory/memory_form/memory_form_bloc.dart';
 import 'package:thought_trail/application/memory/memory_watcher/memory_watcher_bloc.dart';
-import 'package:thought_trail/application/memory/voice_player/voice_player_bloc.dart';
 import 'package:thought_trail/application/memory/voice_recorder/voice_recorder_bloc.dart';
 import 'package:thought_trail/core/injectable_configuration.dart';
 import 'package:thought_trail/core/theme.dart';
@@ -34,14 +34,20 @@ class NewApp extends StatelessWidget {
         BlocProvider(
           create: (context) => getit<VoiceRecorderBloc>(),
         ),
+        BlocProvider(
+          create: (context) => ThemeCubit(),
+        ),
       ],
-      child: MaterialApp(
-        title: 'ThoughtTrail',
-        theme: lightThemeData(),
-        darkTheme: darkThemeData(),
-        themeMode: ThemeMode.system,
-        home: SafeArea(child: TimelinePage()),
-        debugShowCheckedModeBanner: false,
+      child: BlocBuilder<ThemeCubit, ThemeState>(
+        builder: (context, state) {
+          return MaterialApp(
+            title: 'ThoughtTrail',
+            theme: state.themeData,
+            // darkTheme: darkThemeData(),
+            home: TimelinePage(),
+            debugShowCheckedModeBanner: false,
+          );
+        },
       ),
     );
   }
