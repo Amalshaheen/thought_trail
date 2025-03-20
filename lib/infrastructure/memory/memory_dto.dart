@@ -17,6 +17,7 @@ class MemoryDto {
   final String uid;
   final String memoryContent;
   final String? caption;
+
   @enumerated
   final MemoryContentType type;
   final DateTime time;
@@ -51,7 +52,7 @@ class MemoryDto {
         return image.value.getOrCrash();
       },
       voice: (MemoryVoice voice) {
-        return voice.value.getOrCrash();
+        return "${voice.duration.inSeconds},${voice.value.getOrCrash()}";
       },
       none: () {
         throw Exception('none is error');

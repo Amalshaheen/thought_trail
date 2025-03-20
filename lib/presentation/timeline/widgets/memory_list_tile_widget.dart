@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:thought_trail/application/memory/memory_form/memory_form_bloc.dart';
+import 'package:thought_trail/domain/core/error.dart';
 import 'package:thought_trail/domain/memory/memory.dart';
 import 'package:thought_trail/domain/memory/memory_content.dart';
 import 'package:thought_trail/presentation/timeline/widgets/memory_content_widget.dart';
@@ -70,7 +73,44 @@ class MemoryListTileWidget extends StatelessWidget {
                       : SizedBox(),
                   // If the memory has a content, display the content.
                   (isMemory)
-                      ? MemoryContentWidget(memoryContent: memory.memoryContent)
+                      ? Dismissible(
+                          key: Key(memory.id.value.getOrCrash()),
+                          background: AnimatedDismissibleBackground(),
+                          direction: DismissDirection.endToStart,
+                          confirmDismiss: (direction) async {
+                            final snackBarController =
+                                ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                    "Memory of type ${memory.memoryContent.type.name} will be removed in 4 seconds"),
+                                action: SnackBarAction(
+                                  label: "Undo",
+                                  onPressed: () {
+                                    ScaffoldMessenger.of(context)
+                                        .hideCurrentSnackBar(
+                                      reason: SnackBarClosedReason.action,
+                                    );
+                                  },
+                                ),
+                              ),
+                            );
+                            Future.delayed(Duration(seconds: 4),
+                                () => snackBarController.close());
+
+                            if (await snackBarController.closed ==
+                                SnackBarClosedReason.action) {
+                              return false;
+                            } else {
+                              return true;
+                            }
+                          },
+                          onDismissed: (direction) {
+                            context
+                                .read<MemoryFormBloc>()
+                                .add(MemoryFormEvent.deleted(memory));
+                          },
+                          child: MemoryContentWidget(
+                              memoryContent: memory.memoryContent))
                       : SizedBox(),
                 ],
               ),
@@ -86,6 +126,56 @@ class MemoryListTileWidget extends StatelessWidget {
               : SizedBox(),
         ],
       ),
+    );
+  }
+}
+
+class AnimatedDismissibleBackground extends StatefulWidget {
+  const AnimatedDismissibleBackground({super.key});
+
+  @override
+  State<AnimatedDismissibleBackground> createState() =>
+      _AnimatedDismissibleBackgroundState();
+}
+
+class _AnimatedDismissibleBackgroundState
+    extends State<AnimatedDismissibleBackground> {
+  double opacityLevel = 1.0;
+  int _secondsRemaining = 4;
+
+  @override
+  void initState() {
+    super.initState();
+    // Start the fade-out animation when the widget is first created.
+    _startFadeOut();
+    _startCountdown();
+  }
+
+  void _startFadeOut() {
+    Future.delayed(const Duration(milliseconds: 500), () {
+      if (mounted) {
+        setState(() => opacityLevel = 0.0);
+      }
+    });
+  }
+
+  void _startCountdown() {
+    Future.delayed(const Duration(seconds: 1), () {
+      if (_secondsRemaining > 0 && mounted) {
+        setState(() {
+          _secondsRemaining--;
+        });
+        _startCountdown();
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedOpacity(
+      opacity: opacityLevel,
+      duration: const Duration(seconds: 3),
+      child: Text('Removing from timeline in $_secondsRemaining seconds...'),
     );
   }
 }

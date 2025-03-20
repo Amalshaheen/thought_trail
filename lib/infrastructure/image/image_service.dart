@@ -33,6 +33,7 @@ class ImageService implements IImageService {
         } else {
           localImage = await File(pickedFile.path).copy('$path/$fileName');
         }
+
         return right(MemoryImage(localImage.path));
       }
     } catch (e) {

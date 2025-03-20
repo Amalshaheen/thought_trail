@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:fpdart/fpdart.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:thought_trail/domain/core/failures.dart';
@@ -28,7 +30,18 @@ class MemoryContent with _$MemoryContent {
             MemoryImage(memoryContent), optionOf(MemoryCaption(caption)));
 
       case MemoryContentType.voice:
-        return MemoryContent.voice(MemoryVoice(memoryContent));
+        var split = memoryContent.split(',');
+        log(split.toString());
+        return MemoryContent.voice(
+          MemoryVoice(
+            split.last,
+            duration: Duration(
+              seconds: int.parse(
+                split.first,
+              ),
+            ),
+          ),
+        );
 
       case MemoryContentType.none:
         return MemoryContent.none();
