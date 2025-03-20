@@ -41,7 +41,11 @@ class MemoryWatcherBloc extends Bloc<MemoryWatcherEvent, MemoryWatcherState> {
 
   void _onMemoriesReceived(
       MemoriesReceived event, Emitter<MemoryWatcherState> emit) {
-    emit(MemoryWatcherState.loadSuccess(event.memories));
+    if (event.memories.isEmpty) {
+      emit(const MemoryWatcherState.loadFailure(MemoryFailure.emptyMemory()));
+    } else {
+      emit(MemoryWatcherState.loadSuccess(event.memories));
+    }
   }
 
   void _onMemoryUpdated(MemoryUpdated event, Emitter<MemoryWatcherState> emit) {
@@ -50,10 +54,12 @@ class MemoryWatcherBloc extends Bloc<MemoryWatcherEvent, MemoryWatcherState> {
         loadSuccess: (state) => MemoryWatcherState.loadSuccess(
           [
             ...state.memories.where((memory) => memory.id != event.memory.id),
-            event.memory
+            event.memory,
           ],
         ),
-        orElse: () => state,
+        orElse: () {
+          return state;
+        },
       ),
     );
   }
