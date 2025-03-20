@@ -22,7 +22,7 @@ Either<ValueFailure<String>, String> validateFilePath(String filePath) {
 }
 
 Either<ValueFailure<String>, String> validateImage(String filePath) {
-  final regex = r'\.(jpg|jpeg|png|gif)$';
+  final regex = r'\.(jpg|jpeg|png|gif|heic)$';
   if (RegExp(regex, caseSensitive: false).hasMatch(filePath)) {
     return right(filePath);
   } else {
