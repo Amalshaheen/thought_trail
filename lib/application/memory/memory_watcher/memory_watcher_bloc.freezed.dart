@@ -21,6 +21,7 @@ mixin _$MemoryWatcherEvent {
     required TResult Function() watchAllStarted,
     required TResult Function(List<Memory> memories) memoriesReceived,
     required TResult Function(Memory memory) memoryUpdated,
+    required TResult Function(Memory memory) memoryRemoved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$MemoryWatcherEvent {
     TResult? Function()? watchAllStarted,
     TResult? Function(List<Memory> memories)? memoriesReceived,
     TResult? Function(Memory memory)? memoryUpdated,
+    TResult? Function(Memory memory)? memoryRemoved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$MemoryWatcherEvent {
     TResult Function()? watchAllStarted,
     TResult Function(List<Memory> memories)? memoriesReceived,
     TResult Function(Memory memory)? memoryUpdated,
+    TResult Function(Memory memory)? memoryRemoved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$MemoryWatcherEvent {
     required TResult Function(WatchAllStarted value) watchAllStarted,
     required TResult Function(MemoriesReceived value) memoriesReceived,
     required TResult Function(MemoryUpdated value) memoryUpdated,
+    required TResult Function(MemoryRemoved value) memoryRemoved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$MemoryWatcherEvent {
     TResult? Function(WatchAllStarted value)? watchAllStarted,
     TResult? Function(MemoriesReceived value)? memoriesReceived,
     TResult? Function(MemoryUpdated value)? memoryUpdated,
+    TResult? Function(MemoryRemoved value)? memoryRemoved,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$MemoryWatcherEvent {
     TResult Function(WatchAllStarted value)? watchAllStarted,
     TResult Function(MemoriesReceived value)? memoriesReceived,
     TResult Function(MemoryUpdated value)? memoryUpdated,
+    TResult Function(MemoryRemoved value)? memoryRemoved,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +127,7 @@ class _$WatchAllStartedImpl implements WatchAllStarted {
     required TResult Function() watchAllStarted,
     required TResult Function(List<Memory> memories) memoriesReceived,
     required TResult Function(Memory memory) memoryUpdated,
+    required TResult Function(Memory memory) memoryRemoved,
   }) {
     return watchAllStarted();
   }
@@ -131,6 +138,7 @@ class _$WatchAllStartedImpl implements WatchAllStarted {
     TResult? Function()? watchAllStarted,
     TResult? Function(List<Memory> memories)? memoriesReceived,
     TResult? Function(Memory memory)? memoryUpdated,
+    TResult? Function(Memory memory)? memoryRemoved,
   }) {
     return watchAllStarted?.call();
   }
@@ -141,6 +149,7 @@ class _$WatchAllStartedImpl implements WatchAllStarted {
     TResult Function()? watchAllStarted,
     TResult Function(List<Memory> memories)? memoriesReceived,
     TResult Function(Memory memory)? memoryUpdated,
+    TResult Function(Memory memory)? memoryRemoved,
     required TResult orElse(),
   }) {
     if (watchAllStarted != null) {
@@ -155,6 +164,7 @@ class _$WatchAllStartedImpl implements WatchAllStarted {
     required TResult Function(WatchAllStarted value) watchAllStarted,
     required TResult Function(MemoriesReceived value) memoriesReceived,
     required TResult Function(MemoryUpdated value) memoryUpdated,
+    required TResult Function(MemoryRemoved value) memoryRemoved,
   }) {
     return watchAllStarted(this);
   }
@@ -165,6 +175,7 @@ class _$WatchAllStartedImpl implements WatchAllStarted {
     TResult? Function(WatchAllStarted value)? watchAllStarted,
     TResult? Function(MemoriesReceived value)? memoriesReceived,
     TResult? Function(MemoryUpdated value)? memoryUpdated,
+    TResult? Function(MemoryRemoved value)? memoryRemoved,
   }) {
     return watchAllStarted?.call(this);
   }
@@ -175,6 +186,7 @@ class _$WatchAllStartedImpl implements WatchAllStarted {
     TResult Function(WatchAllStarted value)? watchAllStarted,
     TResult Function(MemoriesReceived value)? memoriesReceived,
     TResult Function(MemoryUpdated value)? memoryUpdated,
+    TResult Function(MemoryRemoved value)? memoryRemoved,
     required TResult orElse(),
   }) {
     if (watchAllStarted != null) {
@@ -263,6 +275,7 @@ class _$MemoriesReceivedImpl implements MemoriesReceived {
     required TResult Function() watchAllStarted,
     required TResult Function(List<Memory> memories) memoriesReceived,
     required TResult Function(Memory memory) memoryUpdated,
+    required TResult Function(Memory memory) memoryRemoved,
   }) {
     return memoriesReceived(memories);
   }
@@ -273,6 +286,7 @@ class _$MemoriesReceivedImpl implements MemoriesReceived {
     TResult? Function()? watchAllStarted,
     TResult? Function(List<Memory> memories)? memoriesReceived,
     TResult? Function(Memory memory)? memoryUpdated,
+    TResult? Function(Memory memory)? memoryRemoved,
   }) {
     return memoriesReceived?.call(memories);
   }
@@ -283,6 +297,7 @@ class _$MemoriesReceivedImpl implements MemoriesReceived {
     TResult Function()? watchAllStarted,
     TResult Function(List<Memory> memories)? memoriesReceived,
     TResult Function(Memory memory)? memoryUpdated,
+    TResult Function(Memory memory)? memoryRemoved,
     required TResult orElse(),
   }) {
     if (memoriesReceived != null) {
@@ -297,6 +312,7 @@ class _$MemoriesReceivedImpl implements MemoriesReceived {
     required TResult Function(WatchAllStarted value) watchAllStarted,
     required TResult Function(MemoriesReceived value) memoriesReceived,
     required TResult Function(MemoryUpdated value) memoryUpdated,
+    required TResult Function(MemoryRemoved value) memoryRemoved,
   }) {
     return memoriesReceived(this);
   }
@@ -307,6 +323,7 @@ class _$MemoriesReceivedImpl implements MemoriesReceived {
     TResult? Function(WatchAllStarted value)? watchAllStarted,
     TResult? Function(MemoriesReceived value)? memoriesReceived,
     TResult? Function(MemoryUpdated value)? memoryUpdated,
+    TResult? Function(MemoryRemoved value)? memoryRemoved,
   }) {
     return memoriesReceived?.call(this);
   }
@@ -317,6 +334,7 @@ class _$MemoriesReceivedImpl implements MemoriesReceived {
     TResult Function(WatchAllStarted value)? watchAllStarted,
     TResult Function(MemoriesReceived value)? memoriesReceived,
     TResult Function(MemoryUpdated value)? memoryUpdated,
+    TResult Function(MemoryRemoved value)? memoryRemoved,
     required TResult orElse(),
   }) {
     if (memoriesReceived != null) {
@@ -413,6 +431,7 @@ class _$MemoryUpdatedImpl implements MemoryUpdated {
     required TResult Function() watchAllStarted,
     required TResult Function(List<Memory> memories) memoriesReceived,
     required TResult Function(Memory memory) memoryUpdated,
+    required TResult Function(Memory memory) memoryRemoved,
   }) {
     return memoryUpdated(memory);
   }
@@ -423,6 +442,7 @@ class _$MemoryUpdatedImpl implements MemoryUpdated {
     TResult? Function()? watchAllStarted,
     TResult? Function(List<Memory> memories)? memoriesReceived,
     TResult? Function(Memory memory)? memoryUpdated,
+    TResult? Function(Memory memory)? memoryRemoved,
   }) {
     return memoryUpdated?.call(memory);
   }
@@ -433,6 +453,7 @@ class _$MemoryUpdatedImpl implements MemoryUpdated {
     TResult Function()? watchAllStarted,
     TResult Function(List<Memory> memories)? memoriesReceived,
     TResult Function(Memory memory)? memoryUpdated,
+    TResult Function(Memory memory)? memoryRemoved,
     required TResult orElse(),
   }) {
     if (memoryUpdated != null) {
@@ -447,6 +468,7 @@ class _$MemoryUpdatedImpl implements MemoryUpdated {
     required TResult Function(WatchAllStarted value) watchAllStarted,
     required TResult Function(MemoriesReceived value) memoriesReceived,
     required TResult Function(MemoryUpdated value) memoryUpdated,
+    required TResult Function(MemoryRemoved value) memoryRemoved,
   }) {
     return memoryUpdated(this);
   }
@@ -457,6 +479,7 @@ class _$MemoryUpdatedImpl implements MemoryUpdated {
     TResult? Function(WatchAllStarted value)? watchAllStarted,
     TResult? Function(MemoriesReceived value)? memoriesReceived,
     TResult? Function(MemoryUpdated value)? memoryUpdated,
+    TResult? Function(MemoryRemoved value)? memoryRemoved,
   }) {
     return memoryUpdated?.call(this);
   }
@@ -467,6 +490,7 @@ class _$MemoryUpdatedImpl implements MemoryUpdated {
     TResult Function(WatchAllStarted value)? watchAllStarted,
     TResult Function(MemoriesReceived value)? memoriesReceived,
     TResult Function(MemoryUpdated value)? memoryUpdated,
+    TResult Function(MemoryRemoved value)? memoryRemoved,
     required TResult orElse(),
   }) {
     if (memoryUpdated != null) {
@@ -482,6 +506,161 @@ abstract class MemoryUpdated implements MemoryWatcherEvent {
   Memory get memory;
   @JsonKey(ignore: true)
   _$$MemoryUpdatedImplCopyWith<_$MemoryUpdatedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MemoryRemovedImplCopyWith<$Res> {
+  factory _$$MemoryRemovedImplCopyWith(
+          _$MemoryRemovedImpl value, $Res Function(_$MemoryRemovedImpl) then) =
+      __$$MemoryRemovedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Memory memory});
+
+  $MemoryCopyWith<$Res> get memory;
+}
+
+/// @nodoc
+class __$$MemoryRemovedImplCopyWithImpl<$Res>
+    extends _$MemoryWatcherEventCopyWithImpl<$Res, _$MemoryRemovedImpl>
+    implements _$$MemoryRemovedImplCopyWith<$Res> {
+  __$$MemoryRemovedImplCopyWithImpl(
+      _$MemoryRemovedImpl _value, $Res Function(_$MemoryRemovedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? memory = null,
+  }) {
+    return _then(_$MemoryRemovedImpl(
+      null == memory
+          ? _value.memory
+          : memory // ignore: cast_nullable_to_non_nullable
+              as Memory,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MemoryCopyWith<$Res> get memory {
+    return $MemoryCopyWith<$Res>(_value.memory, (value) {
+      return _then(_value.copyWith(memory: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$MemoryRemovedImpl implements MemoryRemoved {
+  const _$MemoryRemovedImpl(this.memory);
+
+  @override
+  final Memory memory;
+
+  @override
+  String toString() {
+    return 'MemoryWatcherEvent.memoryRemoved(memory: $memory)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MemoryRemovedImpl &&
+            (identical(other.memory, memory) || other.memory == memory));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, memory);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MemoryRemovedImplCopyWith<_$MemoryRemovedImpl> get copyWith =>
+      __$$MemoryRemovedImplCopyWithImpl<_$MemoryRemovedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchAllStarted,
+    required TResult Function(List<Memory> memories) memoriesReceived,
+    required TResult Function(Memory memory) memoryUpdated,
+    required TResult Function(Memory memory) memoryRemoved,
+  }) {
+    return memoryRemoved(memory);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? watchAllStarted,
+    TResult? Function(List<Memory> memories)? memoriesReceived,
+    TResult? Function(Memory memory)? memoryUpdated,
+    TResult? Function(Memory memory)? memoryRemoved,
+  }) {
+    return memoryRemoved?.call(memory);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchAllStarted,
+    TResult Function(List<Memory> memories)? memoriesReceived,
+    TResult Function(Memory memory)? memoryUpdated,
+    TResult Function(Memory memory)? memoryRemoved,
+    required TResult orElse(),
+  }) {
+    if (memoryRemoved != null) {
+      return memoryRemoved(memory);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(WatchAllStarted value) watchAllStarted,
+    required TResult Function(MemoriesReceived value) memoriesReceived,
+    required TResult Function(MemoryUpdated value) memoryUpdated,
+    required TResult Function(MemoryRemoved value) memoryRemoved,
+  }) {
+    return memoryRemoved(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(WatchAllStarted value)? watchAllStarted,
+    TResult? Function(MemoriesReceived value)? memoriesReceived,
+    TResult? Function(MemoryUpdated value)? memoryUpdated,
+    TResult? Function(MemoryRemoved value)? memoryRemoved,
+  }) {
+    return memoryRemoved?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(WatchAllStarted value)? watchAllStarted,
+    TResult Function(MemoriesReceived value)? memoriesReceived,
+    TResult Function(MemoryUpdated value)? memoryUpdated,
+    TResult Function(MemoryRemoved value)? memoryRemoved,
+    required TResult orElse(),
+  }) {
+    if (memoryRemoved != null) {
+      return memoryRemoved(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class MemoryRemoved implements MemoryWatcherEvent {
+  const factory MemoryRemoved(final Memory memory) = _$MemoryRemovedImpl;
+
+  Memory get memory;
+  @JsonKey(ignore: true)
+  _$$MemoryRemovedImplCopyWith<_$MemoryRemovedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

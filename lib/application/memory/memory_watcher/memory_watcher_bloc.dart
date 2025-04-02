@@ -14,6 +14,7 @@ part 'memory_watcher_bloc.freezed.dart';
 @injectable
 class MemoryWatcherBloc extends Bloc<MemoryWatcherEvent, MemoryWatcherState> {
   final IMemoryRepository _memoryRepository;
+  bool hasFetched = false;
 
   MemoryWatcherBloc(this._memoryRepository)
       : super(const MemoryWatcherState.initial()) {
@@ -24,19 +25,27 @@ class MemoryWatcherBloc extends Bloc<MemoryWatcherEvent, MemoryWatcherState> {
     on<WatchAllStarted>(_onWatchAllStarted);
     on<MemoriesReceived>(_onMemoriesReceived);
     on<MemoryUpdated>(_onMemoryUpdated);
+    // on<MemoryRemoved>(_onMemoryRemoved);
   }
 
   Future<void> _onWatchAllStarted(
       WatchAllStarted event, Emitter<MemoryWatcherState> emit) async {
+    if (hasFetched && state is _LoadSuccess) return;
     emit(const MemoryWatcherState.loadInProgress());
     log('MemoryWatcherBloc: WatchAllStarted event - loading the memories');
-    await emit.forEach(
+    hasFetched = true;
+
+    await emit
+        .forEach(
       _memoryRepository.watchAll(),
       onData: (either) => either.fold(
         (failure) => MemoryWatcherState.loadFailure(failure),
         (memories) => MemoryWatcherState.loadSuccess(memories),
       ),
-    );
+    )
+        .whenComplete(() {
+      log('MemoryWatcherBloc: WatchAllStarted event - memories loaded');
+    });
   }
 
   void _onMemoriesReceived(
@@ -49,6 +58,7 @@ class MemoryWatcherBloc extends Bloc<MemoryWatcherEvent, MemoryWatcherState> {
   }
 
   void _onMemoryUpdated(MemoryUpdated event, Emitter<MemoryWatcherState> emit) {
+    // hasFetched = false;
     emit(
       state.maybeMap(
         loadSuccess: (state) => MemoryWatcherState.loadSuccess(
@@ -58,6 +68,7 @@ class MemoryWatcherBloc extends Bloc<MemoryWatcherEvent, MemoryWatcherState> {
           ],
         ),
         orElse: () {
+          // add(WatchAllStarted());
           return state;
         },
       ),
