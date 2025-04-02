@@ -52,8 +52,17 @@ class TimelinePage extends StatelessWidget {
                 ),
                 loadSuccess: (memoriesList) {
                   final memories = memoriesList;
-                  return MemoriesListWidget(
-                    memories: memories,
+                  return BlocListener<MemoryWatcherBloc, MemoryWatcherState>(
+                    listener: (context, state) {
+                      context.read<MemoryWatcherBloc>().hasFetched
+                          ? scrollController.jumpTo(
+                              scrollController.position.maxScrollExtent,
+                            )
+                          : null;
+                    },
+                    child: MemoriesListWidget(
+                      memories: memories,
+                    ),
                   );
                 },
                 loadFailure: (failure) => SliverToBoxAdapter(
@@ -86,43 +95,6 @@ class DarkLightThemeToggleWidget extends StatelessWidget {
     var state = context.watch<ThemeCubit>().state;
     return Switch(
       thumbIcon: WidgetStatePropertyAll(
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
         Icon(state.isDarkMode ? Icons.nightlight_round : Icons.wb_sunny),
       ),
       value: state.isDarkMode,
