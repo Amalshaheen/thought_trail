@@ -28,29 +28,39 @@ class MemoryContentWidget extends StatelessWidget {
     // );
 
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: memoryContent.map(
-        text: (text) => Text(
-          text.text.value.getOrCrash(),
-          style: TextStyle(
-            fontFamily: GoogleFonts.patrickHand().fontFamily,
-            fontSize: 17,
+        padding: const EdgeInsets.all(8.0),
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
           ),
-        ),
-        image: (image) => MemoryImageWidget(
-          imageUrl: image.image.value.getOrCrash(),
-        ),
-        voice: (voice) => BlocProvider(
-          create: (context) => getit<VoicePlayerBloc>(),
-          child: AudioPlayerWidget(
-            memoryVoice: voice.voice,
+          clipBehavior: Clip.antiAlias,
+          // elevation: 5,
+          shadowColor: Theme.of(context).colorScheme.surfaceContainerLow,
+          child: memoryContent.map(
+            text: (text) => Center(
+              child: Text(
+                textAlign: TextAlign.center,
+                text.text.value.getOrCrash(),
+                style: TextStyle(
+                  fontFamily: GoogleFonts.patrickHand().fontFamily,
+                  fontSize: 17,
+                ),
+              ),
+            ),
+            image: (image) => MemoryImageWidget(
+              imageUrl: image.image.value.getOrCrash(),
+            ),
+            voice: (voice) => BlocProvider(
+              create: (context) => getit<VoicePlayerBloc>(),
+              child: AudioPlayerWidget(
+                memoryVoice: voice.voice,
+              ),
+            ),
+            none: (value) {
+              return const SizedBox();
+            },
           ),
-        ),
-        none: (value) {
-          return const SizedBox();
-        },
-      ),
-    );
+        ));
   }
 }
 
@@ -60,7 +70,12 @@ class MemoryImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final image = File(imageUrl);
-    final originalSize = ImageSizeGetter.getSizeResult(FileInput(image)).size;
+    Size originalSize;
+    try {
+      originalSize = ImageSizeGetter.getSizeResult(FileInput(image)).size;
+    } on UnsupportedError {
+      originalSize = const Size(500, 500);
+    }
     final originalHeight = originalSize.height;
     final originalWidth = originalSize.width;
 
@@ -80,15 +95,9 @@ class MemoryImageWidget extends StatelessWidget {
 
     return SizedBox(
       height: min(height.toDouble(), 500),
-
-      // width: double.infinity,
-      child: Card(
-        // borderRadius: BorderRadius.circular(10),
-        elevation: 5,
-        child: Image.file(
-          image,
-          fit: BoxFit.cover,
-        ),
+      child: Image.file(
+        image,
+        fit: BoxFit.cover,
       ),
     );
   }
