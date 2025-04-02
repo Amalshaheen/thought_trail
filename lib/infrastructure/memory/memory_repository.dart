@@ -1,4 +1,5 @@
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:fpdart/fpdart.dart';
 import 'package:injectable/injectable.dart';
@@ -112,6 +113,17 @@ class MemoryRepository implements IMemoryRepository {
 
       // Convert the domain model to DTO
       final memoryDto = MemoryDto.fromDomain(memory);
+
+      // Get the directory
+      final dir = await getApplicationDocumentsDirectory();
+
+      // Delete the file if it exists
+
+      final file = File(
+          '${dir.path}/${memory.memoryContent.when(text: (value) => value.value.getOrCrash(), image: (value, _) => value.value.getOrCrash(), voice: (value) => value.value.getOrCrash(), none: none)}');
+      if (await file.exists()) {
+        await file.delete();
+      }
 
       // Perform the transaction
       await isar.writeTxn(() async {

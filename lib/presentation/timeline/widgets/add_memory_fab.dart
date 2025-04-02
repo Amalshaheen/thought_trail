@@ -97,6 +97,7 @@ class AddMemoryFAB extends StatelessWidget {
                                       MemoryWatcherEvent.memoryUpdated(
                                           state.memory),
                                     );
+
                                 Navigator.pop(context);
                               },
                             );

@@ -1,17 +1,13 @@
 import 'dart:developer';
 
-import 'package:flutter/material.dart';
 import 'package:fpdart/fpdart.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:thought_trail/application/memory/memory_watcher/memory_watcher_bloc.dart';
-import 'package:thought_trail/core/injectable_configuration.dart';
 import 'package:thought_trail/domain/memory/i_memory_repository.dart';
 import 'package:thought_trail/domain/memory/memory.dart';
 import 'package:thought_trail/domain/memory/memory_content.dart';
 import 'package:thought_trail/domain/memory/memory_failure.dart';
-import 'package:thought_trail/presentation/timeline/timeline_page.dart';
 
 part 'memory_form_event.dart';
 part 'memory_form_state.dart';
@@ -64,8 +60,6 @@ class MemoryFormBloc extends Bloc<MemoryFormEvent, MemoryFormState> {
                 : await _memoryRepository.create(
                     memory: state.memory,
                   );
-            getit<MemoryWatcherBloc>()
-                .add(const MemoryWatcherEvent.watchAllStarted());
             emit(
               state.copyWith(
                 isProcessing: false,
@@ -73,10 +67,6 @@ class MemoryFormBloc extends Bloc<MemoryFormEvent, MemoryFormState> {
                 showErrorMessages: true,
               ),
             );
-            TimelinePage().scrollController.animateTo(
-                TimelinePage().scrollController.position.maxScrollExtent,
-                duration: Duration(milliseconds: 300),
-                curve: Curves.easeOut);
           },
           deleted: (Memory memory) async {
             emit(
