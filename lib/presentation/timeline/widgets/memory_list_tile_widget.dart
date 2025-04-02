@@ -52,6 +52,7 @@ class MemoryListTileWidget extends StatelessWidget {
       child: Row(
         // direction: Axis.horizontal,
         crossAxisAlignment: CrossAxisAlignment.center,
+
         // mainAxisAlignment: MainAxisAlignment.spaceAround,
 
         children: [
@@ -65,6 +66,7 @@ class MemoryListTileWidget extends StatelessWidget {
                 minHeight: (isToday || isMemory) ? 100 : 0,
               ),
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // If the memory is from today and the time is one of 6am,
                   // 12pm, 4pm, or 8pm, display the time label.
@@ -75,14 +77,12 @@ class MemoryListTileWidget extends StatelessWidget {
                   (isMemory)
                       ? Dismissible(
                           key: Key(memory.id.value.getOrCrash()),
-                          background: AnimatedDismissibleBackground(),
                           direction: DismissDirection.endToStart,
                           confirmDismiss: (direction) async {
                             final snackBarController =
                                 ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text(
-                                    "Memory of type ${memory.memoryContent.type.name} will be removed in 4 seconds"),
+                                content: AnimatedDismissibleBackground(),
                                 action: SnackBarAction(
                                   label: "Undo",
                                   onPressed: () {
@@ -140,23 +140,13 @@ class AnimatedDismissibleBackground extends StatefulWidget {
 
 class _AnimatedDismissibleBackgroundState
     extends State<AnimatedDismissibleBackground> {
-  double opacityLevel = 1.0;
   int _secondsRemaining = 4;
 
   @override
   void initState() {
     super.initState();
     // Start the fade-out animation when the widget is first created.
-    _startFadeOut();
     _startCountdown();
-  }
-
-  void _startFadeOut() {
-    Future.delayed(const Duration(milliseconds: 500), () {
-      if (mounted) {
-        setState(() => opacityLevel = 0.0);
-      }
-    });
   }
 
   void _startCountdown() {
@@ -172,10 +162,6 @@ class _AnimatedDismissibleBackgroundState
 
   @override
   Widget build(BuildContext context) {
-    return AnimatedOpacity(
-      opacity: opacityLevel,
-      duration: const Duration(seconds: 3),
-      child: Text('Removing from timeline in $_secondsRemaining seconds...'),
-    );
+    return Text('Removing from timeline in $_secondsRemaining seconds...');
   }
 }
