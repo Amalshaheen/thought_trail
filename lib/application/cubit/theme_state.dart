@@ -7,7 +7,9 @@ sealed class ThemeState with _$ThemeState {
     required bool isDarkMode,
   }) = _Initial;
   factory ThemeState.initial() => ThemeState(
-        themeData: lightThemeData(),
-        isDarkMode: false,
+        themeData: ThemeMode.system == ThemeMode.light
+            ? lightThemeData()
+            : darkThemeData(),
+        isDarkMode: ThemeMode.system == ThemeMode.dark,
       );
 }

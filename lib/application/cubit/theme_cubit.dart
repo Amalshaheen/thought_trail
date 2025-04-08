@@ -12,7 +12,7 @@ class ThemeCubit extends Cubit<ThemeState> {
     emit(
       state.copyWith(
         isDarkMode: !state.isDarkMode,
-        themeData: state.isDarkMode ? lightThemeData() : darkThemeData(),
+        themeData: !state.isDarkMode ? lightThemeData() : darkThemeData(),
       ),
     );
   }

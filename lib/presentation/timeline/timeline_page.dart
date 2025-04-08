@@ -5,8 +5,6 @@ import 'package:thought_trail/application/memory/memory_watcher/memory_watcher_b
 import 'package:thought_trail/presentation/timeline/widgets/add_memory_fab.dart';
 import 'package:thought_trail/presentation/timeline/widgets/memories_list_widget.dart';
 
-import '../../core/theme.dart';
-
 /// *****TODOS************************************************************
 /// 1. timeline core page
 /// 2. timeline widget
@@ -93,9 +91,10 @@ class DarkLightThemeToggleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var state = context.watch<ThemeCubit>().state;
+
     return Switch(
       thumbIcon: WidgetStatePropertyAll(
-        Icon(state.isDarkMode ? Icons.nightlight_round : Icons.wb_sunny),
+        Icon(state.isDarkMode ? Icons.wb_sunny : Icons.nightlight_round),
       ),
       value: state.isDarkMode,
       onChanged: (value) {
