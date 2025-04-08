@@ -112,7 +112,7 @@ class VoiceRecorder extends StatelessWidget {
             return BlocProvider(
               create: (context) => getit<VoicePlayerBloc>(),
               child: AudioPlayerWidget(
-                memoryVoice: memoryVoice,
+                voice: memoryVoice,
               ),
             );
           },

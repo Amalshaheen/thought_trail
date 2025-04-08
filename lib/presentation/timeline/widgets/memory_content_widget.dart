@@ -53,7 +53,7 @@ class MemoryContentWidget extends StatelessWidget {
             voice: (voice) => BlocProvider(
               create: (context) => getit<VoicePlayerBloc>(),
               child: AudioPlayerWidget(
-                memoryVoice: voice.voice,
+                voice: voice.voice,
               ),
             ),
             none: (value) {
