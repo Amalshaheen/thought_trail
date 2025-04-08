@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -17,10 +19,17 @@ class VoicePlayerBloc extends Bloc<VoicePlayerEvent, VoicePlayerState> {
       await event.when(
         played: (voice) async {
           final result = await _voiceService.playVoice(voice);
-          return result.fold(
-            (failure) => emit(VoicePlayerState.failure(failure, voice)),
-            (r) => emit(VoicePlayerState.playing(voice)),
-          );
+          final playingDuration =
+              await _voiceService.voicePlayingDuration(voice);
+          log(playingDuration.toString());
+          result.fold(
+              (failure) => emit(VoicePlayerState.failure(failure, voice)), (r) {
+            playingDuration.fold(
+                (failure) => emit(VoicePlayerState.failure(failure, voice)),
+                (success) {
+              emit(VoicePlayerState.playing(voice, success));
+            });
+          });
         },
         paused: (voice) async {
           final result = await _voiceService.pauseVoice(voice);

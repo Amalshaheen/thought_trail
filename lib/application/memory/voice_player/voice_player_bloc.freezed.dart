@@ -534,7 +534,9 @@ mixin _$VoicePlayerState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(MemoryVoice voice) playing,
+    required TResult Function(
+            MemoryVoice voice, Stream<Duration> playingDuration)
+        playing,
     required TResult Function(MemoryVoice voice) paused,
     required TResult Function(MemoryVoice voice) stopped,
     required TResult Function(VoiceFailures message, MemoryVoice failedValue)
@@ -544,7 +546,8 @@ mixin _$VoicePlayerState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(MemoryVoice voice)? playing,
+    TResult? Function(MemoryVoice voice, Stream<Duration> playingDuration)?
+        playing,
     TResult? Function(MemoryVoice voice)? paused,
     TResult? Function(MemoryVoice voice)? stopped,
     TResult? Function(VoiceFailures message, MemoryVoice failedValue)? failure,
@@ -553,7 +556,8 @@ mixin _$VoicePlayerState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(MemoryVoice voice)? playing,
+    TResult Function(MemoryVoice voice, Stream<Duration> playingDuration)?
+        playing,
     TResult Function(MemoryVoice voice)? paused,
     TResult Function(MemoryVoice voice)? stopped,
     TResult Function(VoiceFailures message, MemoryVoice failedValue)? failure,
@@ -647,7 +651,9 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(MemoryVoice voice) playing,
+    required TResult Function(
+            MemoryVoice voice, Stream<Duration> playingDuration)
+        playing,
     required TResult Function(MemoryVoice voice) paused,
     required TResult Function(MemoryVoice voice) stopped,
     required TResult Function(VoiceFailures message, MemoryVoice failedValue)
@@ -660,7 +666,8 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(MemoryVoice voice)? playing,
+    TResult? Function(MemoryVoice voice, Stream<Duration> playingDuration)?
+        playing,
     TResult? Function(MemoryVoice voice)? paused,
     TResult? Function(MemoryVoice voice)? stopped,
     TResult? Function(VoiceFailures message, MemoryVoice failedValue)? failure,
@@ -672,7 +679,8 @@ class _$InitialImpl implements _Initial {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(MemoryVoice voice)? playing,
+    TResult Function(MemoryVoice voice, Stream<Duration> playingDuration)?
+        playing,
     TResult Function(MemoryVoice voice)? paused,
     TResult Function(MemoryVoice voice)? stopped,
     TResult Function(VoiceFailures message, MemoryVoice failedValue)? failure,
@@ -735,7 +743,7 @@ abstract class _$$PlayingImplCopyWith<$Res> {
           _$PlayingImpl value, $Res Function(_$PlayingImpl) then) =
       __$$PlayingImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({MemoryVoice voice});
+  $Res call({MemoryVoice voice, Stream<Duration> playingDuration});
 }
 
 /// @nodoc
@@ -750,12 +758,17 @@ class __$$PlayingImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? voice = null,
+    Object? playingDuration = null,
   }) {
     return _then(_$PlayingImpl(
       null == voice
           ? _value.voice
           : voice // ignore: cast_nullable_to_non_nullable
               as MemoryVoice,
+      null == playingDuration
+          ? _value.playingDuration
+          : playingDuration // ignore: cast_nullable_to_non_nullable
+              as Stream<Duration>,
     ));
   }
 }
@@ -763,14 +776,16 @@ class __$$PlayingImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PlayingImpl implements _Playing {
-  const _$PlayingImpl(this.voice);
+  const _$PlayingImpl(this.voice, this.playingDuration);
 
   @override
   final MemoryVoice voice;
+  @override
+  final Stream<Duration> playingDuration;
 
   @override
   String toString() {
-    return 'VoicePlayerState.playing(voice: $voice)';
+    return 'VoicePlayerState.playing(voice: $voice, playingDuration: $playingDuration)';
   }
 
   @override
@@ -778,11 +793,13 @@ class _$PlayingImpl implements _Playing {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PlayingImpl &&
-            (identical(other.voice, voice) || other.voice == voice));
+            (identical(other.voice, voice) || other.voice == voice) &&
+            (identical(other.playingDuration, playingDuration) ||
+                other.playingDuration == playingDuration));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, voice);
+  int get hashCode => Object.hash(runtimeType, voice, playingDuration);
 
   @JsonKey(ignore: true)
   @override
@@ -794,39 +811,43 @@ class _$PlayingImpl implements _Playing {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(MemoryVoice voice) playing,
+    required TResult Function(
+            MemoryVoice voice, Stream<Duration> playingDuration)
+        playing,
     required TResult Function(MemoryVoice voice) paused,
     required TResult Function(MemoryVoice voice) stopped,
     required TResult Function(VoiceFailures message, MemoryVoice failedValue)
         failure,
   }) {
-    return playing(voice);
+    return playing(voice, playingDuration);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(MemoryVoice voice)? playing,
+    TResult? Function(MemoryVoice voice, Stream<Duration> playingDuration)?
+        playing,
     TResult? Function(MemoryVoice voice)? paused,
     TResult? Function(MemoryVoice voice)? stopped,
     TResult? Function(VoiceFailures message, MemoryVoice failedValue)? failure,
   }) {
-    return playing?.call(voice);
+    return playing?.call(voice, playingDuration);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(MemoryVoice voice)? playing,
+    TResult Function(MemoryVoice voice, Stream<Duration> playingDuration)?
+        playing,
     TResult Function(MemoryVoice voice)? paused,
     TResult Function(MemoryVoice voice)? stopped,
     TResult Function(VoiceFailures message, MemoryVoice failedValue)? failure,
     required TResult orElse(),
   }) {
     if (playing != null) {
-      return playing(voice);
+      return playing(voice, playingDuration);
     }
     return orElse();
   }
@@ -873,9 +894,12 @@ class _$PlayingImpl implements _Playing {
 }
 
 abstract class _Playing implements VoicePlayerState {
-  const factory _Playing(final MemoryVoice voice) = _$PlayingImpl;
+  const factory _Playing(
+          final MemoryVoice voice, final Stream<Duration> playingDuration) =
+      _$PlayingImpl;
 
   MemoryVoice get voice;
+  Stream<Duration> get playingDuration;
   @JsonKey(ignore: true)
   _$$PlayingImplCopyWith<_$PlayingImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -946,7 +970,9 @@ class _$_PausedImpl implements __Paused {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(MemoryVoice voice) playing,
+    required TResult Function(
+            MemoryVoice voice, Stream<Duration> playingDuration)
+        playing,
     required TResult Function(MemoryVoice voice) paused,
     required TResult Function(MemoryVoice voice) stopped,
     required TResult Function(VoiceFailures message, MemoryVoice failedValue)
@@ -959,7 +985,8 @@ class _$_PausedImpl implements __Paused {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(MemoryVoice voice)? playing,
+    TResult? Function(MemoryVoice voice, Stream<Duration> playingDuration)?
+        playing,
     TResult? Function(MemoryVoice voice)? paused,
     TResult? Function(MemoryVoice voice)? stopped,
     TResult? Function(VoiceFailures message, MemoryVoice failedValue)? failure,
@@ -971,7 +998,8 @@ class _$_PausedImpl implements __Paused {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(MemoryVoice voice)? playing,
+    TResult Function(MemoryVoice voice, Stream<Duration> playingDuration)?
+        playing,
     TResult Function(MemoryVoice voice)? paused,
     TResult Function(MemoryVoice voice)? stopped,
     TResult Function(VoiceFailures message, MemoryVoice failedValue)? failure,
@@ -1098,7 +1126,9 @@ class _$_StoppedImpl implements __Stopped {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(MemoryVoice voice) playing,
+    required TResult Function(
+            MemoryVoice voice, Stream<Duration> playingDuration)
+        playing,
     required TResult Function(MemoryVoice voice) paused,
     required TResult Function(MemoryVoice voice) stopped,
     required TResult Function(VoiceFailures message, MemoryVoice failedValue)
@@ -1111,7 +1141,8 @@ class _$_StoppedImpl implements __Stopped {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(MemoryVoice voice)? playing,
+    TResult? Function(MemoryVoice voice, Stream<Duration> playingDuration)?
+        playing,
     TResult? Function(MemoryVoice voice)? paused,
     TResult? Function(MemoryVoice voice)? stopped,
     TResult? Function(VoiceFailures message, MemoryVoice failedValue)? failure,
@@ -1123,7 +1154,8 @@ class _$_StoppedImpl implements __Stopped {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(MemoryVoice voice)? playing,
+    TResult Function(MemoryVoice voice, Stream<Duration> playingDuration)?
+        playing,
     TResult Function(MemoryVoice voice)? paused,
     TResult Function(MemoryVoice voice)? stopped,
     TResult Function(VoiceFailures message, MemoryVoice failedValue)? failure,
@@ -1269,7 +1301,9 @@ class _$FailureImpl implements _Failure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
-    required TResult Function(MemoryVoice voice) playing,
+    required TResult Function(
+            MemoryVoice voice, Stream<Duration> playingDuration)
+        playing,
     required TResult Function(MemoryVoice voice) paused,
     required TResult Function(MemoryVoice voice) stopped,
     required TResult Function(VoiceFailures message, MemoryVoice failedValue)
@@ -1282,7 +1316,8 @@ class _$FailureImpl implements _Failure {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
-    TResult? Function(MemoryVoice voice)? playing,
+    TResult? Function(MemoryVoice voice, Stream<Duration> playingDuration)?
+        playing,
     TResult? Function(MemoryVoice voice)? paused,
     TResult? Function(MemoryVoice voice)? stopped,
     TResult? Function(VoiceFailures message, MemoryVoice failedValue)? failure,
@@ -1294,7 +1329,8 @@ class _$FailureImpl implements _Failure {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
-    TResult Function(MemoryVoice voice)? playing,
+    TResult Function(MemoryVoice voice, Stream<Duration> playingDuration)?
+        playing,
     TResult Function(MemoryVoice voice)? paused,
     TResult Function(MemoryVoice voice)? stopped,
     TResult Function(VoiceFailures message, MemoryVoice failedValue)? failure,
