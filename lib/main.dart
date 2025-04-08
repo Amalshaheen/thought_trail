@@ -6,7 +6,6 @@ import 'package:thought_trail/application/memory/memory_form/memory_form_bloc.da
 import 'package:thought_trail/application/memory/memory_watcher/memory_watcher_bloc.dart';
 import 'package:thought_trail/application/memory/voice_recorder/voice_recorder_bloc.dart';
 import 'package:thought_trail/core/injectable_configuration.dart';
-import 'package:thought_trail/core/theme.dart';
 
 import 'presentation/timeline/timeline_page.dart';
 
