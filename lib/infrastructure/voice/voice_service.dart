@@ -30,7 +30,14 @@ class VoiceService implements IVoiceService {
       final directory = await getApplicationDocumentsDirectory();
       final filePath =
           '${directory.path}/voice_recording${DateTime.now().microsecondsSinceEpoch}.tt';
-      await _audioRecorder.start(RecordConfig(), path: filePath);
+      await _audioRecorder.start(
+        RecordConfig(
+          noiseSuppress: true,
+          autoGain: true,
+          echoCancel: true,
+        ),
+        path: filePath,
+      );
       return right(unit);
     } catch (e) {
       log(e.toString());
@@ -134,6 +141,18 @@ class VoiceService implements IVoiceService {
       return left(VoiceFailures.unexpected());
     } finally {
       await _audioRecorder.dispose();
+    }
+  }
+
+  @override
+  Future<Either<VoiceFailures, Stream<Duration>>> voicePlayingDuration(
+      MemoryVoice voice) async {
+    try {
+      log(_audioPlayer.onPositionChanged.toString());
+      return right(_audioPlayer.onPositionChanged);
+    } catch (e) {
+      log(e.toString());
+      return left(VoiceFailures.unexpected());
     }
   }
 }

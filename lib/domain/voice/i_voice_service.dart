@@ -24,4 +24,6 @@ abstract class IVoiceService {
 
   /// Stops playback
   Future<Either<VoiceFailures, Unit>> stopVoice(MemoryVoice voice);
+  Future<Either<VoiceFailures, Stream<Duration>>> voicePlayingDuration(
+      MemoryVoice voice);
 }
