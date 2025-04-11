@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:thought_trail/core/theme.dart';
 
 class MemoryTimeWidget extends StatelessWidget {
@@ -7,9 +8,9 @@ class MemoryTimeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textColor = Theme.of(context).colorScheme.onSurface;
-
+    final formattedTime = DateFormat('hh:mm\na').format(time);
     return Text(
-      '${time.hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')}',
+      formattedTime,
       style: timeTextStyle.bodyMedium!.copyWith(color: textColor),
       textAlign: TextAlign.center,
     );
