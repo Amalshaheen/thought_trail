@@ -670,7 +670,7 @@ mixin _$MemoryWatcherState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<Memory> memories) loadSuccess,
+    required TResult Function(Map<DateTime, List<Memory>> memories) loadSuccess,
     required TResult Function(MemoryFailure memoryFailure) loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -678,7 +678,7 @@ mixin _$MemoryWatcherState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<Memory> memories)? loadSuccess,
+    TResult? Function(Map<DateTime, List<Memory>> memories)? loadSuccess,
     TResult? Function(MemoryFailure memoryFailure)? loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -686,7 +686,7 @@ mixin _$MemoryWatcherState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<Memory> memories)? loadSuccess,
+    TResult Function(Map<DateTime, List<Memory>> memories)? loadSuccess,
     TResult Function(MemoryFailure memoryFailure)? loadFailure,
     required TResult orElse(),
   }) =>
@@ -776,7 +776,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<Memory> memories) loadSuccess,
+    required TResult Function(Map<DateTime, List<Memory>> memories) loadSuccess,
     required TResult Function(MemoryFailure memoryFailure) loadFailure,
   }) {
     return initial();
@@ -787,7 +787,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<Memory> memories)? loadSuccess,
+    TResult? Function(Map<DateTime, List<Memory>> memories)? loadSuccess,
     TResult? Function(MemoryFailure memoryFailure)? loadFailure,
   }) {
     return initial?.call();
@@ -798,7 +798,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<Memory> memories)? loadSuccess,
+    TResult Function(Map<DateTime, List<Memory>> memories)? loadSuccess,
     TResult Function(MemoryFailure memoryFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -890,7 +890,7 @@ class _$LoadInProgressImpl implements _LoadInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<Memory> memories) loadSuccess,
+    required TResult Function(Map<DateTime, List<Memory>> memories) loadSuccess,
     required TResult Function(MemoryFailure memoryFailure) loadFailure,
   }) {
     return loadInProgress();
@@ -901,7 +901,7 @@ class _$LoadInProgressImpl implements _LoadInProgress {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<Memory> memories)? loadSuccess,
+    TResult? Function(Map<DateTime, List<Memory>> memories)? loadSuccess,
     TResult? Function(MemoryFailure memoryFailure)? loadFailure,
   }) {
     return loadInProgress?.call();
@@ -912,7 +912,7 @@ class _$LoadInProgressImpl implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<Memory> memories)? loadSuccess,
+    TResult Function(Map<DateTime, List<Memory>> memories)? loadSuccess,
     TResult Function(MemoryFailure memoryFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -970,7 +970,7 @@ abstract class _$$LoadSuccessImplCopyWith<$Res> {
           _$LoadSuccessImpl value, $Res Function(_$LoadSuccessImpl) then) =
       __$$LoadSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Memory> memories});
+  $Res call({Map<DateTime, List<Memory>> memories});
 }
 
 /// @nodoc
@@ -990,7 +990,7 @@ class __$$LoadSuccessImplCopyWithImpl<$Res>
       null == memories
           ? _value._memories
           : memories // ignore: cast_nullable_to_non_nullable
-              as List<Memory>,
+              as Map<DateTime, List<Memory>>,
     ));
   }
 }
@@ -998,14 +998,15 @@ class __$$LoadSuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadSuccessImpl implements _LoadSuccess {
-  const _$LoadSuccessImpl(final List<Memory> memories) : _memories = memories;
+  const _$LoadSuccessImpl(final Map<DateTime, List<Memory>> memories)
+      : _memories = memories;
 
-  final List<Memory> _memories;
+  final Map<DateTime, List<Memory>> _memories;
   @override
-  List<Memory> get memories {
-    if (_memories is EqualUnmodifiableListView) return _memories;
+  Map<DateTime, List<Memory>> get memories {
+    if (_memories is EqualUnmodifiableMapView) return _memories;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_memories);
+    return EqualUnmodifiableMapView(_memories);
   }
 
   @override
@@ -1036,7 +1037,7 @@ class _$LoadSuccessImpl implements _LoadSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<Memory> memories) loadSuccess,
+    required TResult Function(Map<DateTime, List<Memory>> memories) loadSuccess,
     required TResult Function(MemoryFailure memoryFailure) loadFailure,
   }) {
     return loadSuccess(memories);
@@ -1047,7 +1048,7 @@ class _$LoadSuccessImpl implements _LoadSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<Memory> memories)? loadSuccess,
+    TResult? Function(Map<DateTime, List<Memory>> memories)? loadSuccess,
     TResult? Function(MemoryFailure memoryFailure)? loadFailure,
   }) {
     return loadSuccess?.call(memories);
@@ -1058,7 +1059,7 @@ class _$LoadSuccessImpl implements _LoadSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<Memory> memories)? loadSuccess,
+    TResult Function(Map<DateTime, List<Memory>> memories)? loadSuccess,
     TResult Function(MemoryFailure memoryFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -1107,9 +1108,10 @@ class _$LoadSuccessImpl implements _LoadSuccess {
 }
 
 abstract class _LoadSuccess implements MemoryWatcherState {
-  const factory _LoadSuccess(final List<Memory> memories) = _$LoadSuccessImpl;
+  const factory _LoadSuccess(final Map<DateTime, List<Memory>> memories) =
+      _$LoadSuccessImpl;
 
-  List<Memory> get memories;
+  Map<DateTime, List<Memory>> get memories;
   @JsonKey(ignore: true)
   _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1192,7 +1194,7 @@ class _$LoadFailureImpl implements _LoadFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(List<Memory> memories) loadSuccess,
+    required TResult Function(Map<DateTime, List<Memory>> memories) loadSuccess,
     required TResult Function(MemoryFailure memoryFailure) loadFailure,
   }) {
     return loadFailure(memoryFailure);
@@ -1203,7 +1205,7 @@ class _$LoadFailureImpl implements _LoadFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loadInProgress,
-    TResult? Function(List<Memory> memories)? loadSuccess,
+    TResult? Function(Map<DateTime, List<Memory>> memories)? loadSuccess,
     TResult? Function(MemoryFailure memoryFailure)? loadFailure,
   }) {
     return loadFailure?.call(memoryFailure);
@@ -1214,7 +1216,7 @@ class _$LoadFailureImpl implements _LoadFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(List<Memory> memories)? loadSuccess,
+    TResult Function(Map<DateTime, List<Memory>> memories)? loadSuccess,
     TResult Function(MemoryFailure memoryFailure)? loadFailure,
     required TResult orElse(),
   }) {

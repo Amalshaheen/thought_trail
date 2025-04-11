@@ -40,7 +40,26 @@ class MemoryWatcherBloc extends Bloc<MemoryWatcherEvent, MemoryWatcherState> {
       _memoryRepository.watchAll(),
       onData: (either) => either.fold(
         (failure) => MemoryWatcherState.loadFailure(failure),
-        (memories) => MemoryWatcherState.loadSuccess(memories),
+        (memories) {
+          final groupedMemories = memories.fold<Map<DateTime, List<Memory>>>(
+            {},
+            (Map<DateTime, List<Memory>> acc, Memory memory) {
+              final date = DateTime(
+                memory.time.year,
+                memory.time.month,
+                memory.time.day,
+              );
+              if (acc.containsKey(date)) {
+                acc[date]!.add(memory);
+              } else {
+                acc[date] = [memory];
+              }
+              return acc;
+            },
+          );
+
+          return MemoryWatcherState.loadSuccess(groupedMemories);
+        },
       ),
     )
         .whenComplete(() {
@@ -53,7 +72,25 @@ class MemoryWatcherBloc extends Bloc<MemoryWatcherEvent, MemoryWatcherState> {
     if (event.memories.isEmpty) {
       emit(const MemoryWatcherState.loadFailure(MemoryFailure.emptyMemory()));
     } else {
-      emit(MemoryWatcherState.loadSuccess(event.memories));
+      log('MemoryWatcherBloc: MemoriesReceived event - loading the memories');
+      final groupedMemories = event.memories.fold<Map<DateTime, List<Memory>>>(
+        {},
+        (Map<DateTime, List<Memory>> acc, Memory memory) {
+          final date = DateTime(
+            memory.time.year,
+            memory.time.month,
+            memory.time.day,
+          );
+          if (acc.containsKey(date)) {
+            acc[date]!.add(memory);
+          } else {
+            acc[date] = [memory];
+          }
+          return acc;
+        },
+      );
+
+      emit(MemoryWatcherState.loadSuccess(groupedMemories));
     }
   }
 
@@ -61,12 +98,33 @@ class MemoryWatcherBloc extends Bloc<MemoryWatcherEvent, MemoryWatcherState> {
     // hasFetched = false;
     emit(
       state.maybeMap(
-        loadSuccess: (state) => MemoryWatcherState.loadSuccess(
-          [
-            ...state.memories.where((memory) => memory.id != event.memory.id),
+        loadSuccess: (state) {
+          final updatedMemories = [
+            ...state.memories.values
+                .expand((x) => x)
+                .where((memory) => memory.id != event.memory.id),
             event.memory,
-          ],
-        ),
+          ];
+
+          final groupedMemories =
+              updatedMemories.fold<Map<DateTime, List<Memory>>>(
+            {},
+            (Map<DateTime, List<Memory>> acc, Memory memory) {
+              final date = DateTime(
+                memory.time.year,
+                memory.time.month,
+                memory.time.day,
+              );
+              if (acc.containsKey(date)) {
+                acc[date]!.add(memory);
+              } else {
+                acc[date] = [memory];
+              }
+              return acc;
+            },
+          );
+          return MemoryWatcherState.loadSuccess(groupedMemories);
+        },
         orElse: () {
           // add(WatchAllStarted());
           return state;
