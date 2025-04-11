@@ -46,6 +46,7 @@ dependencies:
   image_picker: ^1.1.2
   image_size_getter: ^2.4.0
   injectable: ^2.5.0
+  intl: ^0.20.2
   isar:
     version: 3.1.8
     hosted: https://pub.isar-community.dev/
