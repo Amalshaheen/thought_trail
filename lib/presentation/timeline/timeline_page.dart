@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:thought_trail/application/cubit/theme_cubit.dart';
@@ -21,9 +23,9 @@ class TimelinePage extends StatelessWidget {
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback(
       (_) {
-        context
-            .read<MemoryWatcherBloc>()
-            .add(MemoryWatcherEvent.watchAllStarted());
+        context.read<MemoryWatcherBloc>().add(
+              MemoryWatcherEvent.watchAllStarted(),
+            );
       },
     );
     return Scaffold(
@@ -34,9 +36,24 @@ class TimelinePage extends StatelessWidget {
             shrinkWrap: true,
             slivers: [
               SliverAppBar(
+                backgroundColor: Colors.transparent,
                 title: Text('ThoughtTrail'),
-                floating: true,
                 pinned: true,
+                flexibleSpace: ClipRect(
+                  child: BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                    child: Container(
+                      color: Theme.of(context).canvasColor.withAlpha(200),
+                    ),
+                  ),
+                ),
+                bottom: const PreferredSize(
+                  preferredSize: Size.fromHeight(0),
+                  child: Divider(
+                    height: 1,
+                    color: Colors.white,
+                  ),
+                ),
                 actions: [
                   DarkLightThemeToggleWidget(),
                 ],
@@ -73,12 +90,46 @@ class TimelinePage extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
+              SliverToBoxAdapter(
+                child: TodayEntryWidget(),
+              ),
             ],
           );
         },
       ),
       floatingActionButton: AddMemoryFAB(),
+    );
+  }
+}
+
+class TodayEntryWidget extends StatelessWidget {
+  const TodayEntryWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        const SizedBox(height: 8),
+        const Divider(
+          height: 1,
+          color: Colors.white,
+        ),
+        const SizedBox(height: 8),
+        const Text(
+          'Jot down your thoughts',
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(height: 8),
+        FilledButton(
+            onPressed: () => AddMemoryFAB.addMemoryBottomSheet(
+                context, TextEditingController()),
+            child: Text('Add Entry')),
+        const SizedBox(height: 8),
+      ],
     );
   }
 }
