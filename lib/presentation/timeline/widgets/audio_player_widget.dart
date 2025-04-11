@@ -9,7 +9,7 @@ import 'package:thought_trail/domain/voice/voice_object.dart';
 class AudioPlayerWidget extends StatefulWidget {
   final MemoryVoice voice;
 
-  const AudioPlayerWidget({Key? key, required this.voice}) : super(key: key);
+  const AudioPlayerWidget({super.key, required this.voice});
 
   @override
   State<AudioPlayerWidget> createState() => _AudioPlayerWidgetState();
