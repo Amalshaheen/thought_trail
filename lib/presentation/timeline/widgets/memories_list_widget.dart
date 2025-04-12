@@ -24,7 +24,7 @@ class MemoriesListWidget extends StatelessWidget {
           overlapsContent: true,
           header: DateWidget(date: date),
           sliver: SliverPadding(
-            padding: const EdgeInsets.only(top: 28),
+            padding: const EdgeInsets.only(top: 35),
             sliver: SliverList(
               delegate: SliverChildBuilderDelegate(
                 (context, i) => MemoryListTileWidget(
@@ -79,36 +79,49 @@ class DateWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           const SizedBox(width: 12),
-          const Expanded(
+          Expanded(
             child: Divider(
               thickness: 1.5,
               endIndent: 2,
+              color: theme.colorScheme.primaryContainer,
             ),
           ),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(24),
-            child: Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-              decoration: BoxDecoration(
-                color: theme.colorScheme.primaryContainer.withAlpha(200),
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: theme.colorScheme.primaryContainer,
+                width: 2,
               ),
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                child: Text(
-                  _getFormattedDate(),
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: textColor,
-                    fontWeight: FontWeight.bold,
-                    shadows: [],
+              color: theme.colorScheme.primaryContainer.withAlpha(200),
+              borderRadius: BorderRadius.circular(24),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(24),
+              child: Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                decoration: BoxDecoration(
+                  color: Colors.transparent,
+                ),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                  child: Text(
+                    _getFormattedDate(),
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: textColor,
+                      fontWeight: FontWeight.bold,
+                      shadows: [],
+                    ),
                   ),
                 ),
               ),
             ),
           ),
-          const Expanded(
+          Expanded(
             child: Divider(
               thickness: 1.5,
               indent: 2,
+              color: theme.colorScheme.primaryContainer,
             ),
           ),
           const SizedBox(width: 12),
