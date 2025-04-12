@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -36,7 +37,7 @@ class TimelinePage extends StatelessWidget {
             shrinkWrap: true,
             slivers: [
               SliverAppBar(
-                backgroundColor: Colors.transparent,
+                backgroundColor: Theme.of(context).canvasColor.withAlpha(200),
                 title: Text('ThoughtTrail'),
                 pinned: true,
                 flexibleSpace: ClipRect(
@@ -47,11 +48,11 @@ class TimelinePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                bottom: const PreferredSize(
+                bottom: PreferredSize(
                   preferredSize: Size.fromHeight(0),
                   child: Divider(
                     height: 1,
-                    color: Colors.white,
+                    color: Theme.of(context).colorScheme.primary.withAlpha(200),
                   ),
                 ),
                 actions: [
@@ -67,17 +68,8 @@ class TimelinePage extends StatelessWidget {
                 ),
                 loadSuccess: (memoriesList) {
                   final memories = memoriesList;
-                  return BlocListener<MemoryWatcherBloc, MemoryWatcherState>(
-                    listener: (context, state) {
-                      context.read<MemoryWatcherBloc>().hasFetched
-                          ? scrollController.jumpTo(
-                              scrollController.position.maxScrollExtent,
-                            )
-                          : null;
-                    },
-                    child: MemoriesListWidget(
-                      memories: memories,
-                    ),
+                  return MemoriesListWidget(
+                    memories: memories,
                   );
                 },
                 loadFailure: (failure) => SliverToBoxAdapter(
@@ -124,6 +116,42 @@ class TodayEntryWidget extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
+        Stack(
+          alignment: Alignment.center,
+          children: [
+            CircleAvatar(
+              radius: 60,
+              backgroundColor: Theme.of(context).highlightColor,
+            ),
+            Transform.translate(
+              offset: Offset(-50, 0),
+              child: Transform.rotate(
+                angle: -0.1,
+                child: Icon(
+                  Icons.add_photo_alternate_outlined,
+                  size: 60,
+                  color: Theme.of(context).colorScheme.primary.withAlpha(200),
+                ),
+              ),
+            ),
+            Transform.translate(
+              offset: Offset(50, 0),
+              child: Transform.rotate(
+                angle: 0.1,
+                child: Icon(
+                  Icons.audio_file_outlined,
+                  size: 60,
+                  color: Theme.of(context).colorScheme.primary.withAlpha(200),
+                ),
+              ),
+            ),
+            Icon(
+              Icons.add_comment,
+              size: 80,
+              color: Theme.of(context).colorScheme.primary,
+            ),
+          ],
+        ),
         FilledButton(
             onPressed: () => AddMemoryFAB.addMemoryBottomSheet(
                 context, TextEditingController()),
