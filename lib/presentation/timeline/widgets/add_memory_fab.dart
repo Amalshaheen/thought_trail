@@ -101,11 +101,18 @@ class AddMemoryFAB extends StatelessWidget {
                                 msg: 'Memory Added',
                               );
                               textController.clear();
-                              context.read<MemoryWatcherBloc>().add(
-                                    MemoryWatcherEvent.memoryUpdated(
-                                        state.memory),
-                                  );
-
+                              context.read<MemoryWatcherBloc>().state.maybeWhen(
+                                        loadFailure: (memoryFailure) =>
+                                            memoryFailure.maybeWhen(
+                                          emptyMemory: () => true,
+                                          orElse: () => false,
+                                        ),
+                                        orElse: () => false,
+                                      )
+                                  ? context.read<MemoryWatcherBloc>().add(
+                                        MemoryWatcherEvent.watchAllStarted(),
+                                      )
+                                  : {null};
                               Navigator.pop(context);
                             },
                           );
