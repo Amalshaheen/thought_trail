@@ -23,6 +23,8 @@ class _AudioPlayerWidgetState extends State<AudioPlayerWidget> {
 
   @override
   void initState() {
+    _totalDuration = widget.voice.duration;
+
     super.initState();
   }
 
@@ -68,11 +70,7 @@ class _AudioPlayerWidgetState extends State<AudioPlayerWidget> {
         );
       },
       builder: (context, state) {
-        return Container(
-          decoration: BoxDecoration(
-            color: Colors.grey[200],
-            borderRadius: BorderRadius.circular(24),
-          ),
+        return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           child: Row(
             children: [
@@ -99,7 +97,6 @@ class _AudioPlayerWidgetState extends State<AudioPlayerWidget> {
                     barHeight: 3.0,
                     thumbRadius: 6.0,
                     timeLabelTextStyle: const TextStyle(
-                      color: Colors.black54,
                       fontSize: 12,
                     ),
                     onSeek: (duration) {
