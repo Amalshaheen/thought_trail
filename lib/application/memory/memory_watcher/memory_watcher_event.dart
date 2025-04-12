@@ -6,5 +6,4 @@ class MemoryWatcherEvent with _$MemoryWatcherEvent {
   const factory MemoryWatcherEvent.memoriesReceived(List<Memory> memories) =
       MemoriesReceived;
   const factory MemoryWatcherEvent.memoryUpdated(Memory memory) = MemoryUpdated;
-  const factory MemoryWatcherEvent.memoryRemoved(Memory memory) = MemoryRemoved;
 }

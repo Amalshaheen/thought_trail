@@ -30,24 +30,8 @@ class MemoryWatcherBloc extends Bloc<MemoryWatcherEvent, MemoryWatcherState> {
         onData: (either) => either.fold(
           (failure) => MemoryWatcherState.loadFailure(failure),
           (memories) {
-            final groupedMemories = memories.fold<Map<DateTime, List<Memory>>>(
-              {},
-              (Map<DateTime, List<Memory>> acc, Memory memory) {
-                final date = DateTime(
-                  memory.time.year,
-                  memory.time.month,
-                  memory.time.day,
-                );
-                if (acc.containsKey(date)) {
-                  acc[date]!.add(memory);
-                } else {
-                  acc[date] = [memory];
-                }
-                return acc;
-              },
-            );
-
-            return MemoryWatcherState.loadSuccess(groupedMemories);
+            add(MemoriesReceived(memories));
+            return MemoryWatcherState.loadInProgress();
           },
         ),
       )
@@ -57,6 +41,7 @@ class MemoryWatcherBloc extends Bloc<MemoryWatcherEvent, MemoryWatcherState> {
     });
     on<MemoriesReceived>((event, emit) {
       if (event.memories.isEmpty) {
+        hasFetched = false;
         emit(const MemoryWatcherState.loadFailure(MemoryFailure.emptyMemory()));
       } else {
         log('MemoryWatcherBloc: MemoriesReceived event - loading the memories');
