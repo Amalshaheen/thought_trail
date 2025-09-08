@@ -30,6 +30,7 @@ environment:
 isar_version: &isar_version 3.1.8 # define the version to be used
 
 dependencies:
+  value_layout_builder: ^0.5.0
   audio_video_progress_bar: ^2.0.3
   audioplayers: ^6.1.2
   cupertino_icons: ^1.0.8
@@ -37,7 +38,7 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^9.0.0
   flutter_cupertino_datetime_picker: ^3.0.0
-  flutter_sticky_header: ^0.7.0
+  flutter_sticky_header: ^0.8.0
   fluttertoast: ^8.2.12
   fpdart: ^1.1.1
   freezed_annotation: ^2.4.4
